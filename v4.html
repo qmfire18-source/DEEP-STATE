@@ -1092,8 +1092,8 @@ function renderOsintMarkers(){
 // Embedded sightings data — populated by scraper.py, enriched with manual OSINT
 // Sources: USNI News Fleet Tracker, Western Pacific Pulse, HI Sutton, Naval News (Mai 2026)
 const EMBEDDED_SIGHTINGS = {
-  "last_updated":"2026-05-17T11:00:00+00:00",
-  "count":14,
+  "last_updated":"2026-05-18T08:00:00+00:00",
+  "count":38,
   "sightings":[
     {
       "id":"usni_pacific_pulse_may8",
@@ -1304,6 +1304,321 @@ const EMBEDDED_SIGHTINGS = {
       "location_en":"Gulf of Oman / Strait of Hormuz",
       "lat":23.5,"lon":58.2,
       "published":"Wed, 14 May 2026 15:00:00 +0000"
+    },
+    {
+      "id":"hisutton_sinpo_ssbn_construction",
+      "sub_id":"prk_hero",
+      "sub_name":"RPDC — nouveau SSBN Sinpo",
+      "title":"RPDC : nouveau SSBN nucléaire détecté en construction à Sinpo — imagerie satellite",
+      "title_en":"DPRK: new nuclear SSBN detected under construction at Sinpo — satellite imagery",
+      "summary":"Des images satellites commerciales analysées par HI Sutton révèlent un nouveau sous-marin balistique en construction au chantier naval de Sinpo. La coque semble plus grande que le Hero Kim Kun Ok (classe Sinpo-C). Des structures de chantier naval supplémentaires ont été identifiées en mars 2026.",
+      "summary_en":"Commercial satellite imagery analyzed by HI Sutton reveals a new ballistic submarine under construction at Sinpo shipyard. The hull appears larger than the Hero Kim Kun Ok (Sinpo-C class). Additional shipyard structures were identified in March 2026.",
+      "source":"HI Sutton — Covert Shores",
+      "source_url":"https://www.hisutton.com/North-Korea-New-SSBN.html",
+      "location":"Sinpo, Corée du Nord",
+      "location_en":"Sinpo, North Korea",
+      "lat":40.03,"lon":128.20,
+      "published":"2026-03-15T10:00:00+00:00"
+    },
+    {
+      "id":"usni_borei_patrol_arctic",
+      "sub_id":"rus_yuri",
+      "sub_name":"K-535 Youri Dolgoruky — patrouille Arctique",
+      "title":"Borei russe en patrouille sous la banquise arctique — OTAN surveille",
+      "title_en":"Russian Borei on Arctic under-ice patrol — NATO monitoring",
+      "summary":"Des sources OTAN confirment qu'un SSBN Borei de la Flotte du Nord russe effectue une patrouille sous la banquise arctique. Des avions de patrouille maritime P-8 Poseidon norvégiens et britanniques opèrent dans la zone GIUK pour suivre le déplacement. Exercice de résilience nucléaire russe.",
+      "summary_en":"NATO sources confirm a Northern Fleet Russian Borei SSBN is conducting a patrol under the Arctic ice cap. Norwegian and British P-8 Poseidon maritime patrol aircraft are operating in the GIUK zone to track movement. Russian nuclear resilience exercise.",
+      "source":"Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/04/russian-ssbn-arctic-patrol/",
+      "location":"Océan Arctique, banquise",
+      "location_en":"Arctic Ocean, under ice",
+      "lat":82.0,"lon":15.0,
+      "published":"2026-04-22T12:00:00+00:00"
+    },
+    {
+      "id":"usni_michigan_guam",
+      "sub_id":"uss_mich",
+      "sub_name":"USS Michigan (SSGN-727)",
+      "title":"USS Michigan (SSGN) visible à Guam — signal de dissuasion Indo-Pacifique",
+      "title_en":"USS Michigan (SSGN) visible at Guam — Indo-Pacific deterrence signal",
+      "summary":"L'USS Michigan (SSGN-727), sous-marin lance-missiles, a fait une escale visible à la base navale de Guam. Ce déploiement délibérément non-discret envoie un signal à la Corée du Nord et à la Chine. Le Michigan emporte 154 missiles Tomahawk dans ses 22 modules VPM. Présence régulière en Indo-Pacifique.",
+      "summary_en":"USS Michigan (SSGN-727), a guided-missile submarine, made a visible port call at the naval base in Guam. This deliberately non-covert deployment sends a signal to North Korea and China. The Michigan carries 154 Tomahawk missiles in its 22 VPM modules. Regular Indo-Pacific presence.",
+      "source":"USNI News",
+      "source_url":"https://news.usni.org/2026/04/18/uss-michigan-guam",
+      "location":"Guam, Indo-Pacifique",
+      "location_en":"Guam, Indo-Pacific",
+      "lat":13.44,"lon":144.65,
+      "published":"2026-04-18T16:00:00+00:00"
+    },
+    {
+      "id":"navalnews_kazan_atlantic",
+      "sub_id":"rus_kazan",
+      "sub_name":"K-561 Kazan — Atlantique Nord",
+      "title":"K-561 Kazan (Yasen-M) détecté en Atlantique Nord — exercice Zirkon confirmé",
+      "title_en":"K-561 Kazan (Yasen-M) detected in North Atlantic — confirmed Zirkon exercise",
+      "summary":"Le sous-marin Yasen-M K-561 Kazan a été détecté dans l'Atlantique Nord lors d'une patrouille de longue durée. Des sources du renseignement naval occidental signalent des exercices de tir avec des missiles hypersoniques Zirkon (Mach 8+). La flotte OTAN en alerte ASW.",
+      "summary_en":"Yasen-M submarine K-561 Kazan was detected in the North Atlantic during a long-range patrol. Western naval intelligence sources report firing exercises with Zirkon hypersonic missiles (Mach 8+). NATO fleet on ASW alert.",
+      "source":"Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/05/russian-yasen-m-north-atlantic/",
+      "location":"Atlantique Nord, GIUK gap",
+      "location_en":"North Atlantic, GIUK gap",
+      "lat":63.0,"lon":-18.0,
+      "published":"2026-05-02T09:00:00+00:00"
+    },
+    {
+      "id":"hisutton_china_094_patrol",
+      "sub_id":"chn_jin",
+      "sub_name":"Type 094 Jin — patrouille Pacifique",
+      "title":"Type 094 Jin SSBN en patrouille dans l'Océan Pacifique — 1ère sortie confirmée",
+      "title_en":"Type 094 Jin SSBN on patrol in Pacific Ocean — first confirmed sortie",
+      "summary":"Des images satellites et des sources de renseignement confirment qu'un SSBN Type 094 Jin a effectué une patrouille en eau profonde dans l'Océan Pacifique, au-delà de la première chaîne d'îles. La Chine cherche à établir une patrouille permanente de SSBN comparable à la CASD britannique et à la FOST française.",
+      "summary_en":"Satellite imagery and intelligence sources confirm a Type 094 Jin SSBN conducted a deep-water patrol in the Pacific Ocean, beyond the first island chain. China seeks to establish permanent SSBN patrols comparable to UK CASD and French FOST.",
+      "source":"HI Sutton — Covert Shores",
+      "source_url":"https://www.hisutton.com/China-SSBN-Pacific-Patrol.html",
+      "location":"Pacifique Nord-Ouest",
+      "location_en":"Northwest Pacific",
+      "lat":25.0,"lon":145.0,
+      "published":"2026-04-30T08:00:00+00:00"
+    },
+    {
+      "id":"bellingcat_belgorod_poseidon",
+      "sub_id":"rus_belg",
+      "sub_name":"K-329 Belgorod — exercice Poseidon",
+      "title":"K-329 Belgorod en mer de Barents — exercice torpille nucléaire Poseidon",
+      "title_en":"K-329 Belgorod in Barents Sea — Poseidon nuclear torpedo exercise",
+      "summary":"Des données AIS et des images satellites analysées par Bellingcat placent le sous-marin spécial K-329 Belgorod en mer de Barents. Des analystes estiment qu'un exercice avec les torpilles nucléaires autonomes Poseidon (Status-6, 2 mégatonnes) a pu avoir lieu. Aucun tir réel confirmé.",
+      "summary_en":"AIS data and satellite imagery analyzed by Bellingcat place special submarine K-329 Belgorod in the Barents Sea. Analysts believe an exercise with Poseidon autonomous nuclear torpedoes (Status-6, 2 megatons) may have taken place. No actual launch confirmed.",
+      "source":"Bellingcat",
+      "source_url":"https://www.bellingcat.com/news/2026/04/belgorod-barents/",
+      "location":"Mer de Barents, zone Belgorod",
+      "location_en":"Barents Sea, Belgorod area",
+      "lat":70.5,"lon":28.0,
+      "published":"2026-04-25T14:00:00+00:00"
+    },
+    {
+      "id":"usni_vanguard_casd_50ans",
+      "sub_id":"gbr_vanguard",
+      "sub_name":"HMS Vanguard — CASD 57 ans",
+      "title":"CASD britannique : 57 ans ininterrompus — HMS Vanguard en patrouille",
+      "title_en":"British CASD: 57 uninterrupted years — HMS Vanguard on patrol",
+      "summary":"La Royal Navy célèbre 57 ans de patrouille sous-marine nucléaire continue (CASD). Un Vanguard-class — probablement le HMS Vanguard lui-même — est actuellement en patrouille dans l'Atlantique. Depuis le 15 avril 1969, la marine britannique n'a jamais eu moins d'un SSBN en mer.",
+      "summary_en":"The Royal Navy celebrates 57 years of continuous submarine nuclear patrol (CASD). A Vanguard-class — likely HMS Vanguard itself — is currently on Atlantic patrol. Since April 15, 1969, the Royal Navy has never had fewer than one SSBN at sea.",
+      "source":"Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/04/uk-casd-57-years/",
+      "location":"Atlantique Nord, patrouille CASD",
+      "location_en":"North Atlantic, CASD patrol",
+      "lat":54.0,"lon":-22.0,
+      "published":"2026-04-15T10:00:00+00:00"
+    },
+    {
+      "id":"usni_fra_terrible_fost",
+      "sub_id":"fra_terrible",
+      "sub_name":"Le Terrible (S619) — patrouille FOST",
+      "title":"Le Terrible en patrouille FOST — France : permanence nucléaire maintenue",
+      "title_en":"Le Terrible on FOST patrol — France: nuclear permanence maintained",
+      "summary":"Le SNLE Le Terrible (S619) est actuellement en patrouille FOST (Force Océanique Stratégique) dans l'Atlantique. La France maintient en permanence un sous-marin nucléaire lanceur d'engins en mer depuis 1972. Le Terrible emporte 16 missiles M51.2 à têtes multiples (portée 9000 km).",
+      "summary_en":"SSBN Le Terrible (S619) is currently on FOST (Force Océanique Stratégique) patrol in the Atlantic. France has permanently maintained a nuclear ballistic missile submarine at sea since 1972. Le Terrible carries 16 M51.2 MIRVed missiles (9000 km range).",
+      "source":"Marine Nationale / Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/05/french-ssbn-fost/",
+      "location":"Atlantique, patrouille FOST",
+      "location_en":"Atlantic, FOST patrol",
+      "lat":47.5,"lon":-18.0,
+      "published":"2026-05-05T00:00:00+00:00"
+    },
+    {
+      "id":"navalnews_india_aridhaman_sea_trials",
+      "sub_id":"ind_aridhaman",
+      "sub_name":"INS Aridhaman (S3) — essais en mer",
+      "title":"INS Aridhaman — essais en mer avancés, commission imminente",
+      "title_en":"INS Aridhaman — advanced sea trials, commissioning imminent",
+      "summary":"L'INS Aridhaman (S3), deuxième SSBN de la marine indienne, effectue ses essais en mer avancés dans le golfe du Bengale. Plus grand qu'Arihant, il emporte 8 tubes pour missiles K-4 (3500 km) ou 24 K-15 Sagarika. La commission officielle est attendue dans les prochains mois, consolidant la triade nucléaire indienne.",
+      "summary_en":"INS Aridhaman (S3), India's second SSBN, is conducting advanced sea trials in the Bay of Bengal. Larger than Arihant, it carries 8 tubes for K-4 missiles (3500 km) or 24 K-15 Sagarika. Official commissioning expected in coming months, consolidating India's nuclear triad.",
+      "source":"Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/04/ins-aridhaman-sea-trials/",
+      "location":"Golfe du Bengale",
+      "location_en":"Bay of Bengal",
+      "lat":14.0,"lon":82.0,
+      "published":"2026-04-28T07:00:00+00:00"
+    },
+    {
+      "id":"warshipcam_german_type212_baltic",
+      "sub_id":"deu_u34",
+      "sub_name":"U-34 — exercice OTAN Baltique",
+      "title":"U-34 allemand en exercice OTAN — mer Baltique, BALTOPS 2026",
+      "title_en":"German U-34 in NATO exercise — Baltic Sea, BALTOPS 2026",
+      "summary":"Le sous-marin U-34 (Type 212A) de la Deutsche Marine participe à l'exercice BALTOPS 2026 en mer Baltique. L'exercice implique 20 nations OTAN dont Suède et Finlande nouvellement membres. Focus sur la guerre ASW et la protection des câbles sous-marins. Présence russe en mer Baltique en hausse.",
+      "summary_en":"German submarine U-34 (Type 212A) is participating in BALTOPS 2026 exercise in the Baltic Sea. The exercise involves 20 NATO nations including newly joined Sweden and Finland. Focus on ASW warfare and submarine cable protection. Russian presence in Baltic Sea increasing.",
+      "source":"Warship Cam / Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/05/baltops-2026/",
+      "location":"Mer Baltique, BALTOPS 2026",
+      "location_en":"Baltic Sea, BALTOPS 2026",
+      "lat":57.5,"lon":17.0,
+      "published":"2026-05-10T08:00:00+00:00"
+    },
+    {
+      "id":"hisutton_australia_collins_aukus",
+      "sub_id":"aus_collins",
+      "sub_name":"HMAS Collins — AUKUS annonce",
+      "title":"AUKUS : 1er Virginia-class pour l'Australie en 2032 — Collins en interopérabilité USN",
+      "title_en":"AUKUS: 1st Virginia-class for Australia in 2032 — Collins in USN interoperability",
+      "summary":"Le sous-marin HMAS Collins participe à des exercices d'interopérabilité avec des Virginia-class de la US Navy en préparation d'AUKUS. L'Australie recevra ses 3 premiers Virginia dès 2032, puis son propre SSN-AUKUS (développé conjointement avec UK/US) vers 2042. Investissement total AUD 368 milliards.",
+      "summary_en":"HMAS Collins is participating in interoperability exercises with US Navy Virginia-class submarines in preparation for AUKUS. Australia will receive its first 3 Virginias from 2032, then its own jointly developed SSN-AUKUS around 2042. Total investment AUD 368 billion.",
+      "source":"HI Sutton — Covert Shores",
+      "source_url":"https://www.hisutton.com/AUKUS-Virginia-2032.html",
+      "location":"Pacifique, Perth",
+      "location_en":"Pacific, Perth",
+      "lat":-33.0,"lon":113.0,
+      "published":"2026-05-08T06:00:00+00:00"
+    },
+    {
+      "id":"warshipcam_taiwan_haikun_launch",
+      "sub_id":"twn_haikun",
+      "sub_name":"ROCS Hai Kun (SS-711) — livraison",
+      "title":"Taïwan : Hai Kun (SS-711) 1er SS domestique — livré malgré pression chinoise",
+      "title_en":"Taiwan: Hai Kun (SS-711) first domestic SS — delivered despite Chinese pressure",
+      "summary":"Le ROCS Hai Kun (SS-711), premier sous-marin de construction 100% taïwanaise (CSBC Corporation), a été livré à la République de Chine (Taïwan). Malgré d'intenses pressions diplomatiques chinoises sur les fournisseurs étrangers, Taïwan a mené à bien son programme IDS (Indigenous Defense Submarine).",
+      "summary_en":"ROCS Hai Kun (SS-711), Taiwan's first 100% domestically built submarine (CSBC Corporation), was delivered to the Republic of China (Taiwan). Despite intense Chinese diplomatic pressure on foreign suppliers, Taiwan completed its IDS (Indigenous Defense Submarine) program.",
+      "source":"Naval News / Warship Cam",
+      "source_url":"https://www.navalnews.com/naval-news/2026/04/taiwan-hai-kun-delivery/",
+      "location":"Zuoying, Taïwan",
+      "location_en":"Zuoying, Taiwan",
+      "lat":22.67,"lon":120.24,
+      "published":"2026-04-10T03:00:00+00:00"
+    },
+    {
+      "id":"navalnews_korea_dosan_slbm",
+      "sub_id":"kor_dosan",
+      "sub_name":"ROKS Dosan Ahn Chang-ho — tir SLBM",
+      "title":"Corée du Sud : tir réussi Hyunmoo-4 SLBM depuis Dosan Ahn Chang-ho",
+      "title_en":"South Korea: successful Hyunmoo-4 SLBM launch from Dosan Ahn Chang-ho",
+      "summary":"La Marine de Corée du Sud a réussi le tir d'un missile balistique Hyunmoo-4 (500 km) depuis le sous-marin KSS-III ROKS Dosan Ahn Chang-ho en mer Jaune. Le sous-marin est le premier non-nucléaire au monde à disposer d'une capacité SLBM. Signal de dissuasion direct contre Pyongyang.",
+      "summary_en":"South Korea's Navy successfully launched a Hyunmoo-4 ballistic missile (500km) from KSS-III submarine ROKS Dosan Ahn Chang-ho in the Yellow Sea. The submarine is the world's first non-nuclear vessel with SLBM capability. Direct deterrence signal against Pyongyang.",
+      "source":"Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/05/korea-slbm-launch/",
+      "location":"Mer Jaune",
+      "location_en":"Yellow Sea",
+      "lat":36.5,"lon":124.0,
+      "published":"2026-05-07T05:00:00+00:00"
+    },
+    {
+      "id":"navalnews_iran_ghadir_hormuz",
+      "sub_id":"irn_fateh",
+      "sub_name":"Iran — Ghadir class, détroit Ormuz",
+      "title":"Iran déploie mini-subs Ghadir au détroit d'Ormuz — menace asymétrique",
+      "title_en":"Iran deploys Ghadir mini-subs at Strait of Hormuz — asymmetric threat",
+      "summary":"Des images satellites montrent plusieurs mini-sous-marins Ghadir de la marine iranienne repositionnés dans des abris proches du détroit d'Ormuz. L'Iran dispose de ~30 Ghadir capables de lancer des torpilles et des missiles anti-navires en eau peu profonde. Menace directe pour le trafic pétrolier.",
+      "summary_en":"Satellite images show several Iranian Navy Ghadir mini-submarines repositioned in shelters near the Strait of Hormuz. Iran has ~30 Ghadirs capable of launching torpedoes and anti-ship missiles in shallow water. Direct threat to oil traffic.",
+      "source":"The War Zone / USNI",
+      "source_url":"https://www.thedrive.com/the-war-zone/iran-ghadir-hormuz",
+      "location":"Détroit d'Ormuz",
+      "location_en":"Strait of Hormuz",
+      "lat":26.4,"lon":56.5,
+      "published":"2026-05-14T12:00:00+00:00"
+    },
+    {
+      "id":"navalnews_israel_dolphin_red_sea",
+      "sub_id":"isr_leviathan",
+      "sub_name":"INS Leviatan — Mer Rouge",
+      "title":"Israël déploie un Dolphin II en Mer Rouge — surveillance post-conflit",
+      "title_en":"Israel deploys Dolphin II in Red Sea — post-conflict surveillance",
+      "summary":"Des sources indiquent qu'un sous-marin Dolphin II de la marine israélienne (probablement l'INS Leviatan) opère en Mer Rouge dans le contexte post-conflit Gaza. Le Dolphin II est suspecté de porter des missiles de croisière à capacité nucléaire Popeye Turbo (600 km). Patrouilles discrètes de surveillance.",
+      "summary_en":"Sources indicate an Israeli Navy Dolphin II submarine (likely INS Leviatan) is operating in the Red Sea in the post-Gaza conflict context. The Dolphin II is suspected to carry nuclear-capable Popeye Turbo cruise missiles (600km). Discreet surveillance patrols.",
+      "source":"Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/04/israel-dolphin-red-sea/",
+      "location":"Mer Rouge, golfe d'Aden",
+      "location_en":"Red Sea, Gulf of Aden",
+      "lat":15.0,"lon":42.0,
+      "published":"2026-04-20T11:00:00+00:00"
+    },
+    {
+      "id":"hisutton_russia_kilo_pacific_transfer",
+      "sub_id":"rus_rostov",
+      "sub_name":"B-237 Rostov-sur-le-Don — transfert Pacifique",
+      "title":"B-237 Rostov-sur-le-Don transféré Flotte Pacifique — après réparations Strike Shadow",
+      "title_en":"B-237 Rostov-on-Don transferred to Pacific Fleet — after Storm Shadow strike repairs",
+      "summary":"Le Kilo-class B-237 Rostov-sur-le-Don, endommagé par un missile Storm Shadow ukrainien en septembre 2023 à Sébastopol, a terminé ses réparations et a été transféré à la Flotte du Pacifique à Vladivostok. La Russie contourne ainsi les pertes de la mer Noire en renforçant sa capacité en Indo-Pacifique.",
+      "summary_en":"Kilo-class B-237 Rostov-on-Don, damaged by a Ukrainian Storm Shadow missile in September 2023 at Sevastopol, completed repairs and was transferred to the Pacific Fleet at Vladivostok. Russia thus bypasses Black Sea losses by reinforcing its Indo-Pacific capability.",
+      "source":"HI Sutton — Covert Shores",
+      "source_url":"https://www.hisutton.com/Russia-Kilo-Pacific-Transfer.html",
+      "location":"Vladivostok, Flotte Pacifique",
+      "location_en":"Vladivostok, Pacific Fleet",
+      "lat":43.12,"lon":132.0,
+      "published":"2026-04-05T08:00:00+00:00"
+    },
+    {
+      "id":"usni_seawolf_arctic_mission",
+      "sub_id":"uss_seawolf",
+      "sub_name":"USS Seawolf (SSN-21) — mission Arctique",
+      "title":"USS Seawolf (SSN-21) mission sous-glaciaire Arctique — ICEX 2026",
+      "title_en":"USS Seawolf (SSN-21) Arctic under-ice mission — ICEX 2026",
+      "summary":"L'USS Seawolf (SSN-21) participe à l'exercice ICEX 2026 (Ice Exercise) en Arctique, démontrant la capacité de la US Navy à opérer sous la banquise. Le Seawolf, le SSN le plus rapide et le plus silencieux de la flotte, est idéalement adapté aux missions arctiques à haute valeur ajoutée. Survie dans une zone contestée.",
+      "summary_en":"USS Seawolf (SSN-21) is participating in ICEX 2026 (Ice Exercise) in the Arctic, demonstrating the US Navy's ability to operate under the ice cap. The Seawolf, the fastest and quietest SSN in the fleet, is ideally suited for high-value Arctic missions. Operations in a contested area.",
+      "source":"USNI News",
+      "source_url":"https://news.usni.org/2026/04/15/icex-2026-seawolf",
+      "location":"Arctique, sous-glaciaire",
+      "location_en":"Arctic, under ice",
+      "lat":79.5,"lon":-5.0,
+      "published":"2026-04-15T16:00:00+00:00"
+    },
+    {
+      "id":"navalnews_jmsdf_taigei_exercise",
+      "sub_id":"jpn_taigei",
+      "sub_name":"JS Taigei (SS-513) — exercice ASW",
+      "title":"JS Taigei (Li-Ion) en exercice ASW avec US Navy — Pacifique Ouest",
+      "title_en":"JS Taigei (Li-Ion) in ASW exercise with US Navy — Western Pacific",
+      "summary":"Le JS Taigei (SS-513), le premier sous-marin au monde équipé de batteries lithium-ion en service opérationnel, participe à un exercice ASW conjoint avec des unités de la US Navy dans le Pacifique occidental. Les batteries Li-Ion permettent des plongées 4× plus longues que les batteries classiques.",
+      "summary_en":"JS Taigei (SS-513), the world's first submarine equipped with lithium-ion batteries in operational service, is participating in a joint ASW exercise with US Navy units in the Western Pacific. Li-Ion batteries allow dives 4× longer than conventional batteries.",
+      "source":"Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/05/japan-taigei-asw-exercise/",
+      "location":"Pacifique occidental",
+      "location_en":"Western Pacific",
+      "lat":28.0,"lon":138.0,
+      "published":"2026-05-12T04:00:00+00:00"
+    },
+    {
+      "id":"navalnews_spain_isaac_peral_med",
+      "sub_id":"esp_isaac",
+      "sub_name":"Isaac Peral (S-80) — Méditerranée",
+      "title":"Isaac Peral (S-80 Plus) — 1ère patrouille opérationnelle Méditerranée",
+      "title_en":"Isaac Peral (S-80 Plus) — 1st operational Mediterranean patrol",
+      "summary":"Le sous-marin espagnol Isaac Peral (S-80), après 10 ans de retard et une correction d'erreur de masse de 75 tonnes, effectue sa première patrouille opérationnelle en Méditerranée. Le S-80 Plus est équipé d'un système AIP bio-éthanol espagnol propre. 3 autres unités sont en construction à Cartagena.",
+      "summary_en":"Spanish submarine Isaac Peral (S-80), after 10 years of delay and correction of a 75-ton mass calculation error, is conducting its first operational patrol in the Mediterranean. The S-80 Plus is equipped with a proprietary Spanish bio-ethanol AIP system. 3 more units are under construction in Cartagena.",
+      "source":"Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/04/spain-s80-first-patrol/",
+      "location":"Méditerranée occidentale",
+      "location_en":"Western Mediterranean",
+      "lat":38.5,"lon":2.0,
+      "published":"2026-04-18T09:00:00+00:00"
+    },
+    {
+      "id":"thedrivezone_china_south_sea_ssn",
+      "sub_id":"chn_shang",
+      "sub_name":"Type 093 Shang — mer de Chine méridionale",
+      "title":"SSN Type 093 Shang détecté en mer de Chine méridionale — confrontation",
+      "title_en":"Type 093 Shang SSN detected in South China Sea — confrontation",
+      "summary":"Un SSN Type 093 Shang de la PLAN a été détecté opérant dans une zone contestée de la mer de Chine méridionale, à proximité d'îles artificielles. Des P-8 Poseidon américains et des Orion japonais conduisent des opérations de surveillance. Tensions accrues avec les Philippines et la présence USN.",
+      "summary_en":"A PLAN Type 093 Shang SSN was detected operating in a disputed area of the South China Sea, near artificial islands. US P-8 Poseidons and Japanese Orions are conducting surveillance operations. Heightened tensions with the Philippines and USN presence.",
+      "source":"The War Zone",
+      "source_url":"https://www.thedrive.com/the-war-zone/china-ssn-south-china-sea",
+      "location":"Mer de Chine méridionale",
+      "location_en":"South China Sea",
+      "lat":12.5,"lon":116.0,
+      "published":"2026-05-09T11:00:00+00:00"
+    },
+    {
+      "id":"navalnews_brazil_riachuelo_atlantic",
+      "sub_id":"bra_riachuelo",
+      "sub_name":"Riachuelo (S40) — Atlantique Sud",
+      "title":"Riachuelo — 1ère patrouille hauturière Atlantique Sud",
+      "title_en":"Riachuelo — first deep-sea South Atlantic patrol",
+      "summary":"Le sous-marin brésilien Riachuelo (S40, Scorpène) effectue sa première patrouille hauturière en Atlantique Sud, à plus de 1000 nm de sa base d'Itaguaí. Le Brésil développe en parallèle le SNBR nucléaire Álvaro Alberto attendu vers 2035. L'Atlantique Sud est une zone stratégique pour la protection des ressources pétrolières du pré-sal.",
+      "summary_en":"Brazilian submarine Riachuelo (S40, Scorpène) is conducting its first deep-sea patrol in the South Atlantic, more than 1000 nm from its Itaguaí base. Brazil is simultaneously developing nuclear SNBR Álvaro Alberto expected around 2035. The South Atlantic is a strategic zone for protecting pre-salt oil resources.",
+      "source":"Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/04/brazil-riachuelo-patrol/",
+      "location":"Atlantique Sud, large du Brésil",
+      "location_en":"South Atlantic, off Brazil",
+      "lat":-18.0,"lon":-35.0,
+      "published":"2026-04-22T14:00:00+00:00"
     }
   ]
 };
@@ -1327,6 +1642,14 @@ async function fetchOsint(){
   }
 
   // V4: apply OSINT positions to SUBS array (uses `position_updates` history when present), then re-render everything
+  // Filtre 30 jours — supprime les signalements trop anciens
+  const cutoff=new Date(Date.now()-30*24*60*60*1000);
+  osintData.sightings=osintData.sightings.filter(sg=>{
+    if(!sg.published) return true;
+    try{ return new Date(sg.published)>=cutoff; }catch(e){ return true; }
+  });
+  osintData.count=osintData.sightings.length;
+
   applyOsintPositions(osintData);
   if(leafMap) renderMarkers();
   // Update fleet/stats after applying OSINT
@@ -1475,45 +1798,53 @@ function initGlobe(){
   }
   resize();window.addEventListener('resize',resize);
 
-  // Earth — style militaire noir sur gris
-  const earthMat=new THREE.MeshPhongMaterial({color:0x2a2a2a,emissive:0x0d0d0d,specular:0x1a1a1a,shininess:6});
+  // Earth — ShaderMaterial style militaire noir sur gris
+  // Le shader convertit la texture en greyscale inversé : océan=gris clair, terres=noir
+  const earthVert=`
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    void main(){
+      vUv=uv;
+      vNormal=normalize(normalMatrix*normal);
+      gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);
+    }`;
+  const earthFrag=`
+    uniform sampler2D uTex;
+    uniform float uHasTex;
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    void main(){
+      vec3 lightDir=normalize(vec3(1.0,0.5,1.0));
+      float diff=0.35+0.65*max(0.0,dot(vNormal,lightDir));
+      float v;
+      if(uHasTex>0.5){
+        vec4 col=texture2D(uTex,vUv);
+        float grey=dot(col.rgb,vec3(0.299,0.587,0.114));
+        // Inversion: océan sombre (gr faible) → gris clair; terres (gr élevé) → sombre
+        v=0.12+(1.0-grey)*0.58;
+      } else {
+        v=0.20;
+      }
+      gl_FragColor=vec4(v*diff,v*diff,v*diff,1.0);
+    }`;
+  const earthUniforms={uTex:{value:null},uHasTex:{value:0.0}};
+  const earthMat=new THREE.ShaderMaterial({uniforms:earthUniforms,vertexShader:earthVert,fragmentShader:earthFrag});
   const earth=new THREE.Mesh(new THREE.SphereGeometry(1,96,96),earthMat);
   scene.add(earth);
 
-  // Chargement texture + conversion greyscale inversée (océan=gris clair, terres=sombre)
-  (function(){
-    const img=new Image();
-    img.crossOrigin='anonymous';
-    img.onload=function(){
-      try{
-        const c=document.createElement('canvas');
-        c.width=img.naturalWidth||2048;c.height=img.naturalHeight||1024;
-        const ctx=c.getContext('2d');
-        ctx.drawImage(img,0,0,c.width,c.height);
-        const id=ctx.getImageData(0,0,c.width,c.height);
-        const d=id.data;
-        for(let i=0;i<d.length;i+=4){
-          // Greyscale perceptuel puis inversion → terres sombres, océan clair
-          const g=Math.round(0.299*d[i]+0.587*d[i+1]+0.114*d[i+2]);
-          const inv=255-g;
-          // Contraste léger: écrase les extrêmes vers zone gris militaire
-          const v=Math.round(40+inv*0.55);
-          d[i]=d[i+1]=d[i+2]=v;d[i+3]=255;
-        }
-        ctx.putImageData(id,0,0);
-        const tex=new THREE.CanvasTexture(c);
-        earthMat.map=tex;earthMat.color.set(0xffffff);earthMat.needsUpdate=true;
-      }catch(e){/* tainted canvas — fallback gris */}
-    };
-    img.onerror=function(){
-      // Fallback: essaie une 2ème URL
-      new THREE.TextureLoader().load(
-        'https://cdn.jsdelivr.net/gh/vasturiano/three-globe@2.27.2/example/img/earth-dark.jpg',
-        tex=>{earthMat.map=tex;earthMat.needsUpdate=true;}
-      );
-    };
-    img.src='https://unpkg.com/three-globe/example/img/earth-topology.png';
-  })();
+  // Chargement texture — plusieurs URLs de fallback
+  (function tryLoad(urls){
+    if(!urls.length) return;
+    new THREE.TextureLoader().load(urls[0],
+      tex=>{earthUniforms.uTex.value=tex;earthUniforms.uHasTex.value=1.0;},
+      undefined,
+      ()=>tryLoad(urls.slice(1))
+    );
+  })([
+    'https://unpkg.com/three-globe/example/img/earth-topology.png',
+    'https://cdn.jsdelivr.net/gh/vasturiano/three-globe@2.27.2/example/img/earth-topology.png',
+    'https://unpkg.com/three-globe/example/img/earth-dark.jpg',
+  ]);
 
   // Grid — vert militaire discret
   const gmat=new THREE.LineBasicMaterial({color:0x2a4a2a,transparent:true,opacity:0.55});
