@@ -1814,20 +1814,21 @@ function initGlobe(){
     varying vec3 vNormal;
     void main(){
       vec3 lightDir=normalize(vec3(1.0,0.5,1.0));
-      float diff=0.4+0.6*max(0.0,dot(vNormal,lightDir));
+      float diff=0.55+0.45*max(0.0,dot(vNormal,lightDir));
       float v;
       if(uHasTex>0.5){
         vec4 col=texture2D(uTex,vUv);
-        // Blue-channel dominance detects ocean reliably regardless of topology shading
+        // Blue-channel dominance detects ocean (positive = ocean, negative = land)
         float bd=col.b-max(col.r,col.g);
-        float isOcean=clamp(bd*6.0,0.0,1.0);
+        float isOcean=clamp(bd*5.0+0.08,0.0,1.0);
         float grey=dot(col.rgb,vec3(0.299,0.587,0.114));
-        // Land = near-black (0.03-0.11), Ocean = medium grey (0.30-0.38) → noir sur gris
-        float landVal=0.03+grey*0.08;
-        float oceanVal=0.30+grey*0.08;
+        // Land = dark grey (0.13-0.21), Ocean = medium grey (0.38-0.50)
+        // ratio ~3:1 → continents clairement visibles en noir sur fond gris
+        float landVal=0.13+grey*0.08;
+        float oceanVal=0.38+grey*0.12;
         v=mix(landVal,oceanVal,isOcean);
       } else {
-        v=0.22;
+        v=0.35;
       }
       gl_FragColor=vec4(v*diff,v*diff,v*diff,1.0);
     }`;
