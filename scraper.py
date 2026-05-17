@@ -128,7 +128,7 @@ SUB_BASELINES = {
     "chn_jin":     {"loc":"Yulin Base, Hainan","lat":18.2,"lon":109.55},
     "chn_shang":   {"loc":"South China Sea","lat":16.0,"lon":114.5},
     "gbr_vanguard":{"loc":"HMNB Clyde, Faslane","lat":55.92,"lon":-4.75},
-    "gbr_astute":  {"loc":"Gulf of Oman","lat":22.8,"lon":58.5},
+    "gbr_astute":  {"loc":"Gulf of Oman","lat":24.5,"lon":57.5},
     "fra_triomphant":{"loc":"Île Longue, Brest","lat":48.36,"lon":-4.46},
     "fra_terrible":{"loc":"North Atlantic (ZOSTRAN)","lat":48.5,"lon":-18.0},
     "fra_suffren": {"loc":"Naval Base Toulon","lat":43.11,"lon":5.92},
@@ -142,7 +142,7 @@ SUB_BASELINES = {
     "aus_collins": {"loc":"HMAS Stirling, Perth","lat":-32.18,"lon":115.68},
     "can_victoria": {"loc":"Victoria, Canada","lat":48.43,"lon":-123.37},
     "nld_dolfijn": {"loc":"Den Helder, Netherlands","lat":52.96,"lon":4.75},
-    "ita_todaro":  {"loc":"Augusta, Sicily","lat":37.22,"lon":15.22},
+    "ita_todaro":  {"loc":"Augusta, Sicily","lat":37.00,"lon":15.50},
     "esp_isaac":   {"loc":"Cartagena, Spain","lat":37.60,"lon":-0.98},
     "nor_utsira":  {"loc":"North Sea","lat":61.0,"lon":3.0},
     "swe_gotland": {"loc":"Baltic Sea, Karlskrona","lat":56.2,"lon":15.5},
@@ -152,7 +152,7 @@ SUB_BASELINES = {
     "vnm_hanoi":   {"loc":"Cam Ranh Bay, Vietnam","lat":11.90,"lon":109.22},
     "dza_rais":    {"loc":"Western Mediterranean","lat":37.2,"lon":2.5},
     # USA - additional
-    "uss_tenn":     {"loc":"Kings Bay, Georgia","lat":30.79,"lon":-81.56},
+    "uss_tenn":     {"loc":"Kings Bay, Georgia","lat":30.60,"lon":-80.80},
     "uss_kentucky": {"loc":"NSWC Kitsap-Bangor, Washington","lat":47.73,"lon":-122.76},
     "uss_connecticut":{"loc":"NSWC Kitsap, Bremerton","lat":47.57,"lon":-122.64},
     "uss_springfield":{"loc":"Pearl Harbor, Hawaii","lat":21.36,"lon":-157.97},
@@ -176,7 +176,7 @@ SUB_BASELINES = {
     # UK - additional
     "gbr_victorious":{"loc":"North Atlantic, CASD Patrol","lat":52.00,"lon":-20.00},
     "gbr_vigilant": {"loc":"HMNB Clyde, Faslane","lat":56.02,"lon":-4.87},
-    "gbr_ambush":   {"loc":"Mediterranean Sea","lat":36.40,"lon":5.00},
+    "gbr_ambush":   {"loc":"Mediterranean Sea","lat":38.00,"lon":8.00},
     "gbr_audacious":{"loc":"HMNB Clyde, Faslane","lat":56.05,"lon":-4.78},
     # France - additional
     "fra_vigilant": {"loc":"North Atlantic (FOST patrol)","lat":46.50,"lon":-14.80},
@@ -184,7 +184,7 @@ SUB_BASELINES = {
     "fra_duguay":   {"loc":"Naval Base Toulon","lat":43.14,"lon":5.95},
     # India - additional
     "ind_aridhaman":{"loc":"Bay of Bengal, Visakhapatnam","lat":17.65,"lon":83.30},
-    "ind_chakra":   {"loc":"Arabian Sea, Karwar","lat":15.10,"lon":75.00},
+    "ind_chakra":   {"loc":"Arabian Sea, Karwar","lat":13.50,"lon":72.50},
     "ind_sindhughost":{"loc":"Arabian Sea, Mumbai","lat":18.92,"lon":72.82},
     # Netherlands - additional
     "nld_walrus":   {"loc":"Den Helder, Netherlands","lat":52.96,"lon":4.75},
@@ -193,34 +193,34 @@ SUB_BASELINES = {
     "can_cornerbrook":{"loc":"CFB Esquimalt, British Columbia","lat":48.44,"lon":-123.45},
     "can_windsor":  {"loc":"Halifax, Nova Scotia","lat":44.66,"lon":-63.57},
     # Chile
-    "chl_carrera":  {"loc":"Talcahuano, Chile","lat":-36.70,"lon":-73.12},
-    "chl_ohiggins": {"loc":"Talcahuano, Chile","lat":-36.72,"lon":-73.14},
+    "chl_carrera":  {"loc":"Talcahuano, Chile","lat":-36.50,"lon":-74.00},
+    "chl_ohiggins": {"loc":"Talcahuano, Chile","lat":-36.70,"lon":-74.20},
     # Israel
-    "isr_leviathan":{"loc":"Haifa, Israel","lat":32.82,"lon":34.99},
-    "isr_tanin":    {"loc":"Haifa, Israel","lat":32.80,"lon":35.00},
+    "isr_leviathan":{"loc":"Eastern Mediterranean","lat":32.80,"lon":34.50},
+    "isr_tanin":    {"loc":"Eastern Mediterranean","lat":32.60,"lon":34.40},
     # Singapore
     "sgp_impeccable":{"loc":"Strait of Malacca, Singapore","lat":1.28,"lon":103.78},
     "sgp_stalwart": {"loc":"Strait of Malacca, Singapore","lat":1.30,"lon":103.80},
     # Malaysia
-    "mys_razak":    {"loc":"Kota Kinabalu, Malaysia","lat":5.97,"lon":116.07},
+    "mys_razak":    {"loc":"South China Sea, Kota Kinabalu","lat":5.00,"lon":118.00},
     # Portugal
     "prt_tridente": {"loc":"Setubal, Portugal","lat":38.52,"lon":-8.88},
     # South Korea - additional
-    "kor_yisunshin":{"loc":"Sea of Japan, Jinhae","lat":35.16,"lon":128.64},
-    "kor_sonwonil": {"loc":"Sea of Japan, Jinhae","lat":35.14,"lon":128.60},
+    "kor_yisunshin":{"loc":"Sea of Japan, Jinhae","lat":35.00,"lon":129.30},
+    "kor_sonwonil": {"loc":"Sea of Japan, Jinhae","lat":34.80,"lon":129.00},
     # Taiwan
-    "twn_hailung":  {"loc":"Zuoying Naval Base, Taiwan","lat":22.67,"lon":120.24},
-    "twn_haikun":   {"loc":"Zuoying Naval Base, Taiwan","lat":22.68,"lon":120.25},
+    "twn_hailung":  {"loc":"Philippine Sea, Taiwan","lat":23.50,"lon":122.00},
+    "twn_haikun":   {"loc":"Philippine Sea, Taiwan","lat":23.70,"lon":122.20},
     # Egypt
-    "egy_s44":      {"loc":"Alexandria, Egypt","lat":31.19,"lon":29.88},
+    "egy_s44":      {"loc":"Eastern Mediterranean","lat":32.00,"lon":29.00},
     # Argentina
-    "arg_santacruz":{"loc":"Mar del Plata, Argentina","lat":-38.02,"lon":-57.54},
+    "arg_santacruz":{"loc":"South Atlantic, Mar del Plata","lat":-38.50,"lon":-58.50},
     # Peru
-    "per_pisagua":  {"loc":"Callao, Peru","lat":-12.05,"lon":-77.15},
+    "per_pisagua":  {"loc":"South Pacific, Callao","lat":-11.50,"lon":-78.50},
     # Colombia
-    "col_tayrona":  {"loc":"Cartagena, Colombia","lat":10.41,"lon":-75.53},
+    "col_tayrona":  {"loc":"Caribbean Sea, Cartagena","lat":11.00,"lon":-76.50},
     # Venezuela
-    "ven_sabalo":   {"loc":"Puerto Cabello, Venezuela","lat":10.47,"lon":-68.01},
+    "ven_sabalo":   {"loc":"Caribbean Sea, Puerto Cabello","lat":11.50,"lon":-67.50},
     # Turkey - additional
     "tur_sakarya":  {"loc":"Golcuk, Sea of Marmara","lat":40.72,"lon":29.91},
     "tur_pirireis": {"loc":"Izmit, Turkey","lat":40.64,"lon":30.38},
@@ -229,12 +229,12 @@ SUB_BASELINES = {
     # Australia - additional
     "aus_farncomb": {"loc":"Spencer Gulf, Adelaide","lat":-34.84,"lon":138.58},
     # Japan - additional
-    "jpn_oyashio":  {"loc":"Pacific, Kure","lat":34.70,"lon":136.90},
+    "jpn_oyashio":  {"loc":"Pacific Ocean, Kure","lat":34.20,"lon":132.50},
     "jpn_taigei":   {"loc":"Pacific, Yokosuka","lat":35.45,"lon":139.63},
     # Germany - additional
     "deu_u34":      {"loc":"Baltic Sea, Kiel","lat":54.31,"lon":10.14},
     # Sweden - additional
-    "swe_sodermanland":{"loc":"Baltic Sea, Stockholm","lat":59.28,"lon":18.12},
+    "swe_sodermanland":{"loc":"Baltic Sea, Karlskrona","lat":59.00,"lon":18.50},
     # Norway - additional
     "nor_utvaer":   {"loc":"North Sea, Bergen","lat":60.42,"lon":5.35},
 }
@@ -337,13 +337,13 @@ def _make_sighting(title, text, link, pub, source_name, priority):
     loc = extract_sea_location(title + ' ' + text)
     if loc:
         loc_name, (lat, lon) = loc
-        lat += random.uniform(-0.8, 0.8)
-        lon += random.uniform(-0.8, 0.8)
+        lat += random.uniform(-0.3, 0.3)
+        lon += random.uniform(-0.3, 0.3)
     elif sub_id and sub_id in SUB_BASELINES:
         b = SUB_BASELINES[sub_id]
         loc_name = b['loc']
-        lat = b['lat'] + random.uniform(-0.5, 0.5)
-        lon = b['lon'] + random.uniform(-0.5, 0.5)
+        lat = b['lat'] + random.uniform(-0.2, 0.2)
+        lon = b['lon'] + random.uniform(-0.2, 0.2)
     else:
         lat = lon = None
         loc_name = 'Position Unconfirmed'
@@ -486,12 +486,12 @@ def scrape_live():
                         loc=extract_sea_location(article_text)
             if loc:
                 loc_name,(lat,lon)=loc
-                lat+=random.uniform(-0.8,0.8); lon+=random.uniform(-0.8,0.8)
+                lat+=random.uniform(-0.3,0.3); lon+=random.uniform(-0.3,0.3)
             elif sub_id and sub_id in SUB_BASELINES:
                 b=SUB_BASELINES[sub_id]
                 loc_name=b["loc"]
-                lat=b["lat"]+random.uniform(-0.5,0.5)
-                lon=b["lon"]+random.uniform(-0.5,0.5)
+                lat=b["lat"]+random.uniform(-0.2,0.2)
+                lon=b["lon"]+random.uniform(-0.2,0.2)
             else:
                 lat=lon=None; loc_name="Position non confirmée"
 
@@ -525,8 +525,8 @@ def generate_baseline_sightings(live_sightings):
 
     for sub_id,b in SUB_BASELINES.items():
         if sub_id in covered: continue
-        lat=b["lat"]+random.uniform(-0.3,0.3)
-        lon=b["lon"]+random.uniform(-0.3,0.3)
+        lat=b["lat"]+random.uniform(-0.1,0.1)
+        lon=b["lon"]+random.uniform(-0.1,0.1)
         baseline.append({
             "id":f"baseline_{sub_id}",
             "sub_id":sub_id,"sub_name":sub_id.replace("_"," ").upper(),
