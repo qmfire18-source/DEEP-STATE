@@ -1797,50 +1797,15 @@ function initGlobe(){
   }
   resize();window.addEventListener('resize',resize);
 
-  // Earth — ShaderMaterial style militaire noir sur gris
-  // Le shader convertit la texture en greyscale inversé : océan=gris clair, terres=noir
-  const earthVert=`
-    varying vec2 vUv;
-    varying vec3 vNormal;
-    void main(){
-      vUv=uv;
-      vNormal=normalize(normalMatrix*normal);
-      gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);
-    }`;
-  const earthFrag=`
-    uniform sampler2D uTex;
-    uniform float uHasTex;
-    varying vec2 vUv;
-    varying vec3 vNormal;
-    void main(){
-      vec3 lightDir=normalize(vec3(1.0,0.5,1.0));
-      float diff=0.55+0.45*max(0.0,dot(vNormal,lightDir));
-      float v;
-      if(uHasTex>0.5){
-        vec4 col=texture2D(uTex,vUv);
-        // Blue Marble: océan = bleu (col.b dominant), terre = vert/brun (col.r/g dominant)
-        float bd=col.b-max(col.r,col.g);
-        float isOcean=clamp(bd*8.0,0.0,1.0);
-        float grey=dot(col.rgb,vec3(0.299,0.587,0.114));
-        // Océan → gris moyen clair (0.40-0.52), Terre → gris foncé (0.14-0.22)
-        float landVal=0.14+grey*0.08;
-        float oceanVal=0.40+grey*0.12;
-        v=mix(landVal,oceanVal,isOcean);
-      } else {
-        v=0.32;
-      }
-      gl_FragColor=vec4(v*diff,v*diff,v*diff,1.0);
-    }`;
-  const earthUniforms={uTex:{value:null},uHasTex:{value:0.0}};
-  const earthMat=new THREE.ShaderMaterial({uniforms:earthUniforms,vertexShader:earthVert,fragmentShader:earthFrag});
+  // Earth — texture couleurs réelles (bleu océan, vert/brun continents)
+  const earthMat=new THREE.MeshPhongMaterial({shininess:8,specular:new THREE.Color(0x224466)});
   const earth=new THREE.Mesh(new THREE.SphereGeometry(1,96,96),earthMat);
   scene.add(earth);
 
-  // Chargement texture — plusieurs URLs de fallback
   (function tryLoad(urls){
     if(!urls.length) return;
     new THREE.TextureLoader().load(urls[0],
-      tex=>{earthUniforms.uTex.value=tex;earthUniforms.uHasTex.value=1.0;},
+      tex=>{earthMat.map=tex;earthMat.needsUpdate=true;},
       undefined,
       ()=>tryLoad(urls.slice(1))
     );
@@ -1849,6 +1814,7 @@ function initGlobe(){
     'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg',
     'https://cdn.jsdelivr.net/gh/vasturiano/three-globe/example/img/earth-day.jpg',
     'https://unpkg.com/three-globe/example/img/earth-day.jpg',
+    'https://unpkg.com/three-globe/example/img/earth-topology.png',
   ]);
 
   // Grid — vert militaire discret
