@@ -12,13 +12,43 @@ from bs4 import BeautifulSoup
 OUTPUT_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sightings.json")
 
 RSS_FEEDS = [
-    {"name":"USNI News",       "url":"https://news.usni.org/feed",         "priority":3},
-    {"name":"USNI Fleet",      "url":"https://news.usni.org/category/fleet-tracker/feed","priority":3},
-    {"name":"USNI W.Pac Pulse","url":"https://news.usni.org/category/news/western-pacific-pulse/feed","priority":3},
-    {"name":"Naval News",      "url":"https://www.navalnews.com/feed/",     "priority":2},
-    {"name":"HI Sutton",       "url":"https://www.hisutton.com/feed.xml",   "priority":2},
-    {"name":"Naval Today",     "url":"https://navaltoday.com/feed/",       "priority":2},
-    {"name":"Defense News",    "url":"https://www.defensenews.com/feed/",  "priority":1},
+    # ── Tier 1: Naval spécialisé ──────────────────────────────────────
+    {"name":"USNI News",        "url":"https://news.usni.org/feed",                                           "priority":3},
+    {"name":"USNI Fleet",       "url":"https://news.usni.org/category/fleet-tracker/feed",                    "priority":3},
+    {"name":"USNI W.Pac Pulse", "url":"https://news.usni.org/category/news/western-pacific-pulse/feed",       "priority":3},
+    {"name":"Naval News",       "url":"https://www.navalnews.com/feed/",                                      "priority":3},
+    {"name":"HI Sutton",        "url":"https://www.hisutton.com/feed.xml",                                    "priority":3},
+    {"name":"Naval Today",      "url":"https://navaltoday.com/feed/",                                         "priority":2},
+    # ── Tier 2: Défense & OSINT ───────────────────────────────────────
+    {"name":"The War Zone",     "url":"https://www.thedrive.com/the-war-zone/feed",                           "priority":2},
+    {"name":"Breaking Defense", "url":"https://breakingdefense.com/feed/",                                    "priority":2},
+    {"name":"Defense News",     "url":"https://www.defensenews.com/arc/outboundfeeds/rss/",                   "priority":2},
+    {"name":"Bellingcat",       "url":"https://www.bellingcat.com/feed/",                                     "priority":2},
+    {"name":"War on the Rocks", "url":"https://warontherocks.com/feed/",                                      "priority":1},
+    {"name":"IISS",             "url":"https://www.iiss.org/feeds/analysis",                                  "priority":1},
+    # ── Tier 3: YouTube (RSS natif) ───────────────────────────────────
+    {"name":"YouTube NavalNews","url":"https://www.youtube.com/feeds/videos.xml?channel_id=UCPZIpjVb7oCHpFpB5R9BVJA","priority":1},
+    {"name":"YouTube HI Sutton","url":"https://www.youtube.com/feeds/videos.xml?channel_id=UCGkEnFYi1lbC2RHuasMQXdA","priority":1},
+    {"name":"YouTube NavInst",  "url":"https://www.youtube.com/feeds/videos.xml?channel_id=UC0hnOEj_nFdENjPvPbHhT3A","priority":1},
+]
+
+# Subreddits à surveiller
+REDDIT_SUBS = [
+    'submarines', 'navy', 'OSINT', 'geopolitics',
+    'NavalNews', 'CredibleDefense', 'worldnews', 'military',
+    'GlobalPowers', 'IntelligenceCommunity',
+]
+
+# Canaux Telegram publics (web preview t.me/s/)
+TELEGRAM_CHANNELS = [
+    'warshipcam',       # photos de navires / sightings
+    'navaltoday',       # Naval Today
+    'navalnewscom',     # Naval News
+    'defmon3',          # Defence Monitor
+    'modwatch',         # Ministry of Defence watch
+    'operationswatch',  # opérations militaires
+    'rybar_en',         # OSINT military (EN)
+    'bulvar_media',     # OSINT naval
 ]
 
 SUB_KEYWORDS = [
@@ -301,11 +331,124 @@ def fetch_feed(cfg):
     try: return feedparser.parse(cfg["url"]).entries
     except Exception as e: print(f"  ✗ {cfg['name']}: {e}"); return []
 
+def _make_sighting(title, text, link, pub, source_name, priority):
+    """Build a sighting dict from raw text fields."""
+    sub_id, sub_name = extract_sub_id(title + ' ' + text)
+    loc = extract_sea_location(title + ' ' + text)
+    if loc:
+        loc_name, (lat, lon) = loc
+        lat += random.uniform(-0.8, 0.8)
+        lon += random.uniform(-0.8, 0.8)
+    elif sub_id and sub_id in SUB_BASELINES:
+        b = SUB_BASELINES[sub_id]
+        loc_name = b['loc']
+        lat = b['lat'] + random.uniform(-0.5, 0.5)
+        lon = b['lon'] + random.uniform(-0.5, 0.5)
+    else:
+        lat = lon = None
+        loc_name = 'Position Unconfirmed'
+    return {
+        'id': link or title,
+        'sub_id': sub_id, 'sub_name': sub_name,
+        'title': title, 'summary': text[:600],
+        'source': source_name, 'source_url': link,
+        'location': loc_name.title() if loc_name else 'Position Unconfirmed',
+        'lat': round(lat, 3) if lat else None,
+        'lon': round(lon, 3) if lon else None,
+        'published': pub,
+        'scraped_at': datetime.now(timezone.utc).isoformat(),
+        'priority': priority,
+    }
+
+
+def scrape_reddit():
+    """Scrape public subreddits via JSON API (no auth needed)."""
+    print(f"\n📱 Reddit...")
+    headers = {'User-Agent': 'DeepStateOSINT/1.0 submarine-tracker github.com/qmfire18-source'}
+    sightings = []; seen = set()
+    for sub in REDDIT_SUBS:
+        try:
+            url = f'https://www.reddit.com/r/{sub}/new.json?limit=25'
+            resp = requests.get(url, headers=headers, timeout=12)
+            if resp.status_code == 429:
+                print(f"   ⚠️ r/{sub}: rate limited"); time.sleep(3); continue
+            if resp.status_code != 200:
+                continue
+            posts = resp.json().get('data', {}).get('children', [])
+            count = 0
+            for post in posts:
+                p = post.get('data', {})
+                title = p.get('title', '')
+                text = p.get('selftext', '')
+                link = 'https://www.reddit.com' + p.get('permalink', '')
+                pub = datetime.fromtimestamp(
+                    p.get('created_utc', 0), tz=timezone.utc
+                ).isoformat()
+                if not is_sub_article(title, text):
+                    continue
+                uid = link
+                if uid in seen: continue
+                seen.add(uid)
+                sg = _make_sighting(title, text, link, pub, f'Reddit r/{sub}', 2)
+                sightings.append(sg)
+                count += 1
+                icon = '☢' if sg['sub_id'] else '📰'
+                print(f"   {icon} [{sg['sub_id'] or 'GEN'}] {title[:55]}")
+            print(f"   r/{sub}: {count} articles sous-marins")
+            time.sleep(1)  # politesse Reddit
+        except Exception as e:
+            print(f"   ✗ r/{sub}: {e}")
+    return sightings
+
+
+def scrape_telegram():
+    """Scrape public Telegram channels via web preview (t.me/s/) — no API key needed."""
+    print(f"\n📨 Telegram...")
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120.0 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9',
+    }
+    sightings = []; seen = set()
+    for channel in TELEGRAM_CHANNELS:
+        try:
+            url = f'https://t.me/s/{channel}'
+            resp = requests.get(url, headers=headers, timeout=15)
+            if resp.status_code != 200:
+                print(f"   ✗ @{channel}: HTTP {resp.status_code}"); continue
+            soup = BeautifulSoup(resp.text, 'lxml')
+            messages = soup.find_all('div', class_='tgme_widget_message_wrap')
+            count = 0
+            for msg in messages:
+                # Texte du message
+                txt_el = msg.find('div', class_='tgme_widget_message_text')
+                text = txt_el.get_text(' ') if txt_el else ''
+                # Date et lien
+                time_el = msg.find('time')
+                pub = time_el.get('datetime', datetime.now(timezone.utc).isoformat()) if time_el else ''
+                link_el = msg.find('a', class_='tgme_widget_message_date')
+                link = link_el.get('href', url) if link_el else url
+                if not is_sub_article(text, ''):
+                    continue
+                uid = link
+                if uid in seen: continue
+                seen.add(uid)
+                sg = _make_sighting(text[:120], text, link, pub, f'Telegram @{channel}', 2)
+                sightings.append(sg)
+                count += 1
+                icon = '☢' if sg['sub_id'] else '📰'
+                print(f"   {icon} [{sg['sub_id'] or 'GEN'}] @{channel}: {text[:50]}")
+            print(f"   @{channel}: {count} messages sous-marins")
+            time.sleep(1)
+        except Exception as e:
+            print(f"   ✗ @{channel}: {e}")
+    return sightings
+
+
 def scrape_live():
     """Scrape live RSS feeds for fresh sightings."""
     sightings=[]; seen=set()
     print(f"\n{'='*55}")
-    print(f"DEEP STATE SCRAPER v3 — {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
+    print(f"DEEP STATE SCRAPER v4 — {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'='*55}")
 
     for cfg in RSS_FEEDS:
@@ -437,7 +580,9 @@ def update_sub_positions_in_html(sightings, html_path):
     return updates
 
 def run_once():
-    live=scrape_live()
+    live = scrape_live()
+    live += scrape_reddit()
+    live += scrape_telegram()
     print(f"\n📌 Génération baselines pour sous-marins sans signalement...")
     # Track which subs got live position updates (most recent per sub)
     position_updates = update_sub_positions_in_html(live, OUTPUT_FILE)
