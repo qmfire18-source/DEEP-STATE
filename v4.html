@@ -1818,17 +1818,16 @@ function initGlobe(){
       float v;
       if(uHasTex>0.5){
         vec4 col=texture2D(uTex,vUv);
-        // Blue-channel dominance detects ocean (positive = ocean, negative = land)
+        // Blue Marble: océan = bleu (col.b dominant), terre = vert/brun (col.r/g dominant)
         float bd=col.b-max(col.r,col.g);
-        float isOcean=clamp(bd*5.0+0.08,0.0,1.0);
+        float isOcean=clamp(bd*8.0,0.0,1.0);
         float grey=dot(col.rgb,vec3(0.299,0.587,0.114));
-        // Land = dark grey (0.13-0.21), Ocean = medium grey (0.38-0.50)
-        // ratio ~3:1 → continents clairement visibles en noir sur fond gris
-        float landVal=0.13+grey*0.08;
-        float oceanVal=0.38+grey*0.12;
+        // Océan → gris moyen clair (0.40-0.52), Terre → gris foncé (0.14-0.22)
+        float landVal=0.14+grey*0.08;
+        float oceanVal=0.40+grey*0.12;
         v=mix(landVal,oceanVal,isOcean);
       } else {
-        v=0.35;
+        v=0.32;
       }
       gl_FragColor=vec4(v*diff,v*diff,v*diff,1.0);
     }`;
@@ -1846,9 +1845,10 @@ function initGlobe(){
       ()=>tryLoad(urls.slice(1))
     );
   })([
-    'https://unpkg.com/three-globe/example/img/earth-topology.png',
-    'https://cdn.jsdelivr.net/gh/vasturiano/three-globe@2.27.2/example/img/earth-topology.png',
-    'https://unpkg.com/three-globe/example/img/earth-dark.jpg',
+    'https://cdn.jsdelivr.net/gh/vasturiano/three-globe/example/img/earth-blue-marble.jpg',
+    'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg',
+    'https://cdn.jsdelivr.net/gh/vasturiano/three-globe/example/img/earth-day.jpg',
+    'https://unpkg.com/three-globe/example/img/earth-day.jpg',
   ]);
 
   // Grid — vert militaire discret
