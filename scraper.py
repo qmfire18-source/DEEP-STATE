@@ -121,6 +121,92 @@ SUB_BASELINES = {
     "pak_hamza":   {"loc":"Arabian Sea, Karachi","lat":24.0,"lon":63.0},
     "vnm_hanoi":   {"loc":"Cam Ranh Bay, Vietnam","lat":11.90,"lon":109.22},
     "dza_rais":    {"loc":"Western Mediterranean","lat":37.2,"lon":2.5},
+    # USA - additional
+    "uss_tenn":     {"loc":"Kings Bay, Georgia","lat":30.79,"lon":-81.56},
+    "uss_kentucky": {"loc":"NSWC Kitsap-Bangor, Washington","lat":47.73,"lon":-122.76},
+    "uss_connecticut":{"loc":"NSWC Kitsap, Bremerton","lat":47.57,"lon":-122.64},
+    "uss_springfield":{"loc":"Pearl Harbor, Hawaii","lat":21.36,"lon":-157.97},
+    "uss_hawaii":   {"loc":"Pearl Harbor, Hawaii","lat":21.35,"lon":-157.96},
+    "uss_minnesota":{"loc":"Naval Station Norfolk, Virginia","lat":36.85,"lon":-76.30},
+    "uss_delaware": {"loc":"Naval Station Norfolk, Virginia","lat":36.84,"lon":-76.29},
+    # Russia - additional
+    "rus_tula":     {"loc":"Barents Sea, Gadzhievo","lat":69.51,"lon":32.93},
+    "rus_karelia":  {"loc":"Barents Sea, Gadzhievo","lat":69.48,"lon":33.01},
+    "rus_nevsky":   {"loc":"Vilyuchinsk, Pacific","lat":52.94,"lon":158.71},
+    "rus_knyaz":    {"loc":"Barents Sea, Gadzhievo","lat":69.10,"lon":33.20},
+    "rus_rostov":   {"loc":"Vladivostok, Pacific Fleet","lat":52.95,"lon":158.60},
+    "rus_krasno":   {"loc":"Barents Sea, Severomorsk","lat":69.12,"lon":33.48},
+    "rus_tver":     {"loc":"Rybachiy, Pacific Fleet","lat":52.95,"lon":158.68},
+    # China - additional
+    "chn_yuan1":    {"loc":"Yulin Base, Hainan","lat":18.22,"lon":109.48},
+    "chn_yuan2":    {"loc":"South China Sea","lat":20.10,"lon":110.20},
+    "chn_jin2":     {"loc":"Yulin Base, Hainan","lat":18.20,"lon":109.52},
+    "chn_shang2":   {"loc":"South China Sea","lat":22.30,"lon":114.18},
+    "chn_song":     {"loc":"East China Sea","lat":25.10,"lon":121.70},
+    # UK - additional
+    "gbr_victorious":{"loc":"North Atlantic, CASD Patrol","lat":52.00,"lon":-20.00},
+    "gbr_vigilant": {"loc":"HMNB Clyde, Faslane","lat":56.02,"lon":-4.87},
+    "gbr_ambush":   {"loc":"Mediterranean Sea","lat":36.40,"lon":5.00},
+    "gbr_audacious":{"loc":"HMNB Clyde, Faslane","lat":56.05,"lon":-4.78},
+    # France - additional
+    "fra_vigilant": {"loc":"North Atlantic (FOST patrol)","lat":46.50,"lon":-14.80},
+    "fra_temeraire":{"loc":"Île Longue, Brest","lat":48.32,"lon":-4.52},
+    "fra_duguay":   {"loc":"Naval Base Toulon","lat":43.14,"lon":5.95},
+    # India - additional
+    "ind_aridhaman":{"loc":"Bay of Bengal, Visakhapatnam","lat":17.65,"lon":83.30},
+    "ind_chakra":   {"loc":"Arabian Sea, Karwar","lat":15.10,"lon":75.00},
+    "ind_sindhughost":{"loc":"Arabian Sea, Mumbai","lat":18.92,"lon":72.82},
+    # Netherlands - additional
+    "nld_walrus":   {"loc":"Den Helder, Netherlands","lat":52.96,"lon":4.75},
+    "nld_bruinvis": {"loc":"Den Helder, Netherlands","lat":52.97,"lon":4.77},
+    # Canada
+    "can_cornerbrook":{"loc":"CFB Esquimalt, British Columbia","lat":48.44,"lon":-123.45},
+    "can_windsor":  {"loc":"Halifax, Nova Scotia","lat":44.66,"lon":-63.57},
+    # Chile
+    "chl_carrera":  {"loc":"Talcahuano, Chile","lat":-36.70,"lon":-73.12},
+    "chl_ohiggins": {"loc":"Talcahuano, Chile","lat":-36.72,"lon":-73.14},
+    # Israel
+    "isr_leviathan":{"loc":"Haifa, Israel","lat":32.82,"lon":34.99},
+    "isr_tanin":    {"loc":"Haifa, Israel","lat":32.80,"lon":35.00},
+    # Singapore
+    "sgp_impeccable":{"loc":"Strait of Malacca, Singapore","lat":1.28,"lon":103.78},
+    "sgp_stalwart": {"loc":"Strait of Malacca, Singapore","lat":1.30,"lon":103.80},
+    # Malaysia
+    "mys_razak":    {"loc":"Kota Kinabalu, Malaysia","lat":5.97,"lon":116.07},
+    # Portugal
+    "prt_tridente": {"loc":"Setubal, Portugal","lat":38.52,"lon":-8.88},
+    # South Korea - additional
+    "kor_yisunshin":{"loc":"Sea of Japan, Jinhae","lat":35.16,"lon":128.64},
+    "kor_sonwonil": {"loc":"Sea of Japan, Jinhae","lat":35.14,"lon":128.60},
+    # Taiwan
+    "twn_hailung":  {"loc":"Zuoying Naval Base, Taiwan","lat":22.67,"lon":120.24},
+    "twn_haikun":   {"loc":"Zuoying Naval Base, Taiwan","lat":22.68,"lon":120.25},
+    # Egypt
+    "egy_s44":      {"loc":"Alexandria, Egypt","lat":31.19,"lon":29.88},
+    # Argentina
+    "arg_santacruz":{"loc":"Mar del Plata, Argentina","lat":-38.02,"lon":-57.54},
+    # Peru
+    "per_pisagua":  {"loc":"Callao, Peru","lat":-12.05,"lon":-77.15},
+    # Colombia
+    "col_tayrona":  {"loc":"Cartagena, Colombia","lat":10.41,"lon":-75.53},
+    # Venezuela
+    "ven_sabalo":   {"loc":"Puerto Cabello, Venezuela","lat":10.47,"lon":-68.01},
+    # Turkey - additional
+    "tur_sakarya":  {"loc":"Golcuk, Sea of Marmara","lat":40.72,"lon":29.91},
+    "tur_pirireis": {"loc":"Izmit, Turkey","lat":40.64,"lon":30.38},
+    # Greece - additional
+    "grc_matrozos": {"loc":"Aegean Sea, Salamis","lat":37.95,"lon":23.48},
+    # Australia - additional
+    "aus_farncomb": {"loc":"Spencer Gulf, Adelaide","lat":-34.84,"lon":138.58},
+    # Japan - additional
+    "jpn_oyashio":  {"loc":"Pacific, Kure","lat":34.70,"lon":136.90},
+    "jpn_taigei":   {"loc":"Pacific, Yokosuka","lat":35.45,"lon":139.63},
+    # Germany - additional
+    "deu_u34":      {"loc":"Baltic Sea, Kiel","lat":54.31,"lon":10.14},
+    # Sweden - additional
+    "swe_sodermanland":{"loc":"Baltic Sea, Stockholm","lat":59.28,"lon":18.12},
+    # Norway - additional
+    "nor_utvaer":   {"loc":"North Sea, Bergen","lat":60.42,"lon":5.35},
 }
 
 SUB_NAME_MAP = {
