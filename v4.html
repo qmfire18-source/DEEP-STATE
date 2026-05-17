@@ -822,7 +822,7 @@ function setLanguage(lang){
   renderOsintFeed();
   renderList();
   if(selId){ const s=SUBS.find(x=>x.id===selId); if(s) renderDetail(s); }
-  if(leafMap) renderMarkers();
+  if(leafMap){ renderMarkers(); renderOsintMarkers(); }
   if(osintData){
     const upd = new Date(osintData.last_updated);
     document.getElementById('last-update').textContent = tr('last_update',{date: formatDate(upd)});
