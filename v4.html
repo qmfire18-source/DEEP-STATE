@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEEP STATE v4 — Submarine Global Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root{
+  --bg:#020810;--panel:#050f1c;--border:#0c2235;
+  --cyan:#00e5ff;--green:#39ff14;--red:#ff2d55;--orange:#ff8c00;--gold:#ffd700;
+  --txt:#b8d4f0;--dim:#3a6a8a;--muted:#1a3a5a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:var(--bg);color:var(--txt);font-family:'Rajdhani',sans-serif;overflow:hidden}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,229,255,0.009) 3px,rgba(0,229,255,0.009) 4px);pointer-events:none;z-index:9999}
+
+/* ── HEADER ── */
+#hdr{position:fixed;top:0;left:0;right:0;height:56px;z-index:1000;
+  background:rgba(2,8,16,0.97);border-bottom:1px solid rgba(0,229,255,0.3);
+  display:flex;align-items:center;justify-content:space-between;padding:0 20px;
+  box-shadow:0 0 40px rgba(0,229,255,0.1)}
+.hlogo{display:flex;align-items:center;gap:12px}
+.hlogo h1{font-family:'Orbitron';font-size:17px;font-weight:900;color:var(--cyan);
+  letter-spacing:5px;text-shadow:0 0 25px rgba(0,229,255,0.7)}
+.hlogo sub{display:block;font-family:'Share Tech Mono';font-size:8px;color:var(--dim);letter-spacing:3px;margin-top:2px}
+.hstats{display:flex;gap:22px;align-items:center}
+.hst .v{font-family:'Orbitron';font-size:21px;font-weight:700;line-height:1;text-align:center}
+.hst .l{font-family:'Share Tech Mono';font-size:7.5px;color:var(--dim);letter-spacing:2px;margin-top:2px;text-align:center}
+.live{display:flex;align-items:center;gap:7px;font-family:'Share Tech Mono';font-size:10px;color:var(--green)}
+.live::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 12px var(--green);animation:blink 1.2s infinite}
+#clk{font-family:'Share Tech Mono';font-size:12px;color:var(--cyan);letter-spacing:2px}
+.lang-switch{display:flex;gap:6px;align-items:center}
+.lang-btn{width:30px;height:30px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;background:rgba(2,8,16,0.9);color:var(--txt);cursor:pointer;transition:all .2s;font-size:14px;line-height:1}
+.lang-btn.on{border-color:var(--cyan);background:rgba(0,229,255,0.12);color:var(--cyan)}
+.lang-btn:hover{background:rgba(0,229,255,0.08);}
+.live::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 12px var(--green);animation:blink 1.2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.1}}
+#clk{font-family:'Share Tech Mono';font-size:12px;color:var(--cyan);letter-spacing:2px}
+
+/* ── LAYOUT ── */
+#app{position:fixed;top:56px;left:0;right:0;bottom:0;display:grid;grid-template-columns:295px 1fr 295px}
+
+/* ── PANELS ── */
+.panel{background:rgba(5,15,28,0.98);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+#rp{border-right:none;border-left:1px solid var(--border)}
+.psec{padding:13px 14px;border-bottom:1px solid var(--border)}
+.stitle{font-family:'Orbitron';font-size:7.5px;font-weight:700;color:var(--dim);letter-spacing:3px;
+  margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.stitle::before{content:'';width:3px;height:11px;background:var(--cyan);
+  box-shadow:0 0 8px var(--cyan);border-radius:2px;flex-shrink:0}
+
+/* ── SEARCH ── */
+.srch{position:relative;margin-bottom:9px}
+.srch input{width:100%;background:rgba(0,229,255,0.04);border:1px solid rgba(0,229,255,0.15);
+  border-radius:4px;padding:7px 10px 7px 28px;color:var(--txt);
+  font-family:'Share Tech Mono';font-size:10.5px;outline:none;transition:border-color .2s}
+.srch input:focus{border-color:var(--cyan)}
+.srch input::placeholder{color:var(--muted)}
+.si-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:13px}
+
+/* ── FILTERS ── */
+.fbts{display:flex;gap:4px;flex-wrap:wrap}
+.fb{padding:3px 8px;border:1px solid var(--border);background:transparent;color:var(--dim);
+  font-family:'Share Tech Mono';font-size:7.5px;letter-spacing:1px;border-radius:3px;cursor:pointer;transition:all .2s}
+.fb:hover,.fb.on{background:rgba(0,229,255,0.1);border-color:var(--cyan);color:var(--cyan)}
+.fb.nucl.on{background:rgba(57,255,20,0.1);border-color:var(--green);color:var(--green)}
+
+/* ── SUB LIST ── */
+#slist{flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--cyan) transparent}
+#slist::-webkit-scrollbar{width:3px}
+#slist::-webkit-scrollbar-thumb{background:var(--cyan)}
+.si2{display:flex;flex-direction:column;gap:4px;padding:9px 11px}
+.sc{background:rgba(7,18,32,0.8);border:1px solid var(--border);border-radius:5px;
+  padding:8px 10px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.sc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--cyan);opacity:.3;transition:opacity .2s}
+.sc.nucl::before{background:var(--green)}
+.sc:hover{border-color:rgba(0,229,255,0.3);transform:translateX(2px)}
+.sc:hover::before,.sc.sel::before{opacity:1}
+.sc.sel{border-color:var(--cyan);background:rgba(0,229,255,0.06)}
+.sc.nucl.sel{border-color:var(--green);background:rgba(57,255,20,0.05)}
+.sc-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px}
+.sc-nm{font-family:'Orbitron';font-size:9px;font-weight:700;color:var(--txt);line-height:1.3}
+.sc-fl{font-size:13px;flex-shrink:0;margin-left:4px}
+.sc-cls{font-family:'Share Tech Mono';font-size:8px;color:var(--dim);margin-bottom:3px}
+.sc-ft{display:flex;justify-content:space-between;align-items:center}
+.badge{font-family:'Share Tech Mono';font-size:7px;padding:2px 5px;border-radius:2px;letter-spacing:1px}
+.bssn{background:rgba(0,229,255,0.1);color:var(--cyan);border:1px solid rgba(0,229,255,0.3)}
+.bssbn{background:rgba(57,255,20,0.1);color:var(--green);border:1px solid rgba(57,255,20,0.3)}
+.bssgn{background:rgba(255,140,0,.12);color:var(--orange);border:1px solid rgba(255,140,0,.3)}
+.bss{background:rgba(58,106,138,.12);color:#6ab;border:1px solid rgba(58,106,138,.3)}
+.ntag{font-family:'Share Tech Mono';font-size:7px;color:var(--green);display:flex;align-items:center;gap:3px}
+.ntag::before{content:'☢';font-size:9px;animation:nglow 2s infinite alternate}
+@keyframes nglow{from{text-shadow:0 0 4px var(--green)}to{text-shadow:0 0 15px var(--green),0 0 28px var(--green)}}
+
+/* ── CENTER ── */
+#ctr{position:relative;overflow:hidden}
+.vtgl{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:500;
+  display:flex;border:1px solid rgba(0,229,255,0.25);border-radius:5px;overflow:hidden;backdrop-filter:blur(10px)}
+.vb{padding:7px 18px;background:rgba(2,8,16,0.88);border:none;color:var(--dim);
+  font-family:'Orbitron';font-size:8px;letter-spacing:2px;cursor:pointer;transition:all .2s}
+.vb.on{background:rgba(0,229,255,0.14);color:var(--cyan)}
+
+/* ── MAP ── */
+#mapview{position:absolute;inset:0;display:block}
+#leafmap{width:100%;height:100%}
+.leaflet-container{background:#020810!important}
+.leaflet-control-zoom{border:1px solid var(--border)!important;border-radius:4px!important}
+.leaflet-control-zoom a{background:rgba(5,15,28,0.95)!important;color:var(--cyan)!important;
+  border-bottom:1px solid var(--border)!important;font-size:16px!important;line-height:27px!important;width:28px!important;height:28px!important}
+.leaflet-control-zoom a:hover{background:rgba(0,229,255,0.15)!important}
+.leaflet-control-attribution{background:rgba(2,8,16,0.82)!important;color:var(--dim)!important;
+  font-family:'Share Tech Mono'!important;font-size:7px!important}
+.leaflet-control-attribution a{color:var(--dim)!important}
+/* Popups */
+.leaflet-popup-content-wrapper{background:rgba(4,14,26,0.97)!important;
+  border:1px solid var(--cyan)!important;border-radius:7px!important;
+  box-shadow:0 0 24px rgba(0,229,255,0.28)!important;color:var(--txt)!important;padding:0!important}
+.nuc-popup .leaflet-popup-content-wrapper{border-color:var(--green)!important;box-shadow:0 0 24px rgba(57,255,20,0.28)!important}
+.osint-popup .leaflet-popup-content-wrapper{border-color:var(--gold)!important;box-shadow:0 0 24px rgba(255,215,0,0.28)!important}
+.leaflet-popup-content{margin:0!important;width:auto!important}
+.leaflet-popup-tip{background:var(--cyan)!important}
+.nuc-popup .leaflet-popup-tip{background:var(--green)!important}
+.osint-popup .leaflet-popup-tip{background:var(--gold)!important}
+.leaflet-popup-close-button{color:var(--dim)!important;font-size:15px!important;top:9px!important;right:10px!important;z-index:10}
+.pp{padding:14px 16px;min-width:230px;max-width:310px}
+.pp-title{font-family:'Orbitron';font-size:12px;color:var(--cyan);margin-bottom:2px}
+.nuc-popup .pp-title{color:var(--green)}
+.osint-popup .pp-title{color:var(--gold)}
+.pp-cls{font-family:'Share Tech Mono';font-size:8px;color:var(--dim);letter-spacing:1px;margin-bottom:9px}
+.pp-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:9px}
+.pp-s .k{font-family:'Share Tech Mono';font-size:6.5px;color:var(--muted);letter-spacing:2px;margin-bottom:2px}
+.pp-s .v{font-family:'Orbitron';font-size:11px}
+.pp-sea{font-size:10px;color:var(--dim);font-family:'Share Tech Mono';margin-bottom:8px}
+.pp-desc{font-size:11px;line-height:1.55;color:var(--dim);border-top:1px solid var(--border);padding-top:8px}
+.pp-osint-block{background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.22);border-radius:6px;padding:10px 12px;margin-bottom:10px}
+.pp-osint-label{font-family:'Share Tech Mono';font-size:7.5px;color:var(--gold);letter-spacing:1.5px;margin-bottom:4px;text-transform:uppercase}
+.pp-osint-sub{font-family:'Share Tech Mono';font-size:8px;color:var(--dim);line-height:1.3;margin-bottom:6px}
+.pp-osint-title{font-size:11px;color:var(--txt);line-height:1.4;margin-bottom:6px}
+.pp-osint-link{display:inline-block;font-family:'Share Tech Mono';font-size:7.5px;color:#ffd700;text-decoration:none;letter-spacing:1px}
+
+/* ── GLOBE ── */
+#globeview{position:absolute;inset:0;display:none;background:#020810}
+#gcanvas{width:100%;height:100%;cursor:grab;display:block}
+#gcanvas:active{cursor:grabbing}
+.ghint{position:absolute;bottom:46px;left:50%;transform:translateX(-50%);
+  font-family:'Share Tech Mono';font-size:8px;color:var(--dim);letter-spacing:2px;
+  background:rgba(2,8,16,0.88);padding:5px 14px;border:1px solid var(--border);border-radius:3px;pointer-events:none}
+.gz{position:absolute;right:14px;top:70px;z-index:500;display:flex;flex-direction:column;gap:4px}
+.gzb{width:30px;height:30px;background:rgba(5,15,28,0.92);border:1px solid var(--border);
+  color:var(--cyan);font-size:17px;cursor:pointer;border-radius:4px;
+  display:flex;align-items:center;justify-content:center;transition:all .2s;line-height:1}
+.gzb:hover{background:rgba(0,229,255,0.14);border-color:var(--cyan)}
+
+/* ── RIGHT PANEL ── */
+#rp .pcont{flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--cyan) transparent}
+#rp .pcont::-webkit-scrollbar{width:3px}
+#rp .pcont::-webkit-scrollbar-thumb{background:var(--cyan)}
+.db-name{font-family:'Orbitron';font-size:11px;font-weight:700;color:var(--cyan);margin-bottom:2px}
+.db-name.nuc{color:var(--green)}
+.db-sub{font-family:'Share Tech Mono';font-size:8px;color:var(--dim);margin-bottom:10px;letter-spacing:1px}
+.db-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:9px}
+.db-s{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:4px;padding:6px 8px}
+.db-s .k{font-family:'Share Tech Mono';font-size:6.5px;color:var(--muted);letter-spacing:2px;margin-bottom:2px}
+.db-s .v{font-family:'Orbitron';font-size:11px;color:var(--txt)}
+.db-weap{margin-bottom:9px;padding:8px;background:rgba(255,45,85,0.04);border:1px solid rgba(255,45,85,0.12);border-radius:4px}
+.db-weap .k{font-family:'Share Tech Mono';font-size:6.5px;color:var(--muted);letter-spacing:2px;margin-bottom:4px}
+.db-weap .v{font-size:11px;color:#e99;line-height:1.4}
+.db-pos{padding:8px;background:rgba(0,229,255,0.04);border:1px solid rgba(0,229,255,0.1);border-radius:4px;margin-bottom:9px}
+.db-pos.nuc{background:rgba(57,255,20,0.04);border-color:rgba(57,255,20,0.12)}
+.db-pos .pl{font-family:'Share Tech Mono';font-size:6.5px;color:var(--muted);letter-spacing:2px;margin-bottom:4px}
+.db-pos .sea{font-size:12px;color:var(--txt);margin-bottom:2px}
+.db-pos .crd{font-family:'Share Tech Mono';font-size:9.5px;color:var(--cyan)}
+.db-pos.nuc .crd{color:var(--green)}
+.db-desc{font-size:11.5px;line-height:1.6;color:var(--dim)}
+.no-sel{font-family:'Share Tech Mono';font-size:9.5px;color:var(--muted);text-align:center;padding:28px 16px;line-height:2.2}
+
+/* ── OSINT FEED ── */
+.osint-card{background:rgba(255,215,0,0.04);border:1px solid rgba(255,215,0,0.2);
+  border-radius:5px;padding:9px 11px;margin-bottom:6px;cursor:pointer;transition:all .2s}
+.osint-card:hover{border-color:rgba(255,215,0,0.45);background:rgba(255,215,0,0.08)}
+.osint-src{font-family:'Share Tech Mono';font-size:7px;color:var(--gold);letter-spacing:2px;margin-bottom:4px}
+.osint-title{font-size:11px;color:var(--txt);line-height:1.4;margin-bottom:4px}
+.osint-loc{font-family:'Share Tech Mono';font-size:8px;color:var(--dim)}
+.osint-date{font-family:'Share Tech Mono';font-size:7px;color:var(--muted);margin-top:3px}
+#osint-status{font-family:'Share Tech Mono';font-size:8px;color:var(--dim);
+  display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.spin{animation:spin 1s linear infinite;display:inline-block}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+#last-update{font-family:'Share Tech Mono';font-size:7.5px;color:var(--muted)}
+
+/* ── FLEET & STATS ── */
+.frow{display:flex;align-items:center;justify-content:space-between;
+  padding:5px 0;border-bottom:1px solid rgba(12,34,53,.5);font-size:12px}
+.fcty{display:flex;align-items:center;gap:7px}
+.fflag{font-size:13px}
+.fcnt{font-family:'Orbitron';font-size:12px;color:var(--cyan)}
+.fnuc{font-family:'Share Tech Mono';font-size:8.5px;color:var(--green)}
+.srow2{display:flex;justify-content:space-between;align-items:center;
+  padding:4px 0;border-bottom:1px solid rgba(12,34,53,.4);font-size:11px}
+.sv{font-family:'Orbitron';font-size:12px}
+.leg{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-family:'Share Tech Mono';font-size:9px;color:var(--dim)}
+.ldot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.tbar{height:5px;border-radius:3px;background:linear-gradient(90deg,var(--green),var(--gold),var(--red));position:relative;margin-top:7px}
+.tind{position:absolute;top:-4px;width:11px;height:11px;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff;left:32%}
+
+/* ── STATUS BAR ── */
+#stbar{position:absolute;bottom:0;left:0;right:0;height:26px;
+  background:rgba(2,8,16,0.97);border-top:1px solid var(--border);
+  display:flex;align-items:center;padding:0 14px;gap:18px;
+  font-family:'Share Tech Mono';font-size:8px;color:var(--muted);z-index:600}
+.sitem{display:flex;align-items:center;gap:5px}
+.sdot{width:5px;height:5px;border-radius:50%}
+.sg{background:var(--green);box-shadow:0 0 6px var(--green)}
+.sc2{background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
+.sr2{background:var(--red);box-shadow:0 0 6px var(--red)}
+#ticker{flex:1;overflow:hidden}
+#tick-in{white-space:nowrap;display:inline-block;animation:tick 220s linear infinite}
+@keyframes tick{0%{transform:translateX(100%)}100%{transform:translateX(-200%)}}
+
+/* ── SONAR ── */
+#sonar{position:absolute;bottom:44px;right:14px;width:68px;height:68px;z-index:400}
+.sring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--cyan);animation:sping 3s ease-out infinite;opacity:0}
+.sring:nth-child(2){animation-delay:.9s}.sring:nth-child(3){animation-delay:1.8s}
+@keyframes sping{0%{transform:scale(.08);opacity:.9}100%{transform:scale(1);opacity:0}}
+.sdtc{position:absolute;top:50%;left:50%;width:6px;height:6px;margin:-3px;
+  background:var(--cyan);border-radius:50%;box-shadow:0 0 10px var(--cyan)}
+
+/* ── OSINT DOT on map ── */
+.osint-marker-dot{width:14px;height:14px;border-radius:50%;
+  background:var(--gold);border:2px solid rgba(255,215,0,0.5);
+  box-shadow:0 0 10px var(--gold);animation:osintPulse 2s infinite}
+@keyframes osintPulse{0%,100%{box-shadow:0 0 6px var(--gold)}50%{box-shadow:0 0 18px var(--gold),0 0 30px rgba(255,215,0,0.3)}}
+
+/* ── REFRESH BTN ── */
+.refresh-btn{padding:4px 10px;border:1px solid rgba(255,215,0,0.3);background:rgba(255,215,0,0.06);
+  color:var(--gold);font-family:'Share Tech Mono';font-size:7.5px;letter-spacing:1px;
+  border-radius:3px;cursor:pointer;transition:all .2s}
+.refresh-btn:hover{background:rgba(255,215,0,0.15);border-color:var(--gold)}
+
+/* ── V4 ADDITIONS ── */
+/* Gold ring on OSINT-updated sub in list */
+.sc.osint-updated::after{content:'';position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px var(--gold)}
+
+/* OSINT position block */
+.db-pos.osint{background:rgba(255,215,0,0.05);border-color:rgba(255,215,0,0.25)}
+.db-pos.osint .crd{color:var(--gold)}
+
+/* Home port block */
+.db-home{padding:7px 8px;background:rgba(26,58,90,0.25);border:1px solid rgba(58,106,138,0.3);
+  border-radius:4px;margin-bottom:7px}
+.db-home .k{font-family:'Share Tech Mono';font-size:6.5px;color:var(--muted);letter-spacing:2px;margin-bottom:2px}
+.db-home .v{font-size:11px;color:var(--dim)}
+
+/* Popup home port line */
+.pp-home{font-size:9.5px;color:var(--dim);font-family:'Share Tech Mono';
+  margin-bottom:4px;padding:3px 6px;border-left:2px solid var(--dim);margin-top:2px}
+
+/* OSINT badge in popup */
+.pp-osint-badge{display:inline-flex;align-items:center;gap:4px;
+  font-family:'Share Tech Mono';font-size:7px;color:var(--gold);
+  padding:2px 7px;border:1px solid rgba(255,215,0,0.3);border-radius:2px;
+  background:rgba(255,215,0,0.06);margin-bottom:7px}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="hdr">
+  <div class="hlogo">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+      <ellipse cx="18" cy="22" rx="13" ry="5.5" stroke="#00e5ff" stroke-width="1.4" opacity="0.9"/>
+      <path d="M5 22 Q18 11 31 22" stroke="#00e5ff" stroke-width="1.4"/>
+      <circle cx="27" cy="18" r="2.5" stroke="#00e5ff" stroke-width="1.2"/>
+      <line x1="18" y1="16.5" x2="18" y2="9" stroke="#00e5ff" stroke-width="1.2"/>
+      <line x1="14" y1="9" x2="22" y2="9" stroke="#00e5ff" stroke-width="1.2"/>
+    </svg>
+    <div><h1>DEEP STATE</h1><sub>GLOBAL SUBMARINE INTELLIGENCE NETWORK</sub></div>
+  </div>
+  <div class="hstats">
+    <div class="hst"><div class="v" id="tc" style="color:var(--cyan)">0</div><div class="l" data-i18n="vessels">VESSELS</div></div>
+    <div class="hst"><div class="v" id="nc" style="color:var(--green)">0</div><div class="l" data-i18n="nuclear_count">NUCLEAR</div></div>
+    <div class="hst"><div class="v" id="nac" style="color:var(--red)">0</div><div class="l" data-i18n="nations">NATIONS</div></div>
+    <div class="hst"><div class="v" id="oic" style="color:var(--gold)">0</div><div class="l" data-i18n="osint">OSINT</div></div>
+    <div class="live" data-i18n="live">LIVE</div>
+    <div id="clk">--:--:-- UTC</div>
+  </div>
+  <div class="lang-switch">
+    <button class="lang-btn on" data-lang="fr">🇫🇷</button>
+    <button class="lang-btn" data-lang="en">🇬🇧</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+  <!-- LEFT PANEL -->
+  <div class="panel" id="lp">
+    <div class="psec">
+      <div class="stitle" data-i18n="search_filters">RECHERCHE &amp; FILTRES</div>
+      <div class="srch"><span class="si-icon">⌕</span><input type="text" id="sinput" data-i18n-placeholder="search_placeholder" placeholder="NOM, CLASSE, PAYS..."></div>
+      <div class="fbts">
+        <button class="fb on" data-f="all" data-i18n="filter_all">TOUS</button>
+        <button class="fb nucl" data-f="nuclear">☢ NUC</button>
+        <button class="fb" data-f="SSN">SSN</button>
+        <button class="fb" data-f="SSBN">SSBN</button>
+        <button class="fb" data-f="SSGN">SSGN</button>
+        <button class="fb" data-f="SS">SS</button>
+      </div>
+    </div>
+    <div id="slist"><div class="si2" id="sinner"></div></div>
+  </div>
+
+  <!-- CENTER -->
+  <div id="ctr">
+    <div class="vtgl">
+      <button class="vb on" id="bmap" data-i18n="map_view">🗺 CARTE</button>
+      <button class="vb" id="bglobe" data-i18n="globe_view">🌐 GLOBE 3D</button>
+    </div>
+
+    <!-- MAP -->
+    <div id="mapview"><div id="leafmap"></div></div>
+
+    <!-- GLOBE -->
+    <div id="globeview">
+      <canvas id="gcanvas"></canvas>
+      <div class="ghint">GLISSER pour tourner · MOLETTE pour zoomer</div>
+      <div class="gz">
+        <button class="gzb" id="gzin">+</button>
+        <button class="gzb" id="gzout">−</button>
+      </div>
+    </div>
+
+    <div id="sonar"><div class="sring"></div><div class="sring"></div><div class="sring"></div><div class="sdtc"></div></div>
+
+    <div id="stbar">
+      <div class="sitem"><div class="sdot sg"></div><span data-i18n="system_online">SYSTÈME EN LIGNE</span></div>
+      <div class="sitem"><div class="sdot sc2"></div><span data-i18n="satellites">SATELLITES:</span> 12</div>
+      <div class="sitem"><div class="sdot sr2"></div><span data-i18n="restricted_zones">ZONES RESTREINTES:</span> 4</div>
+      <div id="ticker"><span id="tick-in"></span></div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="panel" id="rp">
+    <div class="psec">
+      <div class="stitle" data-i18n="legend">LÉGENDE</div>
+      <div class="leg"><div class="ldot" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan)"></div><span data-i18n="legend_ssn">SSN — Attaque nucléaire</span></div>
+      <div class="leg"><div class="ldot" style="background:var(--green);box-shadow:0 0 6px var(--green)"></div><span data-i18n="legend_ssbn">SSBN — Lanceur engins nucléaires</span></div>
+      <div class="leg"><div class="ldot" style="background:var(--orange);box-shadow:0 0 6px var(--orange)"></div><span data-i18n="legend_ssgn">SSGN — Missiles croisière (nuc.)</span></div>
+      <div class="leg"><div class="ldot" style="background:#5a8aaa"></div><span data-i18n="legend_ss">SS — Conventionnel diesel-élec.</span></div>
+      <div class="leg"><div class="ldot" style="background:var(--gold);box-shadow:0 0 6px var(--gold)"></div><span data-i18n="legend_osint">OSINT — Signalement récent</span></div>
+      <div class="leg">
+        <svg width="24" height="8" style="flex-shrink:0"><line x1="0" y1="4" x2="24" y2="4" stroke="#5a8aaa" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6"/></svg>
+        <span id="home-line-label" style="font-family:'Share Tech Mono';font-size:9px;color:var(--dim)" data-i18n="home_line">Ligne port d'attache</span>
+      </div>
+    </div>
+    <div class="pcont">
+      <!-- DETAIL -->
+      <div class="psec">
+        <div class="stitle" data-i18n="selected_sub">SOUS-MARIN SÉLECTIONNÉ</div>
+        <div id="detbox"><div class="no-sel" data-i18n-html="true">Cliquez sur un marqueur<br>sur la carte ou dans la liste<br>pour voir tous les détails</div></div>
+      </div>
+
+      <!-- FLEET -->
+      <div class="psec">
+        <div class="stitle" data-i18n="fleet">FLOTTES MONDIALES</div>
+        <div id="ftable"></div>
+      </div>
+
+      <!-- STATS -->
+      <div class="psec">
+        <div class="stitle" data-i18n="stats">STATISTIQUES</div>
+        <div id="statp"></div>
+      </div>
+
+      <!-- THREAT -->
+      <div class="psec">
+        <div class="stitle" data-i18n="nuclear_level">NIVEAU DÉPLOIEMENT NUCLÉAIRE</div>
+        <div id="threat-tag" data-i18n="threat_tag" style="font-family:'Share Tech Mono';font-size:7.5px;color:var(--muted);margin-bottom:6px">GLOBAL · ESTIMÉ · MAI 2026</div>
+        <div class="tbar"><div class="tind"></div></div>
+        <div style="display:flex;justify-content:space-between;font-family:'Share Tech Mono';font-size:7px;color:var(--muted);margin-top:5px">
+          <span data-i18n="threat_min">MINIMAL</span><span data-i18n="threat_mid">MODÉRÉ</span><span data-i18n="threat_max">CRITIQUE</span>
+        </div>
+      </div>
+
+      <!-- OSINT FEED -->
+      <div class="psec">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div class="stitle" data-i18n="osint_reports" style="margin-bottom:0">SIGNALEMENTS OSINT</div>
+          <button class="refresh-btn" id="refresh-btn" data-i18n="refresh">↻ REFRESH</button>
+        </div>
+        <div id="osint-status"><span class="spin">◌</span> Chargement...</div>
+        <div id="last-update"></div>
+        <div id="osint-list" style="margin-top:8px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// DATABASE
+// ═══════════════════════════════════════════════════════════════
+const SUBS = [
+  {id:'uss_ohio',name:'USS Ohio (SSBN-726)',flag:'🇺🇸',country:'États-Unis',cc:'USA',class:'Ohio-class',type:'SSBN',nuc:true,lat:47.61,lon:-122.56,sea:'Puget Sound, NSWC Kitsap',sea_en:'Puget Sound, NSWC Kitsap',depth:'-300 m',speed:'20 kts',crew:155,disp:'18 750 t',len:'170.7 m',comm:1981,desc:'Chef de file des 14 SSBN de la triade nucléaire US. Porte 24 Trident II D5, chacun jusqu\'à 8 ogives W88 (475 kt). Base à Bangor, WA.',desc_en:'Lead boat of 14 SSBNs in the US nuclear triad. Carries 24 Trident II D5, each up to 8 W88 warheads (475 kt). Homeport Bangor, WA.',weap:'24× Trident II D5 SLBM (8 MIRV W88 475kt)'},
+  {id:'uss_mich',name:'USS Michigan (SSGN-727)',flag:'🇺🇸',country:'États-Unis',cc:'USA',class:'Ohio SSGN',type:'SSGN',nuc:true,lat:35.10,lon:129.10,sea:'Mer du Japon, Busan',sea_en:'Sea of Japan, Busan',depth:'-300 m',speed:'20 kts',crew:155,disp:'18 750 t',len:'170.7 m',comm:1982,desc:'Reconverti SSBN→SSGN (2002-2004). 154 Tomahawk dans 22 VPM. Signal stratégique permanent en Indo-Pacifique contre RPDC et Chine.',desc_en:'Converted SSBN→SSGN (2002-2004). 154 Tomahawks in 22 VPM. Permanent strategic signal in the Indo-Pacific against DPRK and China.',weap:'154× BGM-109 Tomahawk LACM + équipes SEAL'},
+  {id:'uss_virginia',name:'USS Virginia (SSN-774)',flag:'🇺🇸',country:'États-Unis',cc:'USA',class:'Virginia Block I',type:'SSN',nuc:true,lat:36.84,lon:-76.28,sea:'Atlantique, Norfolk',sea_en:'Atlantic, Norfolk',depth:'-487 m',speed:'25+ kts',crew:135,disp:'7 800 t',len:'114.9 m',comm:2004,desc:'1er d\'une classe de 40+ SSN. Réacteur S9G sans recharge (33 ans). Système de combat AN/BYG-1 entièrement numérique. Coût ~3.2 Md$.',desc_en:'1st of a class of 40+ SSNs. S9G reactor without refueling (33 years). Fully digital AN/BYG-1 combat system. Cost ~$3.2B.',weap:'12× VLS Tomahawk + 4× tubes 533mm Mk48 ADCAP'},
+  {id:'uss_ndakota',name:'USS North Dakota (SSN-784)',flag:'🇺🇸',country:'États-Unis',cc:'USA',class:'Virginia Block III',type:'SSN',nuc:true,lat:55.30,lon:-18.60,homeLat:36.93,homeLon:-76.31,homeSea:'Naval Station Norfolk, Virginie',homeSea_en:'Naval Station Norfolk, Virginia',sea:'Atlantique Nord, GIUK gap',sea_en:'North Atlantic, GIUK gap',depth:'-487 m',speed:'25+ kts',crew:135,disp:'7 900 t',len:'114.9 m',comm:2014,desc:'Block III: 2 VPM pour 40 Tomahawk. Mât photonique, ISR étendu. Surveillance GIUK gap contre sous-marins russes.',desc_en:'Block III: 2 VPM for 40 Tomahawks. Photonic mast, extended ISR. Monitoring GIUK gap against Russian submarines.',weap:'2× VPM (40 Tomahawk) + 4× tubes Mk48 ADCAP'},
+  {id:'uss_seawolf',name:'USS Seawolf (SSN-21)',flag:'🇺🇸',country:'États-Unis',cc:'USA',class:'Seawolf-class',type:'SSN',nuc:true,lat:47.72,lon:-122.41,sea:'Puget Sound, WA',sea_en:'Puget Sound, WA',depth:'-600 m',speed:'35 kts',crew:140,disp:'9 137 t',len:'107.6 m',comm:1997,desc:'Le plus rapide et silencieux SSN de la US Navy. 2× plus silencieux qu\'un Los Angeles, 3× plus armé. 3 construits à 3.5 Md$/unité.',desc_en:'The fastest and quietest SSN in the US Navy. 2× quieter than a Los Angeles, 3× better armed. 3 built at $3.5B/unit.',weap:'8× tubes 660mm (50 Mk48/Tomahawk/Harpoon/mines)'},
+  {id:'uss_jcarter',name:'USS Jimmy Carter (SSN-23)',flag:'🇺🇸',country:'États-Unis',cc:'USA',class:'Seawolf étendu (MMP)',type:'SSN',nuc:true,lat:47.56,lon:-122.62,sea:'Kitsap — missions classifiées',sea_en:'Kitsap — classified missions',depth:'-600 m',speed:'35 kts',crew:140,disp:'12 139 t',len:'138.1 m',comm:2005,desc:'+30m pour le Multi-Mission Platform (MMP). Missions classifiées: capteurs fond marin, câbles espionnage, ROV. Programme SAP.',desc_en:'+30m for the Multi-Mission Platform (MMP). Classified missions: seafloor sensors, cable tapping, ROV. SAP program.',weap:'Tomahawk, Mk48, ROV, capteurs acoustiques classifiés'},
+  {id:'rus_yuri',name:'K-535 Yuri Dolgoruky',flag:'🇷🇺',country:'Russie',cc:'RUS',class:'Borei (Pr. 955)',type:'SSBN',nuc:true,lat:69.07,lon:33.18,sea:'Mer de Barents, Gadjievo',sea_en:'Barents Sea, Gadzhievo',depth:'-450 m',speed:'27 kts',crew:107,disp:'24 000 t',len:'170 m',comm:2013,desc:'Chef de file Borei 4G. 16 RSM-56 Bulava (10 MIRV 150kt, 8000km). Réacteur OK-650V 190MW. Épine dorsale dissuasion russe.',desc_en:'Lead Borei 4G boat. 16 RSM-56 Bulava (10 MIRV 150kt, 8000km). OK-650V 190MW reactor. Backbone of Russian deterrence.',weap:'16× RSM-56 Bulava SLBM (10 MIRV 150kt)'},
+  {id:'rus_vlad',name:'K-551 Vladimir Monomakh',flag:'🇷🇺',country:'Russie',cc:'RUS',class:'Borei (Pr. 955)',type:'SSBN',nuc:true,lat:52.30,lon:158.70,sea:'Pacifique, Vilyuchinsk',sea_en:'Pacific, Vilyuchinsk',depth:'-450 m',speed:'27 kts',crew:107,disp:'24 000 t',len:'170 m',comm:2014,desc:'Borei flotte Pacifique. Patrouilles mer d\'Okhotsk, Pacifique Nord. 8 Borei-A (Pr. 955A améliorés) commandés en plus.',desc_en:'Borei Pacific Fleet. Patrols Sea of Okhotsk, North Pacific. 8 Borei-A (improved Pr. 955A) additionally ordered.',weap:'16× RSM-56 Bulava SLBM'},
+  {id:'rus_sev',name:'K-329 Severodvinsk',flag:'🇷🇺',country:'Russie',cc:'RUS',class:'Yasen (Pr. 885)',type:'SSN',nuc:true,lat:69.05,lon:33.42,sea:'Barents, Severomorsk',sea_en:'Barents, Severomorsk',depth:'-600 m',speed:'35 kts',crew:90,disp:'13 800 t',len:'139 m',comm:2013,desc:'SSN 4G russe comparable Seawolf/Virginia. 8 tubes VLS: Kalibr, Oniks, Zirkon hypersonique (Mach 9+). Réacteur VM-5 200MW.',desc_en:'Russian 4G SSN comparable to Seawolf/Virginia. 8 VLS tubes: Kalibr, Oniks, Zirkon hypersonic (Mach 9+). VM-5 200MW reactor.',weap:'8× VLS (Kalibr 3M14, Oniks P-800, Zirkon 3M22) + 10× torpilles'},
+  {id:'rus_kazan',name:'K-561 Kazan',flag:'🇷🇺',country:'Russie',cc:'RUS',class:'Yasen-M (Pr. 885M)',type:'SSN',nuc:true,lat:68.97,lon:33.55,sea:'Flotte du Nord',sea_en:'Northern Fleet',depth:'-600 m',speed:'35 kts',crew:90,disp:'13 800 t',len:'139 m',comm:2021,desc:'Yasen-M amélioré, silenciation accrue. Tirs réels Zirkon (Mach 8+) en 2022. 6 Yasen-M en construction.',desc_en:'Improved Yasen-M, enhanced silencing. Live Zirkon firings (Mach 8+) in 2022. 6 Yasen-M under construction.',weap:'8× VLS (Kalibr, Oniks, Zirkon hypersonique) + torpilles'},
+  {id:'rus_belg',name:'K-329 Belgorod',flag:'🇷🇺',country:'Russie',cc:'RUS',class:'Oscar II spécial (09852)',type:'SSN',nuc:true,lat:69.88,lon:32.44,sea:'Mer de Barents',sea_en:'Barents Sea',depth:'-500 m',speed:'32 kts',crew:107,disp:'30 000 t',len:'184 m',comm:2022,desc:'Sous-marin spécial unique. Porte 6 Poseidon (Status-6): torpilles nucléaires autonomes, 2 mégatonnes. Sous-marin-mère pour Losharik AS-31.',desc_en:'Unique special-purpose submarine. Carries 6 Poseidon (Status-6): autonomous nuclear torpedoes, 2 megatons. Mother ship for Losharik AS-31.',weap:'6× Poseidon (nucléaire 2Mt autonomes) + 10× torpilles'},
+  {id:'rus_kilo',name:'Novorossiysk (B-261)',flag:'🇷🇺',country:'Russie',cc:'RUS',class:'Improved Kilo (Pr.636.3)',type:'SS',nuc:false,lat:44.62,lon:33.53,sea:'Mer Noire',sea_en:'Black Sea',depth:'-240 m',speed:'17 kts',crew:52,disp:'3 950 t',len:'73.8 m',comm:2014,desc:'"Black Hole" OTAN. 6 unités mer Noire, plusieurs ont tiré des Kalibr sur l\'Ukraine (2022-2024). L\'Ukraine a endommagé/coulé plusieurs.',desc_en:'"Black Hole" (NATO). 6 units Black Sea, several have fired Kalibrs on Ukraine (2022-2024). Ukraine has damaged/sunk several.',weap:'6× torpilles 533mm + 8× Kalibr-PL 3M14T LACM'},
+  {id:'rus_orel',name:'K-266 Orel',flag:'🇷🇺',country:'Russie',cc:'RUS',class:'Oscar II (Pr. 949A)',type:'SSGN',nuc:true,lat:68.98,lon:33.10,sea:'Barents, Severomorsk',sea_en:'Barents, Severomorsk',depth:'-500 m',speed:'28 kts',crew:107,disp:'24 000 t',len:'154 m',comm:1992,desc:'Anti-carrier: 24 P-700 Granit à option nucléaire. Conçu pour saturer les défenses d\'un CSG américain.',desc_en:'Anti-carrier: 24 P-700 Granit with nuclear option. Designed to saturate defenses of a US carrier strike group.',weap:'24× P-700 Granit SS-N-19 (opt. nuc.) + 4×533mm + 4×650mm'},
+  {id:'chn_jin',name:'Long March 17 (Jin)',flag:'🇨🇳',country:'Chine',cc:'CHN',class:'Type 094A (Jin)',type:'SSBN',nuc:true,lat:18.24,lon:109.51,sea:'Mer de Chine méridionale, Yulin',sea_en:'South China Sea, Yulin',depth:'-300 m',speed:'22 kts',crew:140,disp:'11 000 t',len:'135 m',comm:2015,desc:'6 Jin-class. Triade nucléaire chinoise confirmée sept. 2025. 12 JL-2 SLBM (7400km, MIRV). Base Yulin (Hainan), abris couverts.',desc_en:'6 Jin-class. Chinese nuclear triad confirmed Sept. 2025. 12 JL-2 SLBM (7400km, MIRV). Yulin base (Hainan), covered shelters.',weap:'12× JL-2 SLBM (MIRV 7400km) + 6× torpilles 533mm'},
+  {id:'chn_shang',name:'Long March 11 (Shang)',flag:'🇨🇳',country:'Chine',cc:'CHN',class:'Type 093A (Shang)',type:'SSN',nuc:true,lat:22.28,lon:113.94,sea:'Mer de Chine méridionale',sea_en:'South China Sea',depth:'-300 m',speed:'25 kts',crew:100,disp:'6 000 t',len:'107 m',comm:2016,desc:'"1er SS silencieux de Chine" (US Naval War College). Propulseur 7 pales. Type 093B avec VLS YJ-18 et DH-10 LACM.',desc_en:'"China\'s 1st quiet SSN" (US Naval War College). 7-blade propulsor. Type 093B with VLS YJ-18 and DH-10 LACM.',weap:'6× torpilles 533mm + VLS (YJ-18, DH-10 LACM)'},
+  {id:'gbr_vanguard',name:'HMS Vanguard (S28)',flag:'🇬🇧',country:'Royaume-Uni',cc:'GBR',class:'Vanguard-class',type:'SSBN',nuc:true,lat:55.93,lon:-4.77,sea:'Clyde, HMNB Faslane',sea_en:'Clyde, HMNB Faslane',depth:'-300 m',speed:'25 kts',crew:135,disp:'15 900 t',len:'149.9 m',comm:1993,desc:'CASD ininterrompu depuis 1969. 4 Vanguard = toute la dissuasion nucléaire UK. Remplacé par Dreadnought-class v.2032.',desc_en:'Uninterrupted CASD since 1969. 4 Vanguards = all UK nuclear deterrence. Replaced by Dreadnought-class ~2032.',weap:'16× Trident II D5 SLBM (ogives Mk4 100kt)'},
+  {id:'gbr_astute',name:'HMS Astute (S119)',flag:'🇬🇧',country:'Royaume-Uni',cc:'GBR',class:'Astute-class',type:'SSN',nuc:true,lat:57.19,lon:-5.72,sea:'Atlantique Nord',sea_en:'North Atlantic',depth:'-300 m',speed:'29 kts',crew:98,disp:'7 800 t',len:'97 m',comm:2010,desc:'7 Astute commandés (4 en service). PWR2 sans recharge 25 ans. Sonar Thales 2076. Tomahawk Block V + Spearfish Mod 1.',desc_en:'7 Astutes ordered (4 in service). PWR2 no refueling 25 years. Thales 2076 sonar. Tomahawk Block V + Spearfish Mod 1.',weap:'38 armes: Tomahawk BGM-109E + Spearfish Mod 1 (6 tubes 533mm)'},
+  {id:'fra_triomphant',name:'Le Triomphant (S616)',flag:'🇫🇷',country:'France',cc:'FRA',class:'Triomphant-class',type:'SSBN',nuc:true,lat:48.37,lon:-4.47,sea:'Atlantique, Île Longue / Brest',sea_en:'Atlantic, Île Longue / Brest',depth:'-300 m',speed:'25 kts',crew:111,disp:'14 335 t',len:'138 m',comm:1997,desc:'FOST — permanence à la mer depuis 1972. 16 M51.2 (9000+ km). Seule base = Île Longue. Prochain SNLE 3G v.2035.',desc_en:'FOST — continuous at-sea since 1972. 16 M51.2 (9000+ km). Only base = Île Longue. Next 3G SNLE ~2035.',weap:'16× M51.2 SLBM (6 têtes TN75 100kt) + 4× F17/SM39'},
+  {id:'fra_terrible',name:'Le Terrible (S619)',flag:'🇫🇷',country:'France',cc:'FRA',class:'Triomphant-class',type:'SSBN',nuc:true,lat:47.28,lon:-3.15,sea:'Atlantique, patrouille FOST',sea_en:'Atlantic, FOST patrol',depth:'-300 m',speed:'25 kts',crew:111,disp:'14 335 t',len:'138 m',comm:2010,desc:'4ème et dernier Triomphant. 1er tir M51. La France maintient un SNLE en patrouille permanente dans l\'Atlantique.',desc_en:'4th and last Triomphant. First M51 firing. France maintains one SNLE on permanent patrol in the Atlantic.',weap:'16× M51.2 SLBM + 4× tubes 533mm (F17 Mod2, SM39 Exocet)'},
+  {id:'fra_suffren',name:'Suffren (Q285)',flag:'🇫🇷',country:'France',cc:'FRA',class:'Barracuda (Suffren)',type:'SSN',nuc:true,lat:43.12,lon:5.91,sea:'Méditerranée, Toulon',sea_en:'Mediterranean, Toulon',depth:'-350 m',speed:'25 kts',crew:65,disp:'5 300 t',len:'99.5 m',comm:2022,desc:'SNA 3G — 1.5 Md€. 1er SNA français à tir MDCN. Propulsion turbo-électrique hybride. 6 prévus dont 3 livrés.',desc_en:'3G SNA — €1.5B. First French SNA to fire MDCN. Hybrid turbo-electric propulsion. 6 planned, 3 delivered.',weap:'4× tubes 533mm (F21 Artemis, SM39 Bl.2) + MdCN LACM'},
+  {id:'ind_arihant',name:'INS Arihant (S2)',flag:'🇮🇳',country:'Inde',cc:'IND',class:'Arihant-class',type:'SSBN',nuc:true,lat:17.68,lon:83.27,sea:'Golfe du Bengale, Visakhapatnam',sea_en:'Bay of Bengal, Visakhapatnam',depth:'-300 m',speed:'24 kts',crew:95,disp:'6 000 t',len:'111 m',comm:2016,desc:'1er SSBN indien. Triade nucléaire asiatique. Réacteur 83MW. K-15 Sagarika (750km) ou K-4 (3500km). INS Aridhaman 2024.',desc_en:'India\'s 1st SSBN. Asian nuclear triad. 83MW reactor. K-15 Sagarika (750km) or K-4 (3500km). INS Aridhaman 2024.',weap:'4× tubes K-15 (750km) ou K-4 (3500km) par tube'},
+  {id:'deu_u32',name:'U-32 (S182)',flag:'🇩🇪',country:'Allemagne',cc:'DEU',class:'Type 212A',type:'SS',nuc:false,lat:54.32,lon:10.16,sea:'Mer Baltique, Kiel',sea_en:'Baltic Sea, Kiel',depth:'-700 m',speed:'20 kts',crew:27,disp:'1 830 t',len:'56.9 m',comm:2005,desc:'Le SS non-nucléaire le plus silencieux au monde. AIP H2/O2: 2 semaines sans remonter. Quasi indétectable.',desc_en:'The world\'s quietest non-nuclear SS. AIP H2/O2: 2 weeks without surfacing. Nearly undetectable.',weap:'6× tubes 533mm (DM2A4, UGM-84 Harpoon, mines)'},
+  {id:'jpn_soryu',name:'JS Sōryū (SS-501)',flag:'🇯🇵',country:'Japon',cc:'JPN',class:'Sōryū-class',type:'SS',nuc:false,lat:34.72,lon:137.15,sea:'Baie de Mikawa',sea_en:'Mikawa Bay',depth:'-300 m',speed:'20 kts',crew:65,disp:'4 200 t',len:'84 m',comm:2009,desc:'SS diesel le plus silencieux selon experts. AIP Stirling 4 moteurs. 12 en service. Remplacement Taigei-class Li-Ion.',desc_en:'Quietest diesel SS according to experts. 4-engine Stirling AIP. 12 in service. Taigei-class Li-Ion replacement.',weap:'6× tubes 533mm (Type 89, UGM-84C Harpoon)'},
+  {id:'kor_dosan',name:'ROKS Dosan Ahn Chang-ho',flag:'🇰🇷',country:'Corée du Sud',cc:'KOR',class:'KSS-III Batch I',type:'SS',nuc:false,lat:36.47,lon:126.62,sea:'Mer Jaune',sea_en:'Yellow Sea',depth:'-300 m',speed:'20 kts',crew:50,disp:'3 705 t',len:'83.5 m',comm:2021,desc:'1er SS non-nucléaire avec SLBM. 6 VLS pour Hyunmoo-4 (500km). Peut cibler Pyongyang. Dissuasion conventionnelle unique.',desc_en:'1st non-nuclear SS with SLBM. 6 VLS for Hyunmoo-4 (500km). Can target Pyongyang. Unique conventional deterrence.',weap:'6× VLS (Hyunmoo-4 SLBM) + 8× tubes 533mm'},
+  {id:'prk_hero',name:'Hero Kim Kun Ok',flag:'🇰🇵',country:'Corée du Nord',cc:'PRK',class:'Sinpo-C modifié',type:'SSBN',nuc:false,lat:40.03,lon:128.42,sea:'Mer du Japon, Sinpo',sea_en:'Sea of Japan, Sinpo',depth:'Inconnue',depth_en:'Unknown',speed:'~12 kts',crew:70,disp:'~4 000 t',len:'~90 m',comm:2023,desc:'Mis en service sept. 2023. Probablement non-opérationnel. Mars 2025: SSBN nucléaire en construction détecté à Sinpo.',desc_en:'Commissioned Sept. 2023. Probably not operational. Mar 2025: nuclear SSBN under construction detected at Sinpo.',weap:'10× tubes SLBM Pukguksong-3 (opérationnalité incertaine)'},
+  {id:'irn_fateh',name:'IRIS Fateh',flag:'🇮🇷',country:'Iran',cc:'IRN',class:'Fateh-class',type:'SS',nuc:false,lat:27.18,lon:56.28,sea:'Détroit d\'Ormuz',sea_en:'Strait of Hormuz',depth:'-200 m',speed:'14 kts',crew:45,disp:'593 t',len:'48 m',comm:2019,desc:'Design 100% iranien. Iran dispose de ~30 mini-subs Ghadir pour bloquer Ormuz. Menace asymétrique réelle.',desc_en:'100% Iranian design. Iran has ~30 Ghadir mini-subs to block Hormuz. Real asymmetric threat.',weap:'4× tubes 533mm (Valfajr, Jask-2 ASCM) + mines'},
+  {id:'tur_preveze',name:'TCG Preveze (S-353)',flag:'🇹🇷',country:'Turquie',cc:'TUR',class:'Preveze (Type 209/1400)',type:'SS',nuc:false,lat:40.73,lon:29.93,sea:'Marmara, Gölcük',sea_en:'Marmara, Gölcük',depth:'-250 m',speed:'21 kts',crew:33,disp:'1 586 t',len:'62 m',comm:1994,desc:'Turquie: 12 Type 209. 6 Reis-class AIP commandés. Surveillance Égée et Méditerranée orientale.',desc_en:'Turkey: 12 Type 209. 6 Reis-class AIP ordered. Surveillance of Aegean and Eastern Mediterranean.',weap:'8× tubes 533mm (SST-4, Mk37, UGM-84C Harpoon)'},
+  {id:'aus_collins',name:'HMAS Collins (SSG 73)',flag:'🇦🇺',country:'Australie',cc:'AUS',class:'Collins-class',type:'SS',nuc:false,lat:-31.84,lon:115.94,sea:'HMAS Stirling, Perth',sea_en:'HMAS Stirling, Perth',depth:'-300 m',speed:'21 kts',crew:42,disp:'3 407 t',len:'77.8 m',comm:1996,desc:'6 Collins → Virginia SSN dès 2032 (AUKUS) puis SSN-AUKUS v.2042. Investissement AUD 368Md. Révolution Indo-Pacifique.',desc_en:'6 Collins → Virginia SSN from 2032 (AUKUS) then SSN-AUKUS ~2042. AUD 368B investment. Indo-Pacific revolution.',weap:'6× tubes 533mm (Mk48 ADCAP, UGM-84C, mines)'},
+  {id:'ita_todaro',name:'ITS Todaro (S526)',flag:'🇮🇹',country:'Italie',cc:'ITA',class:'Todaro (Type 212A)',type:'SS',nuc:false,lat:37.21,lon:15.23,sea:'Mer Ionienne, Augusta',sea_en:'Ionian Sea, Augusta',depth:'-700 m',speed:'20 kts',crew:27,disp:'1 830 t',len:'56.9 m',comm:2006,desc:'4 Type 212A italiens. 2 Type 212 NFS commandés 2022. Pile à combustible AIP — extrêmement silencieux.',desc_en:'4 Italian Type 212A. 2 Type 212 NFS ordered 2022. AIP fuel cell — extremely quiet.',weap:'6× tubes 533mm (DM2A4 Black Shark, WASS A244)'},
+  {id:'esp_isaac',name:'Isaac Peral (S-80)',flag:'🇪🇸',country:'Espagne',cc:'ESP',class:'S-80 Plus',type:'SS',nuc:false,lat:37.62,lon:-0.97,sea:'Base navale Cartagena',sea_en:'Naval Base Cartagena',depth:'-350 m',speed:'19 kts',crew:32,disp:'2 426 t',len:'80.8 m',comm:2023,desc:'10 ans de retard après erreur de 75t dans les calculs de masse. AIP espagnol propre. 3 unités supplémentaires en construction.',desc_en:'10-year delay after 75t mass calculation error. Own Spanish AIP. 3 additional units under construction.',weap:'6× tubes 533mm (Mk48, F17, SM39 Exocet, mines)'},
+  {id:'nor_utsira',name:'HNoMS Utsira (S302)',flag:'🇳🇴',country:'Norvège',cc:'NOR',class:'Ula-class',type:'SS',nuc:false,lat:60.39,lon:5.32,sea:'Mer du Nord, Bergen',sea_en:'North Sea, Bergen',depth:'-250 m',speed:'23 kts',crew:21,disp:'1 150 t',len:'59 m',comm:1992,desc:'6 Ula-class. Contrat Type 212NG signé 2021 (livraisons 2030+). Surveillance GIUK gap. 1ère ligne OTAN face à la Russie.',desc_en:'6 Ula-class. Type 212NG contract signed 2021 (deliveries 2030+). GIUK gap surveillance. NATO\'s 1st line against Russia.',weap:'8× tubes 533mm (DM2A3, mines)'},
+  {id:'swe_gotland',name:'HSwMS Götland (A19)',flag:'🇸🇪',country:'Suède',cc:'SWE',class:'Gotland-class',type:'SS',nuc:false,lat:55.62,lon:14.08,sea:'Baltique, Karlskrona',sea_en:'Baltic, Karlskrona',depth:'-300 m',speed:'20 kts',crew:25,disp:'1 600 t',len:'60.5 m',comm:1996,desc:'A "coulé" des porte-avions US lors d\'exercices 2005-2007. Suède rejoint l\'OTAN 2024. Remplacement A26 Blekinge en cours.',desc_en:'"Sank" US carriers during 2005-2007 exercises. Sweden joins NATO 2024. A26 Blekinge replacement underway.',weap:'4× tubes 533mm, 2× 400mm (Tp62/Tp47, mines)'},
+  {id:'grc_papa',name:'HS Papanikolis (S120)',flag:'🇬🇷',country:'Grèce',cc:'GRC',class:'Archimedes (Type 214)',type:'SS',nuc:false,lat:37.97,lon:23.67,sea:'Mer Égée, Salamine',sea_en:'Aegean Sea, Salamis',depth:'-400 m',speed:'20 kts',crew:27,disp:'1 860 t',len:'65.2 m',comm:2010,desc:'11 SS grecs (4 Type 214 + 7 Type 209). AIP fuel-cell. Surveillance Égée permanente, flanc SE de l\'OTAN.',desc_en:'11 Greek SSs (4 Type 214 + 7 Type 209). AIP fuel-cell. Permanent Aegean surveillance, NATO\'s SE flank.',weap:'8× tubes 533mm (DM2A4, UGM-84D Harpoon)'},
+  {id:'bra_riachuelo',name:'Riachuelo (S40)',flag:'🇧🇷',country:'Brésil',cc:'BRA',class:'Riachuelo (Scorpène)',type:'SS',nuc:false,lat:-22.88,lon:-43.12,sea:'Baie de Guanabara, Rio',sea_en:'Guanabara Bay, Rio',depth:'-300 m',speed:'20 kts',crew:45,disp:'2 000 t',len:'71.6 m',comm:2022,desc:'1er des 4 Scorpène brésiliens (Naval Group, PROSUB). SNBR nucléaire (Álvaro Alberto) attendu ~2035.',desc_en:'1st of 4 Brazilian Scorpènes (Naval Group, PROSUB). Nuclear SNBR (Álvaro Alberto) expected ~2035.',weap:'6× tubes 533mm (F21, SM39 Exocet, mines)'},
+  {id:'pak_hamza',name:'PNS Hamza (S141)',flag:'🇵🇰',country:'Pakistan',cc:'PAK',class:'Agosta 90B',type:'SS',nuc:false,lat:24.82,lon:66.97,sea:'Mer d\'Arabie, Karachi',sea_en:'Arabian Sea, Karachi',depth:'-300 m',speed:'20 kts',crew:36,disp:'1 760 t',len:'76.2 m',comm:2008,desc:'AIP MESMA (France). Pakistan commande 8 Type 039B/C chinois 2026-2032 (5 Md$). Face-à-face avec la marine indienne.',desc_en:'AIP MESMA (France). Pakistan orders 8 Chinese Type 039B/C 2026-2032 ($5B). Face-off with Indian Navy.',weap:'4× tubes 533mm (F17 Mod2, SM39 Exocet, mines)'},
+  {id:'vnm_hanoi',name:'HQ-182 Hà Nội',flag:'🇻🇳',country:'Vietnam',cc:'VNM',class:'Kilo (Pr. 636.1)',type:'SS',nuc:false,lat:11.93,lon:109.19,sea:'Mer de Chine méridionale, Cam Ranh',sea_en:'South China Sea, Cam Ranh',depth:'-240 m',speed:'17 kts',crew:52,disp:'3 950 t',len:'73.8 m',comm:2014,desc:'6 Kilo (2011-2017) pour contrer la Chine. Cam Ranh Bay. Flotte sous-marine la plus moderne de l\'ASEAN.',desc_en:'6 Kilos (2011-2017) to counter China. Cam Ranh Bay. ASEAN\'s most modern submarine fleet.',weap:'6× torpilles 533mm + missiles Klub SS-N-27'},
+  {id:'dza_rais',name:'Rais Hadj Mubarek',flag:'🇩🇿',country:'Algérie',cc:'DZA',class:'Improved Kilo (Pr. 636)',type:'SS',nuc:false,lat:36.73,lon:3.17,sea:'Méditerranée, Alger',sea_en:'Mediterranean, Algiers',depth:'-240 m',speed:'17 kts',crew:52,disp:'3 950 t',len:'73.8 m',comm:2010,desc:'4 Kilo améliorés. Flotte sous-marine la plus importante d\'Afrique. Surveillance Méditerranée occidentale.',desc_en:'4 improved Kilos. Africa\'s largest submarine fleet. Western Mediterranean surveillance.',weap:'6× tubes 533mm + Kalibr potentiel'},
+];
+
+const FLEETS=[
+  {flag:'🇷🇺',name:'Russie',name_en:'Russia',count:65,nuc:40},
+  {flag:'🇺🇸',name:'États-Unis',name_en:'United States',count:64,nuc:64},
+  {flag:'🇨🇳',name:'Chine',name_en:'China',count:60,nuc:12},
+  {flag:'🇰🇵',name:'Corée du N.',name_en:'North Korea',count:35,nuc:0},
+  {flag:'🇰🇷',name:'Corée du S.',name_en:'South Korea',count:22,nuc:0},
+  {flag:'🇯🇵',name:'Japon',name_en:'Japan',count:21,nuc:0},
+  {flag:'🇮🇷',name:'Iran',name_en:'Iran',count:19,nuc:0},
+  {flag:'🇮🇳',name:'Inde',name_en:'India',count:18,nuc:2},
+  {flag:'🇹🇷',name:'Turquie',name_en:'Turkey',count:12,nuc:0},
+  {flag:'🇬🇧',name:'Royaume-Uni',name_en:'United Kingdom',count:10,nuc:10},
+  {flag:'🇫🇷',name:'France',name_en:'France',count:9,nuc:9},
+  {flag:'🇩🇪',name:'Allemagne',name_en:'Germany',count:6,nuc:0},
+  {flag:'🇨🇦',name:'Canada',name_en:'Canada',count:4,nuc:0},
+  {flag:'🇳🇱',name:'Pays-Bas',name_en:'Netherlands',count:4,nuc:0},
+];
+
+let LANG='fr';
+const LOCALES={fr:'fr-FR',en:'en-US'};
+const I18N={
+  fr:{
+    vessels:'VESSELS',
+    nuclear_count:'NUCLEAR',
+    nations:'NATIONS',
+    osint:'OSINT',
+    live:'LIVE',
+    system_online:'SYSTÈME EN LIGNE',
+    satellites:'SATELLITES:',
+    restricted_zones:'ZONES RESTREINTES:',
+    legend:'LÉGENDE',
+    legend_ssn:'SSN — Attaque nucléaire',
+    legend_ssbn:'SSBN — Lanceur engins nucléaires',
+    legend_ssgn:'SSGN — Missiles croisière (nuc.)',
+    legend_ss:'SS — Conventionnel diesel-élec.',
+    legend_osint:'OSINT — Signalement récent',
+    home_line:'Ligne port d\'attache',
+    fleet:'FLOTTES MONDIALES',
+    selected_sub:'SOUS-MARIN SÉLECTIONNÉ',
+    search_filters:'RECHERCHE & FILTRES',
+    search_placeholder:'NOM, CLASSE, PAYS...',
+    filter_all:'TOUS',
+    map_view:'🗺 CARTE',
+    globe_view:'🌐 GLOBE 3D',
+    osint_reports:'SIGNALEMENTS OSINT',
+    refresh:'↻ RAFRAÎCHIR',
+    stats:'STATISTIQUES',
+    nuclear_level:'NIVEAU DÉPLOIEMENT NUCLÉAIRE',
+    threat_tag:'GLOBAL · ESTIMÉ · MAI 2026',
+    threat_min:'MINIMAL',
+    threat_mid:'MODÉRÉ',
+    threat_max:'CRITIQUE',
+    osint_fetching:'Récupération OSINT...',
+    osint_count:'{count} signalements',
+    last_update:'MàJ: {date}',
+    osint_none:'Aucun signalement récent',
+    uncertain_position:'❓ Position non confirmée',
+    osint_popup:'SIGNALEMENT OSINT',
+    osint_source:'SOURCE OSINT',
+    read_source:'→ LIRE LA SOURCE',
+    osint_position:'POSITION OSINT',
+    home_port:'🏠 Port d\'attache',
+    displacement:'DÉPLACEMENT',
+    length:'LONGUEUR',
+    speed:'VITESSE',
+    crew:'ÉQUIPAGE',
+    max_depth:'IMMERSION MAX',
+    commission:'COMMISSION',
+    armament:'ARMEMENT',
+    last_known_position:'DERNIÈRE POSITION CONNUE',
+    osint_last_position:'POSITION OSINT — DERNIÈRE CONNUE',
+    nuclear_badge:'NUCLÉAIRE',
+    conventional_badge:'CONVENTIONNEL',
+    click_for_details:'CLIQUER POUR DÉTAILS COMPLETS',
+    click_for_source:'CLIQUER POUR OUVRIR LA SOURCE',
+    stats_ssn:'SSN — Attaque nuc.',
+    stats_ssbn:'SSBN — Lanceur nuc.',
+    stats_ssgn:'SSGN — Missiles (nuc.)',
+    stats_ss:'SS — Conventionnel',
+    stats_deployment:'Déploiement nuc. (actuel / max)',
+    stats_countries:'Pays',
+    ticker:[
+      '⚡ DEEP STATE v4.0 — POSITIONS OSINT EN TEMPS RÉEL · SURVEILLANCE GLOBALE ACTIVE',
+      '🇺🇸 Virginia Subs → 2 par an en 2030s (CNO Caudle, Mai 2026)',
+      '🇷🇺 RFS Petropavlovsk-Kamchatsky — Retour Vladivostok après 9000nm déploiement Asie-Pacifique',
+      '🇷🇺 2 Kilo-class photographiés à Kronstadt avec défenses anti-drones (HI Sutton, Avr 2026)',
+      '🇨🇳 Type 094 Jin — Patrouille Mer de Chine méridionale, Yulin',
+      '🇬🇧 HMS Vanguard — CASD maintenu sans interruption depuis 1969',
+      '🇫🇷 Le Terrible — Patrouille FOST en cours, Atlantique',
+      '☢ ~18 SSBN en patrouille active estimés monde entier',
+      '⚠️ Mer de Chine méridionale : trafic sous-marin intensifié Q2 2026',
+      '📡 Sources: USNI News · Naval News · HI Sutton · IISS Military Balance 2025',
+      '🇰🇵 RPDC: nouveau SSBN nucléaire en construction à Sinpo (satellite, Mars 2025)',
+      '🇦🇺 AUKUS: 3 Virginia-class SSN pour Australie dès 2032 · Investissement AUD 368Md',
+      '🇷🇺 K-329 Belgorod — Porteur Poseidon (2 Mt, autonome), Mer de Barents'
+    ]
+  },
+  en:{
+    vessels:'VESSELS',
+    nuclear_count:'NUCLEAR',
+    nations:'NATIONS',
+    osint:'OSINT',
+    live:'LIVE',
+    system_online:'SYSTEM ONLINE',
+    satellites:'SATELLITES:',
+    restricted_zones:'RESTRICTED ZONES:',
+    legend:'LEGEND',
+    legend_ssn:'SSN — Nuclear attack',
+    legend_ssbn:'SSBN — Strategic missile',
+    legend_ssgn:'SSGN — Cruise missiles',
+    legend_ss:'SS — Conventional diesel-electric',
+    legend_osint:'OSINT — Recent report',
+    home_line:'Home port line',
+    fleet:'WORLD FLEETS',
+    selected_sub:'SELECTED SUBMARINE',
+    search_filters:'SEARCH & FILTERS',
+    search_placeholder:'NAME, CLASS, COUNTRY...',
+    filter_all:'ALL',
+    map_view:'🗺 MAP',
+    globe_view:'🌐 3D GLOBE',
+    osint_reports:'OSINT REPORTS',
+    refresh:'↻ REFRESH',
+    stats:'STATISTICS',
+    nuclear_level:'NUCLEAR DEPLOYMENT LEVEL',
+    threat_tag:'GLOBAL · ESTIMATED · MAY 2026',
+    threat_min:'MINIMAL',
+    threat_mid:'MODERATE',
+    threat_max:'CRITICAL',
+    osint_fetching:'Fetching OSINT...',
+    osint_count:'{count} reports',
+    last_update:'Updated: {date}',
+    osint_none:'No recent reports',
+    uncertain_position:'❓ Position unconfirmed',
+    osint_popup:'OSINT REPORT',
+    osint_source:'OSINT SOURCE',
+    read_source:'→ READ SOURCE',
+    osint_position:'OSINT POSITION',
+    home_port:'🏠 Home port',
+    displacement:'DISPLACEMENT',
+    length:'LENGTH',
+    speed:'SPEED',
+    crew:'CREW',
+    max_depth:'MAX DEPTH',
+    commission:'COMMISSION',
+    armament:'ARMAMENT',
+    last_known_position:'LAST KNOWN POSITION',
+    osint_last_position:'OSINT POSITION — LAST KNOWN',
+    nuclear_badge:'NUCLEAR',
+    conventional_badge:'CONVENTIONAL',
+    click_for_details:'CLICK FOR FULL DETAILS',
+    click_for_source:'CLICK TO OPEN SOURCE',
+    stats_ssn:'SSN — Nuclear attack',
+    stats_ssbn:'SSBN — Strategic missile',
+    stats_ssgn:'SSGN — Cruise missiles',
+    stats_ss:'SS — Conventional',
+    stats_deployment:'Nuclear deployment (current / max)',
+    stats_countries:'Countries',
+    ticker:[
+      '⚡ DEEP STATE v4.0 — REAL-TIME OSINT POSITIONS · GLOBAL SURVEILLANCE ACTIVE',
+      '🇺🇸 Virginia Subs → 2 per year in 2030s (CNO Caudle, May 2026)',
+      '🇷🇺 RFS Petropavlovsk-Kamchatsky — Back to Vladivostok after 9000nm Indo-Pacific deployment',
+      '🇷🇺 2 Kilo-class spotted in Kronstadt with anti-drone defenses (HI Sutton, Apr 2026)',
+      '🇨🇳 Type 094 Jin — South China Sea patrol, Yulin',
+      '🇬🇧 HMS Vanguard — CASD maintained without interruption since 1969',
+      '🇫🇷 Le Terrible — FOST patrol ongoing, Atlantic',
+      '☢ ~18 SSBN estimated on patrol worldwide',
+      '⚠️ South China Sea: intensified submarine traffic Q2 2026',
+      '📡 Sources: USNI News · Naval News · HI Sutton · IISS Military Balance 2025',
+      '🇰🇵 DPRK: new nuclear SSBN under construction in Sinpo (satellite, Mar 2025)',
+      '🇦🇺 AUKUS: 3 Virginia-class SSN for Australia by 2032 · AUD 368Bn investment',
+      '🇷🇺 K-329 Belgorod — Poseidon carrier (2 Mt, autonomous), Barents Sea'
+    ]
+  }
+};
+
+const COUNTRY_NAMES = {
+  fr: {
+    USA:'États-Unis', RUS:'Russie', CHN:'Chine', GBR:'Royaume-Uni', FRA:'France',
+    IND:'Inde', DEU:'Allemagne', JPN:'Japon', KOR:'Corée du Sud', PRK:'Corée du Nord',
+    IRN:'Iran', TUR:'Turquie', AUS:'Australie', ITA:'Italie', ESP:'Espagne',
+    NOR:'Norvège', SWE:'Suède', GRC:'Grèce', BRA:'Brésil', PAK:'Pakistan',
+    VNM:'Vietnam', DZA:'Algérie', NLD:'Pays-Bas'
+  },
+  en: {
+    USA:'United States', RUS:'Russia', CHN:'China', GBR:'United Kingdom', FRA:'France',
+    IND:'India', DEU:'Germany', JPN:'Japan', KOR:'South Korea', PRK:'North Korea',
+    IRN:'Iran', TUR:'Turkey', AUS:'Australia', ITA:'Italy', ESP:'Spain',
+    NOR:'Norway', SWE:'Sweden', GRC:'Greece', BRA:'Brazil', PAK:'Pakistan',
+    VNM:'Vietnam', DZA:'Algeria', NLD:'Netherlands'
+  }
+};
+
+function countryName(s){
+  return COUNTRY_NAMES[LANG] && COUNTRY_NAMES[LANG][s.cc] ? COUNTRY_NAMES[LANG][s.cc] : s.country;
+}
+
+function tr(key, vars={}){
+  let str = I18N[LANG] && I18N[LANG][key] != null ? I18N[LANG][key] : key;
+  if(typeof str !== 'string') return str;
+  for(const k in vars){ str = str.replace(new RegExp('\\{'+k+'\\}','g'), vars[k]); }
+  return str;
+}
+
+function formatDate(value, options={day:'2-digit',month:'short',year:'numeric'}){
+  if(!value) return '';
+  const date = value instanceof Date ? value : new Date(value);
+  return date.toLocaleDateString(LOCALES[LANG], options);
+}
+
+function applyTranslations(){
+  document.documentElement.lang = LANG;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.dataset.i18n;
+    if(!key) return;
+    const txt = tr(key);
+    if(el.dataset.i18nHtml==='true') el.innerHTML = txt;
+    else el.textContent = txt;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const key = el.dataset.i18nPlaceholder;
+    if(!key) return;
+    el.placeholder = tr(key);
+  });
+  const langButtons=document.querySelectorAll('.lang-btn');
+  langButtons.forEach(b=>b.classList.toggle('on', b.dataset.lang===LANG));
+}
+
+function setLanguage(lang){
+  if(!LOCALES[lang]) return;
+  LANG = lang;
+  applyTranslations();
+  renderTicker();
+  renderFleet();
+  renderStats();
+  renderOsintFeed();
+  renderList();
+  if(selId){ const s=SUBS.find(x=>x.id===selId); if(s) renderDetail(s); }
+  if(leafMap) renderMarkers();
+  if(osintData){
+    const upd = new Date(osintData.last_updated);
+    document.getElementById('last-update').textContent = tr('last_update',{date: formatDate(upd)});
+  }
+}
+
+// ─── V4: Enrich SUBS with home port data & OSINT overlay fields ───
+SUBS.forEach(function(s){
+  if(s.homeLat==null) s.homeLat = s.lat;
+  if(s.homeLon==null) s.homeLon = s.lon;
+  if(s.homeSea==null) s.homeSea = s.sea;
+  if(s.homeSea_en==null) s.homeSea_en = s.sea_en || s.homeSea;
+  s.osintSource  = null;
+  s.osintTitle   = null;
+  s.osintUrl     = null;
+  s.osintDate    = null;
+});
+
+// ─── V4: Apply OSINT positions — moves sub to its last known location ───
+function applyOsintPositions(data){
+  if(!data) return;
+
+  // Helper: get latest position for a sub from position_updates (supports history list or legacy single-object)
+  function latestFromPositionUpdates(subId){
+    if(!data.position_updates) return null;
+    var pu = data.position_updates[subId];
+    if(!pu) return null;
+    if(Array.isArray(pu) && pu.length){
+      return pu[pu.length-1];
+    }
+    if(typeof pu === 'object' && pu.lat!=null) return pu;
+    return null;
+  }
+
+  // Build map from sightings as fallback (legacy behavior)
+  var best={};
+  if(Array.isArray(data.sightings)){
+    data.sightings.forEach(function(sg){
+      if(!sg.sub_id||sg.lat==null) return;
+      var existing=best[sg.sub_id];
+      if(!existing){best[sg.sub_id]=sg;return;}
+      var dNew=new Date(sg.published||0);
+      var dOld=new Date(existing.published||0);
+      if(dNew>dOld) best[sg.sub_id]=sg;
+    });
+  }
+
+  SUBS.forEach(function(s){
+    // Prefer explicit position_updates history (latest entry)
+    var pu = latestFromPositionUpdates(s.id);
+    if(pu && pu.lat!=null){
+      s.lat = pu.lat + (Math.random()-0.5)*0.06; // small jitter to avoid overlap
+      s.lon = pu.lon + (Math.random()-0.5)*0.06;
+      s.sea = pu.location_fr || pu.location || s.sea;
+      s.sea_en = pu.location_en || pu.location || s.sea_en;
+      s.osintUpdated = true;
+      s.osintSource  = pu.source || s.osintSource;
+      s.osintTitle   = pu.title_fr || pu.title || s.osintTitle;
+      s.osintTitle_en = pu.title_en || pu.title || s.osintTitle;
+      s.osintUrl     = pu.source_url || s.osintUrl;
+      s.osintDate    = pu.published || pu.recorded_at || s.osintDate;
+      return;
+    }
+
+    // Fallback: use most recent sighting from sightings array
+    var sg = best[s.id];
+    if(sg){
+      s.lat = sg.lat + (Math.random()-0.5)*0.3;
+      s.lon = sg.lon + (Math.random()-0.5)*0.3;
+      s.sea = sg.location_fr || sg.location || s.sea;
+      s.sea_en = sg.location_en || sg.location || s.sea_en;
+      s.osintUpdated = true;
+      s.osintSource  = sg.source || s.osintSource;
+      s.osintTitle   = sg.title_fr || sg.title || s.osintTitle;
+      s.osintTitle_en = sg.title_en || sg.title || s.osintTitle;
+      s.osintUrl     = sg.source_url || s.osintUrl;
+      s.osintDate    = sg.published || s.osintDate;
+    }
+  });
+}
+
+// ═══════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════
+let selId=null,filt='all',query='',view='map';
+let leafMap=null,leafMarkers={},osintMarkers=[];
+let globeReady=false;
+let osintData=null;
+// V4: home port tracking
+let homeLines=[];       // dashed lines on map
+let homeMarkers={};     // diamond markers at home port
+
+// ═══════════════════════════════════════════════
+// FILTER
+// ═══════════════════════════════════════════════
+function filtered(){
+  return SUBS.filter(s=>{
+    const q=query.toLowerCase();
+    const mq=!q||s.name.toLowerCase().includes(q)||s.country.toLowerCase().includes(q)||s.class.toLowerCase().includes(q);
+    const mf=filt==='all'||(filt==='nuclear'&&s.nuc)||s.type===filt;
+    return mq&&mf;
+  });
+}
+
+// ═══════════════════════════════════════════════
+// LEAFLET MAP
+// ═══════════════════════════════════════════════
+function initMap(){
+  leafMap=L.map('leafmap',{center:[20,10],zoom:3,minZoom:2,maxZoom:18});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+    attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · <a href="https://carto.com">CartoDB</a> · DEEP STATE',
+    subdomains:'abcd',maxZoom:20
+  }).addTo(leafMap);
+  renderMarkers();
+}
+
+function getColor(s){
+  if(s.type==='SSBN') return '#39ff14';
+  if(s.type==='SSN')  return '#00e5ff';
+  if(s.type==='SSGN') return '#ff8c00';
+  return '#5a8aaa';
+}
+
+function makeIcon(s){
+  const col=getColor(s);
+  const r=s.nuc?7:5;
+  const ring=`<circle cx="17" cy="17" r="${r+3}" fill="none" stroke="${col}" stroke-width="1.2" opacity="0.7">
+    <animate attributeName="r" values="${r+1};${r+10};${r+1}" dur="${s.nuc?'2':'3'}s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0;0.8" dur="${s.nuc?'2':'3'}s" repeatCount="indefinite"/>
+  </circle>`;
+  const nuc=s.nuc?`<text x="17" y="6" text-anchor="middle" font-size="8" fill="${col}" font-family="sans-serif">☢</text>`:'';
+  const filt=`<filter id="g${s.id}"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
+  // V4: gold dashed ring for OSINT-updated subs
+  return L.divIcon({
+    html:`<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"><defs>${filt}</defs>${ring}${nuc}<circle cx="17" cy="17" r="${r+2}" fill="${col}" opacity="0.2"/><circle cx="17" cy="17" r="${r}" fill="${col}" filter="url(#g${s.id})"/></svg>`,
+    className:'',iconSize:[34,34],iconAnchor:[17,17],popupAnchor:[0,-20]
+  });
+}
+
+function makeHomeIcon(s){
+  // Small diamond at home port
+  const col=getColor(s);
+  return L.divIcon({
+    html:`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+      <polygon points="7,1 13,7 7,13 1,7" fill="none" stroke="${col}" stroke-width="1.2" opacity="0.45"/>
+    </svg>`,
+    className:'',iconSize:[14,14],iconAnchor:[7,7],popupAnchor:[0,-9]
+  });
+}
+
+function makeOsintIcon(s){
+  return L.divIcon({
+    html:`<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+      <circle cx="14" cy="14" r="8" fill="none" stroke="#ffd700" stroke-width="1.2" opacity="0.8">
+        <animate attributeName="r" values="5;14;5" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.9;0;0.9" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="14" cy="14" r="5" fill="#ffd700" opacity="0.9" filter="url(#og)"/>
+      <text x="14" y="18" text-anchor="middle" font-size="7" fill="#020810" font-weight="bold">!</text>
+      <defs><filter id="og"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    </svg>`,
+    className:'',iconSize:[28,28],iconAnchor:[14,14],popupAnchor:[0,-16]
+  });
+}
+
+function subSea(s){ return LANG==='en'&&s.sea_en?s.sea_en:s.sea; }
+function subHomeSea(s){ return LANG==='en'&&s.homeSea_en?s.homeSea_en:s.homeSea; }
+function subDesc(s){ return LANG==='en'&&s.desc_en?s.desc_en:s.desc; }
+function subDepth(s){ return LANG==='en'&&s.depth_en?s.depth_en:s.depth; }
+function sgTitle(sg){ return LANG==='en'?(sg.title_en||sg.title):((sg.title_fr||sg.title)); }
+function sgSummary(sg){ return LANG==='en'?(sg.summary_en||sg.summary):((sg.summary_fr||sg.summary)); }
+function sgLocation(sg){ return LANG==='en'?(sg.location_en||sg.location):((sg.location_fr||sg.location)); }
+
+function makePopup(s){
+  const pub=s.osintDate?formatDate(new Date(s.osintDate),{day:'2-digit',month:'short',year:'numeric'}):'';
+  const _osintTitle = LANG==='en'?(s.osintTitle_en||s.osintTitle):s.osintTitle;
+  const osintTitle = _osintTitle?`<div class="pp-osint-title">${_osintTitle}</div>`:'';
+  const osintLink = s.osintUrl?`<a class="pp-osint-link" href="${s.osintUrl}" target="_blank">${tr('read_source')}</a>`:'';
+  const osintBadge=s.osintUpdated?`<div class="pp-osint-block">
+      <div class="pp-osint-label">📡 ${tr('osint_position')}</div>
+      <div class="pp-osint-sub">${pub} · ${s.osintSource}</div>
+      ${osintTitle}
+      ${osintLink}
+    </div>`:'';
+  const homeLine=(s.osintUpdated&&s.homeSea!==s.sea)?`<div class="pp-home">${tr('home_port')}: ${subHomeSea(s)}</div>`:'';
+  return `<div class="pp">
+    <div class="pp-title">${s.flag} ${s.name}</div>
+    <div class="pp-cls">${s.class} · ${s.type}${s.nuc?' · ☢ '+tr('nuclear_badge'):''}</div>
+    ${osintBadge}
+    <div class="pp-grid">
+      <div class="pp-s"><div class="k">${tr('displacement')}</div><div class="v">${s.disp}</div></div>
+      <div class="pp-s"><div class="k">${tr('length')}</div><div class="v">${s.len}</div></div>
+      <div class="pp-s"><div class="k">${tr('speed')}</div><div class="v">${s.speed}</div></div>
+      <div class="pp-s"><div class="k">${tr('crew')}</div><div class="v">${s.crew}</div></div>
+    </div>
+    <div class="pp-sea">${s.osintUpdated?'📡':'📍'} ${subSea(s)}</div>
+    ${homeLine}
+    <div class="pp-desc">${subDesc(s).slice(0,200)}${subDesc(s).length>200?'…':''}</div>
+  </div>`;
+}
+
+function makeOsintPopup(sg){
+  const pub=sg.published?formatDate(new Date(sg.published),{day:'2-digit',month:'short',year:'numeric'}):'';
+  return `<div class="pp">
+    <div class="pp-title">📡 ${tr('osint_popup')}</div>
+    <div class="pp-cls">${sg.source}${pub?' · '+pub:''}</div>
+    <div class="pp-sea">📍 ${sgLocation(sg)}</div>
+    <div class="pp-desc">${sgSummary(sg).slice(0,300)}${sgSummary(sg).length>300?'…':''}</div>
+    <div style="margin-top:8px"><a href="${sg.source_url}" target="_blank" style="font-family:Share Tech Mono;font-size:8px;color:#ffd700;letter-spacing:1px">${tr('read_source')}</a></div>
+  </div>`;
+}
+
+function renderMarkers(){
+  if(!leafMap) return;
+  // Remove old markers
+  Object.values(leafMarkers).forEach(m=>leafMap.removeLayer(m));
+  Object.values(homeMarkers).forEach(m=>leafMap.removeLayer(m));
+  homeLines.forEach(l=>leafMap.removeLayer(l));
+  leafMarkers={};homeMarkers={};homeLines=[];
+
+  filtered().forEach(s=>{
+    // Main marker at CURRENT position (OSINT or home)
+    const m=L.marker([s.lat,s.lon],{icon:makeIcon(s)})
+      .addTo(leafMap)
+      .bindPopup(makePopup(s),{className:s.nuc?'nuc-popup':'',maxWidth:340});
+    m.on('click',()=>selectSub(s));
+    leafMarkers[s.id]=m;
+
+    // V4: If OSINT moved the sub, also draw home port diamond + dashed line
+    if(s.osintUpdated){
+      const dist=Math.sqrt(Math.pow(s.lat-s.homeLat,2)+Math.pow(s.lon-s.homeLon,2));
+      if(dist>0.4){
+        // Dashed line from current pos to home port
+        const line=L.polyline([[s.lat,s.lon],[s.homeLat,s.homeLon]],{
+          color:getColor(s),weight:1,opacity:0.3,dashArray:'5,8'
+        }).addTo(leafMap);
+        homeLines.push(line);
+        // Home port diamond
+        const hm=L.marker([s.homeLat,s.homeLon],{icon:makeHomeIcon(s),opacity:0.5})
+          .addTo(leafMap)
+          .bindPopup(`<div class="pp"><div class="pp-title" style="font-size:10px">${tr('home_port')}</div><div class="pp-cls">${s.name}</div><div class="pp-sea">${subHomeSea(s)}</div></div>`,{maxWidth:220});
+        homeMarkers[s.id]=hm;
+      }
+    }
+  });
+}
+
+function isStandaloneOsint(sg){
+  return !sg.sub_id || !SUBS.some(s=>s.id===sg.sub_id);
+}
+
+function renderOsintMarkers(){
+  osintMarkers.forEach(m=>leafMap&&leafMap.removeLayer(m));
+  osintMarkers=[];
+  if(!osintData||!leafMap) return;
+  osintData.sightings.forEach(sg=>{
+    if(sg.lat==null||sg.lon==null) return;
+    if(!isStandaloneOsint(sg)) return;
+    const m=L.marker([sg.lat,sg.lon],{icon:makeOsintIcon(sg)})
+      .addTo(leafMap)
+      .bindPopup(makeOsintPopup(sg),{className:'osint-popup',maxWidth:330});
+    osintMarkers.push(m);
+  });
+}
+
+// ═══════════════════════════════════════════════
+// OSINT FEED
+// ═══════════════════════════════════════════════
+// Embedded sightings data — populated by scraper.py, enriched with manual OSINT
+// Sources: USNI News Fleet Tracker, Western Pacific Pulse, HI Sutton, Naval News (Mai 2026)
+const EMBEDDED_SIGHTINGS = {
+  "last_updated":"2026-05-17T11:00:00+00:00",
+  "count":14,
+  "sightings":[
+    {
+      "id":"usni_pacific_pulse_may8",
+      "sub_id":"rus_vlad",
+      "sub_name":"RFS Petropavlovsk-Kamchatsky (B-274)",
+      "title":"Sous-marin russe RFS Petropavlovsk-Kamchatsky — Retour Vladivostok",
+      "title_en":"Russian submarine RFS Petropavlovsk-Kamchatsky — Return to Vladivostok",
+      "summary":"La flotte du Pacifique russe est arrivée jeudi à Vladivostok après un déploiement Asie-Pacifique de 9 000 milles nautiques débuté le 3 mars. Le groupe comprenait le sous-marin B-274, la corvette RFS Gromkiy (335) et un remorqueur. Escales en Indonésie (Tanjung Priok) durant le déploiement.",
+      "summary_en":"The Russian Pacific Fleet arrived Thursday in Vladivostok after a 9,000-nautical-mile Asia-Pacific deployment begun March 3. The group included submarine B-274, corvette RFS Gromkiy (335) and a tugboat. Port calls in Indonesia (Tanjung Priok) during the deployment.",
+      "source":"USNI News — Western Pacific Pulse",
+      "source_url":"https://news.usni.org/2026/05/08/usni-news-western-pacific-pulse-may-8-2026",
+      "location":"Vladivostok, Russie",
+      "location_en":"Vladivostok, Russia",
+      "lat":43.11,"lon":131.87,
+      "published":"Fri, 08 May 2026 20:40:54 +0000"
+    },
+    {
+      "id":"hisutton_kilo_kronstadt",
+      "sub_id":"rus_kilo",
+      "sub_name":"Kilo-class (×2)",
+      "title":"Deux sous-marins Kilo russes photographiés à Kronstadt avec défenses anti-drones",
+      "title_en":"Two Russian Kilo submarines photographed at Kronstadt with anti-drone defenses",
+      "summary":"Deux Kilo-class de la Marine russe photographiés à Kronstadt (Saint-Pétersbourg). Photos montrant des filets et contre-mesures électroniques anti-drones (UAV/USV) sur le kiosque — première documentation publique de ces équipements sur des sous-marins russes.",
+      "summary_en":"Two Russian Navy Kilo-class submarines photographed at Kronstadt (Saint Petersburg). Photos showing nets and electronic anti-drone countermeasures (UAV/USV) on the sail — first public documentation of such equipment on Russian submarines.",
+      "source":"HI Sutton — Covert Shores",
+      "source_url":"https://www.hisutton.com/Russian-Submarine-Drone-Defences.html",
+      "location":"Kronstadt, Saint-Pétersbourg",
+      "location_en":"Kronstadt, Saint Petersburg",
+      "lat":59.99,"lon":29.77,
+      "published":"2026-04-12T00:01:00+00:00"
+    },
+    {
+      "id":"usni_fleet_tracker_may11_abe_lincoln",
+      "sub_id":null,
+      "sub_name":"USS Abraham Lincoln (CVN-72) + sous-marins d'escorte",
+      "title":"CSG Abraham Lincoln — Mer d'Arabie, Opération Epic Fury",
+      "title_en":"CSG Abraham Lincoln — Arabian Sea, Operation Epic Fury",
+      "summary":"Le Carrier Strike Group Abraham Lincoln opère en mer d'Arabie en soutien à l'Opération Epic Fury. Des sous-marins d'attaque non identifiés font partie du groupe non communiqué mais déployé dans la région. Présence navale US intensifiée dans le Golfe en raison des tensions avec l'Iran.",
+      "summary_en":"The Abraham Lincoln Carrier Strike Group is operating in the Arabian Sea in support of Operation Epic Fury. Unidentified attack submarines are part of the undisclosed but deployed group in the region. Intensified US naval presence in the Gulf due to tensions with Iran.",
+      "source":"USNI News — Fleet & Marine Tracker",
+      "source_url":"https://news.usni.org/2026/05/11/usni-news-fleet-and-marine-tracker-may-11-2026",
+      "location":"Mer d'Arabie",
+      "location_en":"Arabian Sea",
+      "lat":17.4,"lon":63.8,
+      "published":"Sun, 11 May 2026 17:00:00 +0000"
+    },
+    {
+      "id":"usni_fleet_tracker_may11_ford",
+      "sub_id":null,
+      "sub_name":"USS Gerald R. Ford CSG — Méditerranée",
+      "title":"CSG Gerald R. Ford — Méditerranée orientale, sous-marins d'escorte actifs",
+      "title_en":"CSG Gerald R. Ford — Eastern Mediterranean, active escort submarines",
+      "summary":"Le Carrier Strike Group Gerald R. Ford opère en Méditerranée. Des SSN d'escorte accompagnent le groupe. Destroyers USS Bainbridge, USS Mahan et autres présents. La Méditerranée orientale reste une zone de surveillance active avec la présence navale russe en mer Noire.",
+      "summary_en":"The Gerald R. Ford Carrier Strike Group is operating in the Mediterranean. Escort SSNs accompany the group. Destroyers USS Bainbridge, USS Mahan and others present. The Eastern Mediterranean remains an active surveillance zone given the Russian naval presence in the Black Sea.",
+      "source":"USNI News — Fleet & Marine Tracker",
+      "source_url":"https://news.usni.org/2026/05/11/usni-news-fleet-and-marine-tracker-may-11-2026",
+      "location":"Méditerranée orientale",
+      "location_en":"Eastern Mediterranean",
+      "lat":35.5,"lon":25.2,
+      "published":"Sun, 11 May 2026 17:00:00 +0000"
+    },
+    {
+      "id":"usni_virginia_build_rate",
+      "sub_id":"uss_virginia",
+      "sub_name":"Virginia-class (programme)",
+      "title":"Virginia-class : cadence 2 sous-marins/an confirmée pour 2032 — CNO Caudle",
+      "title_en":"Virginia-class: 2 submarines/year rate confirmed for 2032 — CNO Caudle",
+      "summary":"L'amiral Daryl Caudle (Chef des opérations navales) a confirmé que General Dynamics Electric Boat et HII Newport News Shipbuilding atteindront la cadence de 2 Virginia-class par an dès 2032. L'Australie attend ses 3 premiers Virginia dans le cadre d'AUKUS dès lors.",
+      "summary_en":"Admiral Daryl Caudle (Chief of Naval Operations) confirmed that General Dynamics Electric Boat and HII Newport News Shipbuilding will reach the rate of 2 Virginia-class per year by 2032. Australia awaits its first 3 Virginias under AUKUS from that point.",
+      "source":"USNI News",
+      "source_url":"https://news.usni.org/2026/05/12/virginia-subs-will-hit-2-a-year-build-rate-in-2030s-cno-caudle-says",
+      "location":"Newport News, Virginie (chantier naval)",
+      "location_en":"Newport News, Virginia (Shipyard)",
+      "lat":37.0,"lon":-76.4,
+      "published":"Tue, 12 May 2026 21:52:02 +0000"
+    },
+    {
+      "id":"usni_russia_10ship_convoy_tsushima",
+      "sub_id":null,
+      "sub_name":"Convoi russe — Détroit de Tsushima",
+      "title":"Convoi russe de 10 navires transit détroit de Tsushima — surveillance sous-marine accrue",
+      "title_en":"Russian 10-ship convoy transits Tsushima Strait — increased submarine surveillance",
+      "summary":"Un convoi russe de 10 navires (corvettes RFS Sovershennyy et RFS Rezkiy, pétrolier Dubna-class, remorqueur et 6 cargos) a transité dans les eaux entre Yonaguni et Iriomote (Japon) pour entrer en mer des Philippines. Joint Staff Office japonais surveille activement. Sous-marins JMSDF en alerte.",
+      "summary_en":"A Russian convoy of 10 vessels (corvettes RFS Sovershennyy and RFS Rezkiy, a Dubna-class tanker, a tugboat and 6 cargo ships) transited waters between Yonaguni and Iriomote (Japan) to enter the Philippine Sea. Japan's Joint Staff Office is actively monitoring. JMSDF submarines on alert.",
+      "source":"USNI News — Western Pacific Pulse",
+      "source_url":"https://news.usni.org/2026/05/15/usni-news-western-pacific-pulse-may-15-2026",
+      "location":"Détroit de Tsushima",
+      "location_en":"Tsushima Strait",
+      "lat":34.5,"lon":129.3,
+      "published":"Thu, 15 May 2026 18:00:00 +0000"
+    },
+    {
+      "id":"usni_gbush_csg_africa",
+      "sub_id":null,
+      "sub_name":"USS George H.W. Bush CSG — côte africaine",
+      "title":"CSG George H.W. Bush en transit côte Afrique vers 5th Fleet",
+      "title_en":"CSG George H.W. Bush in transit along African coast toward 5th Fleet",
+      "summary":"Le Carrier Strike Group George H.W. Bush (CVN-77) est en transit le long des côtes africaines en direction de la 5th Fleet (Golfe Persique / Mer d'Arabie). Des sous-marins SSN non identifiés accompagnent le groupe. Départ de Norfolk le 31 mars 2026.",
+      "summary_en":"The George H.W. Bush (CVN-77) Carrier Strike Group is in transit along the African coasts toward the 5th Fleet (Persian Gulf / Arabian Sea). Unidentified SSNs accompany the group. Departed Norfolk on March 31, 2026.",
+      "source":"USNI News — Fleet Tracker Apr 20",
+      "source_url":"https://news.usni.org/2026/04/20/usni-news-fleet-and-marine-tracker-april-20-2026",
+      "location":"Atlantique Sud, côte africaine",
+      "location_en":"South Atlantic, African Coast",
+      "lat":-8.5,"lon":5.2,
+      "published":"Mon, 20 Apr 2026 18:00:00 +0000"
+    },
+    {
+      "id":"usni_nimitz_south_america",
+      "sub_id":null,
+      "sub_name":"USS Nimitz CSG — contournement Amérique du Sud",
+      "title":"USS Nimitz circumnavigue l'Amérique du Sud — Southern Seas 2026",
+      "title_en":"USS Nimitz circumnavigates South America — Southern Seas 2026",
+      "summary":"Le porte-avions USS Nimitz (CVN-68) et l'USS Gridley (DDG-101) participent à l'exercice Southern Seas 2026 et circumnaviguent l'Amérique du Sud en route vers la Virginie pour décommissionnement. Sous-marins d'escorte présents mais non communiqués. Service life étendu de 10 mois.",
+      "summary_en":"The carrier USS Nimitz (CVN-68) and USS Gridley (DDG-101) are participating in exercise Southern Seas 2026 and circumnavigating South America en route to Virginia for decommissioning. Escort submarines present but undisclosed. Service life extended by 10 months.",
+      "source":"USNI News — Fleet Tracker",
+      "source_url":"https://news.usni.org/2026/05/04/usni-news-fleet-and-marine-tracker-may-4-2026",
+      "location":"Atlantique Sud, au large de l'Argentine",
+      "location_en":"South Atlantic, off Argentina",
+      "lat":-38.0,"lon":-52.0,
+      "published":"Sun, 04 May 2026 17:00:00 +0000"
+    },
+    {
+      "id":"usni_ford_departs_home",
+      "sub_id":null,
+      "sub_name":"USS Gerald R. Ford — retour Atlantique",
+      "title":"USS Gerald R. Ford rentre au port — sous-marins d'escorte actifs Atlantique",
+      "title_en":"USS Gerald R. Ford heads home — active escort submarines in the Atlantic",
+      "summary":"L'USS Gerald R. Ford (CVN-78) a quitté la Méditerranée et est maintenant dans l'Atlantique en route vers son port d'attache à Norfolk. Des SSN Virginia-class ont assuré l'escorte sous-marine tout au long du déploiement en Méditerranée et en soutien à l'Opération Epic Fury.",
+      "summary_en":"The USS Gerald R. Ford (CVN-78) has left the Mediterranean and is now in the Atlantic en route to its homeport at Norfolk. Virginia-class SSNs provided submarine escort throughout the Mediterranean deployment and in support of Operation Epic Fury.",
+      "source":"USNI News",
+      "source_url":"https://news.usni.org/2026/05/16/uss-gerald-r-ford-comes-home",
+      "location":"Atlantique, au large de Norfolk",
+      "location_en":"Atlantic, off Norfolk",
+      "lat":38.5,"lon":-68.0,
+      "published":"Fri, 16 May 2026 14:00:00 +0000"
+    },
+    {
+      "id":"usni_hormuz_iran_tensions",
+      "sub_id":"irn_fateh",
+      "sub_name":"Iran — sous-marins détroit d'Ormuz",
+      "title":"Iran menace de facturer le transit du détroit d'Ormuz — sous-marins en alerte",
+      "title_en":"Iran threatens to charge Strait of Hormuz transit fees — submarines on alert",
+      "summary":"L'Iran a annoncé des plans pour facturer les transits commerciaux dans le détroit d'Ormuz, créant une situation de confusion maritime. Experts soulignent que des sous-marins iraniens (Ghadir et Fateh-class) seraient positionnés pour surveiller et potentiellement intercepter des navires. La marine US en 5th Fleet est en état d'alerte élevé.",
+      "summary_en":"Iran announced plans to charge commercial transits through the Strait of Hormuz, creating maritime confusion. Experts note that Iranian submarines (Ghadir and Fateh-class) would be positioned to monitor and potentially intercept vessels. The US 5th Fleet Navy is on high alert.",
+      "source":"USNI News",
+      "source_url":"https://news.usni.org/2026/05/13/strait-of-hormuz-shipping-in-state-of-confusion",
+      "location":"Détroit d'Ormuz",
+      "location_en":"Strait of Hormuz",
+      "lat":26.6,"lon":56.3,
+      "published":"Tue, 13 May 2026 16:00:00 +0000"
+    },
+    {
+      "id":"usni_ford_med_epic_fury",
+      "sub_id":null,
+      "sub_name":"SSN escorte CSG Ford — Méditerranée",
+      "title":"SSN en Méditerranée orientale — Opération Epic Fury, soutien CSG Ford",
+      "title_en":"SSNs in Eastern Mediterranean — Operation Epic Fury, CSG Ford support",
+      "summary":"Des sous-marins d'attaque non identifiés opèrent en Méditerranée orientale en soutien à l'Opération Epic Fury. L'USS Gerald R. Ford (CVN-78) a opéré dans la région après une escale à Souda Bay (Crète) pour réparations suite à un incendie en machine le 17 mars. Les SSN assurent la protection ASW du groupe.",
+      "summary_en":"Unidentified attack submarines are operating in the Eastern Mediterranean in support of Operation Epic Fury. The USS Gerald R. Ford (CVN-78) operated in the region after a stop at Souda Bay (Crete) for repairs following an engine room fire on March 17. The SSNs provide ASW protection for the group.",
+      "source":"USNI News — Fleet Tracker Mar 23",
+      "source_url":"https://news.usni.org/2026/03/23/usni-news-fleet-and-marine-tracker-march-23-2026",
+      "location":"Mer Ionienne / Crète",
+      "location_en":"Ionian Sea / Crete",
+      "lat":36.2,"lon":22.8,
+      "published":"Mon, 23 Mar 2026 17:00:00 +0000"
+    },
+    {
+      "id":"usni_tripoli_diego_garcia",
+      "sub_id":null,
+      "sub_name":"Forces US — Diego Garcia",
+      "title":"Tripoli ARG et forces sous-marines à Diego Garcia — Indo-Pacifique",
+      "title_en":"Tripoli ARG and submarine forces at Diego Garcia — Indo-Pacific",
+      "summary":"L'USS Tripoli (LHA-7) est en port à Diego Garcia. Le groupe amphibie se dirige vers le Moyen-Orient après transit du détroit de Malacca. Des sous-marins SSN opèrent dans la zone de Diego Garcia pour soutenir les opérations dans l'Océan Indien. Zone stratégique clé pour le forward deployment.",
+      "summary_en":"USS Tripoli (LHA-7) is in port at Diego Garcia. The amphibious group is heading toward the Middle East after transiting the Strait of Malacca. SSN submarines are operating in the Diego Garcia area to support Indian Ocean operations. Key strategic area for forward deployment.",
+      "source":"USNI News — Fleet Tracker Mar 23",
+      "source_url":"https://news.usni.org/2026/03/23/usni-news-fleet-and-marine-tracker-march-23-2026",
+      "location":"Diego Garcia, Océan Indien",
+      "location_en":"Diego Garcia, Indian Ocean",
+      "lat":-7.3,"lon":72.4,
+      "published":"Mon, 23 Mar 2026 17:00:00 +0000"
+    },
+    {
+      "id":"navalnews_asw_indo",
+      "sub_id":null,
+      "sub_name":"Marine indonésienne — ASW",
+      "title":"Indonésie prépare capacités ASW avec porte-avions Garibaldi",
+      "title_en":"Indonesia prepares ASW capabilities with carrier Garibaldi",
+      "summary":"La Marine indonésienne (TNI AL) prépare des opérations de lutte anti-sous-marine (ASW) à bord de l'ex-porte-avions italien Giuseppe Garibaldi. Le 100ème escadron spécialisé ASW crée une installation de simulation. Signal de la montée en puissance ASW en Asie du Sud-Est face aux sous-marins chinois.",
+      "summary_en":"The Indonesian Navy (TNI AL) is preparing anti-submarine warfare (ASW) operations aboard the ex-Italian carrier Giuseppe Garibaldi. The 100th specialized ASW squadron is creating a simulation facility. Signal of ASW capability build-up in Southeast Asia facing Chinese submarines.",
+      "source":"Naval News",
+      "source_url":"https://www.navalnews.com/naval-news/2026/05/indonesia-prepares-for-carrier-operations-ahead-of-garibaldi-transfer/",
+      "location":"Mer de Java, Indonésie",
+      "location_en":"Java Sea, Indonesia",
+      "lat":-6.2,"lon":106.8,
+      "published":"Sun, 17 May 2026 08:01:36 +0000"
+    },
+    {
+      "id":"usni_uk_hormuz_destroyer",
+      "sub_id":"gbr_astute",
+      "sub_name":"Royal Navy — déploiement Hormuz",
+      "title":"Royaume-Uni envoie un destroyer + Typhoon au détroit d'Ormuz — SSN probable",
+      "title_en":"UK sends destroyer + Typhoons to Strait of Hormuz — probable SSN",
+      "summary":"Le Royaume-Uni a annoncé l'envoi d'un destroyer, des Typhoon, des systèmes autonomes anti-mines et des USV en soutien à la mission du détroit d'Ormuz. Des sources non officielles suggèrent qu'un Astute-class SSN accompagne discrètement le déploiement pour assurer la couverture sous-marine.",
+      "summary_en":"The United Kingdom announced the deployment of a destroyer, Typhoons, autonomous mine-hunting systems and USVs in support of the Strait of Hormuz mission. Unofficial sources suggest an Astute-class SSN quietly accompanies the deployment to provide submarine coverage.",
+      "source":"USNI News",
+      "source_url":"https://news.usni.org/2026/05/14/u-k-pledges-destroyer-drone-hunting-systems-to-strait-of-hormuz-mission",
+      "location":"Golfe d'Oman / Détroit d'Ormuz",
+      "location_en":"Gulf of Oman / Strait of Hormuz",
+      "lat":23.5,"lon":58.2,
+      "published":"Wed, 14 May 2026 15:00:00 +0000"
+    }
+  ]
+};
+
+async function fetchOsint(){
+  document.getElementById('osint-status').innerHTML=`<span class="spin">◌</span> ${tr('osint_fetching')}`;
+
+  // Try fetching `sightings.json` from the same directory; fallback to embedded data
+  try{
+    const resp = await fetch('sightings.json', {cache: 'no-store'});
+    if(resp.ok){
+      osintData = await resp.json();
+    } else {
+      // fallback
+      await new Promise(r=>setTimeout(r,200));
+      osintData = EMBEDDED_SIGHTINGS;
+    }
+  } catch(e){
+    await new Promise(r=>setTimeout(r,200));
+    osintData = EMBEDDED_SIGHTINGS;
+  }
+
+  // V4: apply OSINT positions to SUBS array (uses `position_updates` history when present), then re-render everything
+  applyOsintPositions(osintData);
+  if(leafMap) renderMarkers();
+  // Update fleet/stats after applying OSINT
+  renderFleet();
+  renderStats();
+  renderOsintFeed();
+  renderOsintMarkers();
+
+  const upd=new Date(osintData.last_updated);
+  document.getElementById('oic').textContent=osintData.count;
+  document.getElementById('osint-status').innerHTML=`<span style="color:var(--green)">●</span> ${tr('osint_count',{count: osintData.count})}`;
+  document.getElementById('last-update').textContent=tr('last_update',{date: formatDate(upd)});
+}
+
+function renderOsintFeed(){
+  const el=document.getElementById('osint-list');
+  if(!osintData||!osintData.sightings.length){
+    el.innerHTML=`<div style="font-family:Share Tech Mono;font-size:9px;color:var(--muted)">${tr('osint_none')}</div>`;
+    return;
+  }
+  el.innerHTML=osintData.sightings.map(sg=>{
+    const pub=sg.published?formatDate(new Date(sg.published),{day:'2-digit',month:'short'}):'';
+    const hasLoc=sg.lat!=null;
+    const onclick=hasLoc?'flyToOsint('+sg.lat+','+sg.lon+')':'';
+    const subBadge=sg.sub_id?' · <span style="color:var(--cyan)">'+sg.sub_id.toUpperCase()+'</span>':'';
+    return '<div class="osint-card" onclick="'+onclick+'">'
+      +'<div class="osint-src">📡 '+sg.source+subBadge+(pub?' · '+pub:'')+'</div>'
+      +'<div class="osint-title">'+sgTitle(sg)+'</div>'
+      +'<div class="osint-loc">'+(hasLoc?'📍 '+sgLocation(sg):''+tr('uncertain_position'))+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function flyToOsint(lat,lon){
+  if(view==='map'&&leafMap){
+    leafMap.flyTo([lat,lon],7,{animate:true,duration:1.2});
+  }
+}
+
+// ═══════════════════════════════════════════════
+// SELECT
+// ═══════════════════════════════════════════════
+function selectSub(s){
+  selId=s.id;
+  renderList();
+  renderDetail(s);
+  if(view==='map'&&leafMap){
+    leafMap.setView([s.lat,s.lon],Math.max(leafMap.getZoom(),5),{animate:true,duration:0.8});
+    if(leafMarkers[s.id]) leafMarkers[s.id].openPopup();
+  }
+}
+
+// ═══════════════════════════════════════════════
+// DETAIL
+// ═══════════════════════════════════════════════
+function renderDetail(s){
+  const nc=s.nuc?' nuc':'';
+  const pub=s.osintDate?formatDate(new Date(s.osintDate),{day:'2-digit',month:'short',year:'numeric'}):'';
+  const _detOsintTitle = LANG==='en'?(s.osintTitle_en||s.osintTitle):s.osintTitle;
+  const osintTitle = _detOsintTitle?`<div style="font-size:10px;color:var(--dim);margin-top:4px">${_detOsintTitle}</div>`:'';
+  const osintLink = s.osintUrl?`<div style="margin-top:6px"><a href="${s.osintUrl}" target="_blank" style="font-family:Share Tech Mono;font-size:8px;color:#ffd700;letter-spacing:1px;text-decoration:none">${tr('read_source')}</a></div>`:'';
+  const osintBadge=s.osintUpdated
+    ?`<div class="pp-osint-badge" style="margin-bottom:10px">
+        <div>📡 ${tr('osint_position')} · ${pub} · ${s.osintSource}</div>
+        ${osintTitle}
+        ${osintLink}
+      </div>`
+    :'';
+  const posClass='db-pos'+nc+(s.osintUpdated?' osint':'');
+  const posLabel=s.osintUpdated?tr('osint_last_position'):tr('last_known_position');
+  const homeBlock=(s.osintUpdated&&s.homeSea!==s.sea)
+    ?`<div class="db-home"><div class="k">${tr('home_port')}</div><div class="v">${subHomeSea(s)}</div></div>`
+    :'';
+  document.getElementById('detbox').innerHTML=`
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+        <div>
+          <div class="db-name${nc}">${s.name}</div>
+          <div class="db-sub">${s.class} · ${s.type} · ${countryName(s)}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:24px">${s.flag}</div>
+          ${s.nuc?`<div style="font-family:Share Tech Mono;font-size:8px;color:var(--green);margin-top:2px">☢ ${tr('nuclear_badge')}</div>`:''}
+        </div>
+      </div>
+      ${osintBadge}
+      <div class="db-grid">
+        <div class="db-s"><div class="k">${tr('displacement')}</div><div class="v">${s.disp}</div></div>
+        <div class="db-s"><div class="k">${tr('length')}</div><div class="v">${s.len}</div></div>
+        <div class="db-s"><div class="k">${tr('speed')}</div><div class="v">${s.speed}</div></div>
+        <div class="db-s"><div class="k">${tr('crew')}</div><div class="v">${s.crew}</div></div>
+        <div class="db-s"><div class="k">${tr('max_depth')}</div><div class="v">${subDepth(s)}</div></div>
+        <div class="db-s"><div class="k">${tr('commission')}</div><div class="v">${s.comm}</div></div>
+      </div>
+      <div class="db-weap"><div class="k">${tr('armament')}</div><div class="v">${s.weap}</div></div>
+      <div class="${posClass}">
+        <div class="pl">${posLabel}</div>
+        <div class="sea">${subSea(s)}</div>
+        <div class="crd">${Math.abs(s.lat).toFixed(2)}°${s.lat>=0?'N':'S'} · ${Math.abs(s.lon).toFixed(2)}°${s.lon>=0?'E':'W'}</div>
+      </div>
+      ${homeBlock}
+      <div class="db-desc" style="margin-top:9px">${subDesc(s)}</div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════
+// LIST
+// ═══════════════════════════════════════════════
+function bdg(t){return{SSN:'bssn',SSBN:'bssbn',SSGN:'bssgn',SS:'bss'}[t]||'bss'}
+function renderList(){
+  const el=document.getElementById('sinner');
+  el.innerHTML='';
+  filtered().forEach(s=>{
+    const d=document.createElement('div');
+    d.className=`sc${s.nuc?' nucl':''}${selId===s.id?' sel':''}${s.osintUpdated?' osint-updated':''}`;
+    d.innerHTML=`
+      <div class="sc-hd"><div class="sc-nm">${s.name}</div><div class="sc-fl">${s.flag}</div></div>
+      <div class="sc-cls">${s.class} · ${countryName(s)}</div>
+      <div class="sc-ft">
+        <span class="badge ${bdg(s.type)}">${s.type}</span>
+        ${s.nuc?`<span class="ntag">${tr('nuclear_badge')}</span>`:`<span style="font-family:Share Tech Mono;font-size:7px;color:var(--muted)">${tr('conventional_badge')}</span>`}
+      </div>`;
+    d.onclick=()=>selectSub(s);
+    el.appendChild(d);
+  });
+}
+
+// ═══════════════════════════════════════════════
+// THREE.JS GLOBE
+// ═══════════════════════════════════════════════
+function initGlobe(){
+  if(globeReady) return;
+  globeReady=true;
+  const canvas=document.getElementById('gcanvas');
+  const cont=document.getElementById('globeview');
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setClearColor(0x020810,1);
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(40,1,0.1,1000);
+  camera.position.z=3;
+
+  function resize(){
+    const w=cont.clientWidth,h=cont.clientHeight;
+    renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();
+  }
+  resize();window.addEventListener('resize',resize);
+
+  // Earth
+  const earthMat=new THREE.MeshPhongMaterial({color:0x0d2035,emissive:0x001122,specular:0x002244,shininess:25});
+  const earth=new THREE.Mesh(new THREE.SphereGeometry(1,96,96),earthMat);
+  scene.add(earth);
+
+  // Try loading dark earth texture
+  const loader=new THREE.TextureLoader();
+  loader.load('https://unpkg.com/three-globe/example/img/earth-dark.jpg',
+    tex=>{earthMat.map=tex;earthMat.needsUpdate=true;},undefined,()=>{});
+
+  // Grid
+  const gmat=new THREE.LineBasicMaterial({color:0x0c2d45,transparent:true,opacity:0.45});
+  [-60,-30,0,30,60].forEach(la=>{
+    const pts=[];
+    for(let lo=0;lo<=360;lo+=3){
+      const ph=(90-la)*Math.PI/180,th=lo*Math.PI/180;
+      pts.push(new THREE.Vector3(Math.sin(ph)*Math.cos(th),Math.cos(ph),Math.sin(ph)*Math.sin(th)));
+    }
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),gmat));
+  });
+  [0,30,60,90,120,150,180,210,240,270,300,330].forEach(lo=>{
+    const pts=[];
+    for(let la=-90;la<=90;la+=3){
+      const ph=(90-la)*Math.PI/180,th=lo*Math.PI/180;
+      pts.push(new THREE.Vector3(Math.sin(ph)*Math.cos(th),Math.cos(ph),Math.sin(ph)*Math.sin(th)));
+    }
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),gmat));
+  });
+
+  // Atmosphere
+  scene.add(new THREE.Mesh(new THREE.SphereGeometry(1.04,64,64),
+    new THREE.MeshPhongMaterial({color:0x003366,emissive:0x001133,transparent:true,opacity:0.15,side:THREE.FrontSide})));
+  scene.add(new THREE.Mesh(new THREE.SphereGeometry(1.09,32,32),
+    new THREE.MeshBasicMaterial({color:0x001144,transparent:true,opacity:0.07,side:THREE.BackSide})));
+
+  // Stars
+  const sv=[];for(let i=0;i<3000;i++) sv.push((Math.random()-.5)*300,(Math.random()-.5)*300,(Math.random()-.5)*300);
+  const sg2=new THREE.BufferGeometry();
+  sg2.setAttribute('position',new THREE.Float32BufferAttribute(sv,3));
+  scene.add(new THREE.Points(sg2,new THREE.PointsMaterial({color:0x334466,size:0.35})));
+
+  // Sub markers — store sub data for raycasting
+  function ll3(lat,lon,r){
+    const ph=(90-lat)*Math.PI/180,th=(lon+180)*Math.PI/180;
+    return new THREE.Vector3(-r*Math.sin(ph)*Math.cos(th),r*Math.cos(ph),r*Math.sin(ph)*Math.sin(th));
+  }
+  const subGrp=new THREE.Group();scene.add(subGrp);
+  const globeDots=[]; // store {mesh, sub} for raycasting
+  SUBS.forEach(s=>{
+    const col=new THREE.Color(getColor(s));
+    const pos=ll3(s.lat,s.lon,1.013);
+    // Main dot
+    const dot=new THREE.Mesh(new THREE.SphereGeometry(s.nuc?0.022:0.016,8,8),new THREE.MeshBasicMaterial({color:col}));
+    dot.position.copy(pos);dot.userData={sub:s};subGrp.add(dot);globeDots.push(dot);
+    // Halo
+    const halo=new THREE.Mesh(new THREE.RingGeometry(0.02,0.035,16),
+      new THREE.MeshBasicMaterial({color:col,side:THREE.DoubleSide,transparent:true,opacity:s.nuc?0.7:0.35}));
+    halo.position.copy(pos);halo.lookAt(0,0,0);subGrp.add(halo);
+    // V4: OSINT gold ring
+    if(s.osintUpdated){
+      // Dim dot at home port (no gold ring)
+      const homePos=ll3(s.homeLat,s.homeLon,1.008);
+      const homeDot=new THREE.Mesh(new THREE.SphereGeometry(0.009,6,6),
+        new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:0.3}));
+      homeDot.position.copy(homePos);subGrp.add(homeDot);
+    }
+  });
+
+  // OSINT markers on globe (gold) — clickable
+  const osintGrp=new THREE.Group();scene.add(osintGrp);
+  const osintGlobeDots=[];
+  if(osintData){
+    osintData.sightings.forEach(sg=>{
+      if(sg.lat==null) return;
+      if(!isStandaloneOsint(sg)) return;
+      const col=new THREE.Color(0xffd700);
+      const pos=ll3(sg.lat,sg.lon,1.016);
+      const dot=new THREE.Mesh(new THREE.SphereGeometry(0.024,8,8),new THREE.MeshBasicMaterial({color:col}));
+      dot.position.copy(pos);
+      dot.userData={osint:sg};
+      osintGrp.add(dot);
+      osintGlobeDots.push(dot);
+      const ring=new THREE.Mesh(new THREE.RingGeometry(0.026,0.042,16),
+        new THREE.MeshBasicMaterial({color:col,side:THREE.DoubleSide,transparent:true,opacity:0.5}));
+      ring.position.copy(pos);ring.lookAt(0,0,0);osintGrp.add(ring);
+    });
+  }
+
+  // Lights — ambient fort pour voir la terre, soleil doux sans overexposure
+  scene.add(new THREE.AmbientLight(0x4466aa,2.8));
+  const sun=new THREE.DirectionalLight(0x88aacc,0.9);sun.position.set(5,3,5);scene.add(sun);
+  const fill=new THREE.DirectionalLight(0x223355,0.6);fill.position.set(-5,-3,-5);scene.add(fill);
+  const rim=new THREE.DirectionalLight(0x001133,0.4);rim.position.set(0,-5,0);scene.add(rim);
+
+  // Controls
+  let isDrag=false,px2=0,py2=0,rotX2=0.25,rotY2=0,targetDist=3,camDist=3;
+  let mouseDownPos={x:0,y:0},didDrag=false;
+  canvas.addEventListener('mousedown',e=>{isDrag=true;didDrag=false;px2=e.clientX;py2=e.clientY;mouseDownPos={x:e.clientX,y:e.clientY}});
+  window.addEventListener('mouseup',()=>{isDrag=false;});
+  window.addEventListener('mousemove',e=>{
+    if(!isDrag)return;
+    const dx=e.clientX-px2,dy=e.clientY-py2;
+    if(Math.abs(e.clientX-mouseDownPos.x)>3||Math.abs(e.clientY-mouseDownPos.y)>3) didDrag=true;
+    rotY2+=dx*0.006;
+    rotX2=Math.max(-1.4,Math.min(1.4,rotX2+dy*0.006));
+    px2=e.clientX;py2=e.clientY;
+  });
+  canvas.addEventListener('wheel',e=>{e.preventDefault();targetDist=Math.max(1.4,Math.min(8,targetDist+e.deltaY*0.004));},{passive:false});
+  let lt2=null;
+  canvas.addEventListener('touchstart',e=>{isDrag=true;lt2={x:e.touches[0].clientX,y:e.touches[0].clientY}});
+  window.addEventListener('touchend',()=>{isDrag=false;lt2=null});
+  window.addEventListener('touchmove',e=>{
+    if(!isDrag||!lt2)return;
+    rotY2+=(e.touches[0].clientX-lt2.x)*0.006;
+    rotX2=Math.max(-1.4,Math.min(1.4,rotX2+(e.touches[0].clientY-lt2.y)*0.006));
+    lt2={x:e.touches[0].clientX,y:e.touches[0].clientY};
+  });
+  document.getElementById('gzin').onclick=()=>targetDist=Math.max(1.4,targetDist-0.45);
+  document.getElementById('gzout').onclick=()=>targetDist=Math.min(8,targetDist+0.45);
+
+  // ── RAYCASTER — click & hover on globe dots ──
+  const raycaster=new THREE.Raycaster();
+  raycaster.params.Points={threshold:0.08};
+  raycaster.linePrecision=0.08;
+  const mouse=new THREE.Vector2();
+  let hoveredDot=null;
+
+  // Tooltip element
+  const gtt=document.createElement('div');
+  gtt.style.cssText='position:absolute;background:rgba(4,14,26,0.97);border:1px solid #00e5ff;border-radius:6px;padding:10px 14px;font-family:Rajdhani,sans-serif;color:#b8d4f0;pointer-events:none;display:none;z-index:600;max-width:260px;box-shadow:0 0 20px rgba(0,229,255,0.25)';
+  cont.appendChild(gtt);
+
+  function globeMouseToNDC(e){
+    const rect=canvas.getBoundingClientRect();
+    mouse.x=((e.clientX-rect.left)/rect.width)*2-1;
+    mouse.y=-((e.clientY-rect.top)/rect.height)*2+1;
+  }
+
+  function getHitDot(e){
+    globeMouseToNDC(e);
+    raycaster.setFromCamera(mouse,camera);
+    const allDots=[...globeDots,...osintGlobeDots];
+    const hits=raycaster.intersectObjects(allDots,false);
+    return hits.length>0?hits[0].object:null;
+  }
+
+  canvas.addEventListener('mousemove',e=>{
+    if(isDrag){gtt.style.display='none';return;}
+    const hit=getHitDot(e);
+    if(hit&&(hit.userData.sub||hit.userData.osint)){
+      const isSub=!!hit.userData.sub;
+      const isOsint=!!hit.userData.osint;
+      if(isSub){
+        const s=hit.userData.sub;
+        const col=getColor(s);
+        const nc=s.nuc;
+        gtt.style.borderColor=nc?'#39ff14':'#00e5ff';
+        gtt.style.boxShadow=`0 0 20px ${nc?'rgba(57,255,20,0.25)':'rgba(0,229,255,0.25)'}`;
+        const pub2=s.osintDate?formatDate(new Date(s.osintDate),{day:'2-digit',month:'short'}):'';
+        const osintLine=s.osintUpdated?`<div style="font-family:'Share Tech Mono',monospace;font-size:7px;color:#ffd700;margin-bottom:4px">📡 ${tr('osint_position')} · ${pub2} · ${s.osintSource}</div>`:'';
+        const homeLine2=(s.osintUpdated&&s.homeSea!==s.sea)?`<div style="font-size:9px;color:#3a6a8a;font-family:'Share Tech Mono',monospace;margin-bottom:4px">🏠 ${subHomeSea(s)}</div>`:'';
+        gtt.innerHTML=`
+          <div style="font-family:Orbitron,monospace;font-size:11px;color:${col};margin-bottom:3px">${s.flag} ${s.name}</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:#3a6a8a;letter-spacing:1px;margin-bottom:5px">${s.class} · ${s.type}${nc?' · ☢':''}</div>
+          ${osintLine}
+          <div style="font-size:11px;color:#3a6a8a;font-family:'Share Tech Mono',monospace;margin-bottom:3px">${s.osintUpdated?'📡':'📍'} ${subSea(s)}</div>
+          ${homeLine2}
+          <div style="font-size:10px;color:#b8d4f0;line-height:1.5">${subDesc(s).slice(0,120)}…</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:#1a3a5a;margin-top:6px">${tr('click_for_details')}</div>`;
+      } else {
+        const sg=hit.userData.osint;
+        const pub=sg.published?formatDate(new Date(sg.published),{day:'2-digit',month:'short'}):'';
+        gtt.style.borderColor='#ffd700';
+        gtt.style.boxShadow='0 0 20px rgba(255,215,0,0.3)';
+        gtt.innerHTML=`
+          <div style="font-family:Orbitron,monospace;font-size:10px;color:#ffd700;margin-bottom:3px">📡 ${tr('osint_popup')}</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:7.5px;color:#3a6a8a;letter-spacing:1px;margin-bottom:7px">${sg.source}${pub?' · '+pub:''}</div>
+          <div style="font-size:11px;color:#3a6a8a;font-family:'Share Tech Mono',monospace;margin-bottom:6px">📍 ${sgLocation(sg)}</div>
+          <div style="font-size:10px;color:#b8d4f0;line-height:1.5">${sgSummary(sg).slice(0,150)}…</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:#1a3a5a;margin-top:6px">${tr('click_for_source')}</div>`;
+      }
+      const rect=canvas.getBoundingClientRect();
+      let tx=e.clientX-rect.left+14;
+      let ty=e.clientY-rect.top-10;
+      if(tx+270>rect.width) tx=e.clientX-rect.left-274;
+      gtt.style.left=tx+'px';gtt.style.top=ty+'px';
+      gtt.style.display='block';
+      canvas.style.cursor='pointer';
+      hoveredDot=hit;
+    } else {
+      gtt.style.display='none';
+      canvas.style.cursor=isDrag?'grabbing':'grab';
+      hoveredDot=null;
+    }
+  });
+
+  canvas.addEventListener('click',e=>{
+    if(didDrag) return;
+    const hit=getHitDot(e);
+    if(!hit) return;
+    gtt.style.display='none';
+    if(hit.userData.sub){
+      selectSub(hit.userData.sub);
+    } else if(hit.userData.osint){
+      window.open(hit.userData.osint.source_url,'_blank');
+    }
+  });
+
+  canvas.addEventListener('mouseleave',()=>{gtt.style.display='none';hoveredDot=null;});
+
+  let t2=0;
+  function animate(){
+    requestAnimationFrame(animate);t2+=0.016;
+    if(!isDrag&&!hoveredDot) rotY2+=0.0022;
+    camDist+=(targetDist-camDist)*0.08;
+    camera.position.set(0,0,camDist);
+    earth.rotation.y=rotY2;earth.rotation.x=rotX2;
+    subGrp.rotation.y=rotY2;subGrp.rotation.x=rotX2;
+    osintGrp.rotation.y=rotY2;osintGrp.rotation.x=rotX2;
+    scene.children.forEach(c=>{if(c.isLine){c.rotation.y=rotY2;c.rotation.x=rotX2;}});
+    subGrp.children.forEach((c,i)=>{
+      if(c.geometry&&c.geometry.type==='RingGeometry')
+        c.material.opacity=0.3+0.4*Math.abs(Math.sin(t2+i*0.7));
+    });
+    // Update world matrices so raycaster works correctly with rotated groups
+    subGrp.updateMatrixWorld(true);
+    osintGrp.updateMatrixWorld(true);
+    renderer.render(scene,camera);
+  }
+  animate();
+}
+
+// ═══════════════════════════════════════════════
+// VIEW TOGGLE
+// ═══════════════════════════════════════════════
+document.getElementById('bmap').onclick=()=>{
+  view='map';
+  document.getElementById('mapview').style.display='block';
+  document.getElementById('globeview').style.display='none';
+  document.getElementById('bmap').classList.add('on');
+  document.getElementById('bglobe').classList.remove('on');
+  if(leafMap) setTimeout(()=>leafMap.invalidateSize(),60);
+};
+document.getElementById('bglobe').onclick=()=>{
+  view='globe';
+  document.getElementById('mapview').style.display='none';
+  document.getElementById('globeview').style.display='block';
+  document.getElementById('bmap').classList.remove('on');
+  document.getElementById('bglobe').classList.add('on');
+  initGlobe();
+};
+
+// ═══════════════════════════════════════════════
+// FLEET & STATS
+// ═══════════════════════════════════════════════
+function renderFleet(){
+  document.getElementById('ftable').innerHTML=FLEETS.map(function(f){
+    var nucBadge=f.nuc?'<span class="fnuc">☢'+f.nuc+'</span>':'';
+    return '<div class="frow">'
+      +'<div class="fcty"><span class="fflag">'+f.flag+'</span><span>'+(LANG==='en'&&f.name_en?f.name_en:f.name)+'</span></div>'
+      +'<div style="display:flex;align-items:center;gap:10px">'
+      +'<span class="fcnt">'+f.count+'</span>'+nucBadge
+      +'</div></div>';
+  }).join('');
+}
+
+function renderStats(){
+  const t=SUBS.length,nc2=SUBS.filter(s=>s.nuc).length,na=[...new Set(SUBS.map(s=>s.cc))].length;
+  document.getElementById('tc').textContent=t;
+  document.getElementById('nc').textContent=nc2;
+  document.getElementById('nac').textContent=na;
+  const c={SSN:0,SSBN:0,SSGN:0,SS:0};
+  SUBS.forEach(s=>c[s.type]=(c[s.type]||0)+1);
+
+  // Compute deployment level: count nuclear subs with OSINT position and moved from home
+  const deployedNuc = SUBS.filter(s=>s.nuc && s.osintUpdated && Math.sqrt(Math.pow(s.lat-s.homeLat,2)+Math.pow(s.lon-s.homeLon,2))>0.4).length;
+  // Maximum for scale: use total nuclear subs (fallback min 1)
+  const DEPLOYMENT_MAX = Math.max(1, nc2);
+  const pct = Math.round(Math.min(100, (deployedNuc/DEPLOYMENT_MAX)*100));
+  // Move indicator
+  const tind = document.querySelector('.tind');
+  if(tind){ tind.style.left = pct + '%'; }
+
+  // Show countries list from all subs
+  const countries = [...new Set(SUBS.map(s=>s.cc))];
+  const countryList = countries.map(c=>c).join(' · ');
+
+  document.getElementById('statp').innerHTML=`
+    <div class="srow2"><span>${tr('stats_ssn')}</span><span class="sv" style="color:var(--cyan)">${c.SSN}</span></div>
+    <div class="srow2"><span>${tr('stats_ssbn')}</span><span class="sv" style="color:var(--green)">${c.SSBN}</span></div>
+    <div class="srow2"><span>${tr('stats_ssgn')}</span><span class="sv" style="color:var(--orange)">${c.SSGN}</span></div>
+    <div class="srow2"><span>${tr('stats_ss')}</span><span class="sv" style="color:#5a8aaa">${c.SS}</span></div>
+    <div class="srow2"><span>${tr('stats_deployment')}</span><span class="sv" style="color:var(--gold)">${deployedNuc} / ${DEPLOYMENT_MAX}</span></div>
+    <div class="srow2"><span>${tr('stats_countries')}</span><span class="sv" style="color:var(--muted)">${countryList}</span></div>`;
+}
+
+// ═══════════════════════════════════════════════
+// FILTERS
+// ═══════════════════════════════════════════════
+document.querySelectorAll('.fb').forEach(b=>{
+  b.onclick=()=>{
+    filt=b.dataset.f;
+    document.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    renderList();renderMarkers();
+  };
+});
+document.getElementById('sinput').addEventListener('input',e=>{
+  query=e.target.value;renderList();renderMarkers();
+});
+document.getElementById('refresh-btn').onclick=fetchOsint;
+
+// ═══════════════════════════════════════════════
+// TICKER & CLOCK
+// ═══════════════════════════════════════════════
+function renderTicker(){
+  const msgs=I18N[LANG].ticker || [];
+  document.getElementById('tick-in').textContent=msgs.join('     ◆     ')+msgs.join('     ◆     ');
+}
+
+function tick(){
+  const d=new Date();
+  document.getElementById('clk').textContent=
+    String(d.getUTCHours()).padStart(2,'0')+':'+
+    String(d.getUTCMinutes()).padStart(2,'0')+':'+
+    String(d.getUTCSeconds()).padStart(2,'0')+' UTC';
+}
+
+// ═══════════════════════════════════════════════
+// LIVE DRIFT
+// ═══════════════════════════════════════════════
+function drift(){
+  SUBS.forEach(s=>{
+    s.lat=Math.max(-85,Math.min(85,s.lat+(Math.random()-.5)*0.06));
+    s.lon=s.lon+(Math.random()-.5)*0.06;
+  });
+  renderMarkers();
+}
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+(function init(){
+  applyTranslations();
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.onclick=()=>setLanguage(b.dataset.lang);
+  });
+  initMap();
+  renderList();
+  renderFleet();
+  renderStats();
+  renderTicker();
+  tick();
+  setInterval(tick,1000);
+  setInterval(drift,10000);
+  fetchOsint();
+  // Auto-refresh OSINT every 30 min
+  setInterval(fetchOsint,30*60*1000);
+})();
+</script>
+</body>
+</html>

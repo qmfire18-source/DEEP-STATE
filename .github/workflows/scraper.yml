@@ -1,0 +1,35 @@
+name: Update OSINT Sightings
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # toutes les 6 heures
+  workflow_dispatch:          # déclenchement manuel possible
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scraper
+        run: python3 scraper.py
+
+      - name: Commit updated sightings.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sightings.json
+          git diff --cached --quiet || git commit -m "chore: update OSINT sightings [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+          git push
