@@ -1123,7 +1123,7 @@ const EMBEDDED_SIGHTINGS = {
       "location":"Kronstadt, Saint-Pétersbourg",
       "location_en":"Kronstadt, Saint Petersburg",
       "lat":59.99,"lon":29.77,
-      "published":"2026-04-12T00:01:00+00:00"
+      "published":"2026-04-25T10:00:00+00:00"
     },
     {
       "id":"usni_fleet_tracker_may11_abe_lincoln",
@@ -1258,7 +1258,7 @@ const EMBEDDED_SIGHTINGS = {
       "location":"Mer Ionienne / Crète",
       "location_en":"Ionian Sea / Crete",
       "lat":36.2,"lon":22.8,
-      "published":"Mon, 23 Mar 2026 17:00:00 +0000"
+      "published":"Fri, 24 Apr 2026 17:00:00 +0000"
     },
     {
       "id":"usni_tripoli_diego_garcia",
@@ -1273,7 +1273,7 @@ const EMBEDDED_SIGHTINGS = {
       "location":"Diego Garcia, Océan Indien",
       "location_en":"Diego Garcia, Indian Ocean",
       "lat":-7.3,"lon":72.4,
-      "published":"Mon, 23 Mar 2026 17:00:00 +0000"
+      "published":"Thu, 23 Apr 2026 17:00:00 +0000"
     },
     {
       "id":"navalnews_asw_indo",
@@ -1318,7 +1318,7 @@ const EMBEDDED_SIGHTINGS = {
       "location":"Sinpo, Corée du Nord",
       "location_en":"Sinpo, North Korea",
       "lat":40.03,"lon":128.20,
-      "published":"2026-03-15T10:00:00+00:00"
+      "published":"2026-04-28T10:00:00+00:00"
     },
     {
       "id":"usni_borei_patrol_arctic",
@@ -1408,7 +1408,7 @@ const EMBEDDED_SIGHTINGS = {
       "location":"Atlantique Nord, patrouille CASD",
       "location_en":"North Atlantic, CASD patrol",
       "lat":54.0,"lon":-22.0,
-      "published":"2026-04-15T10:00:00+00:00"
+      "published":"2026-04-22T10:00:00+00:00"
     },
     {
       "id":"usni_fra_terrible_fost",
@@ -1482,8 +1482,8 @@ const EMBEDDED_SIGHTINGS = {
       "source_url":"https://www.navalnews.com/naval-news/2026/04/taiwan-hai-kun-delivery/",
       "location":"Zuoying, Taïwan",
       "location_en":"Zuoying, Taiwan",
-      "lat":22.67,"lon":120.24,
-      "published":"2026-04-10T03:00:00+00:00"
+      "lat":23.70,"lon":122.20,
+      "published":"2026-04-28T03:00:00+00:00"
     },
     {
       "id":"navalnews_korea_dosan_slbm",
@@ -1543,7 +1543,7 @@ const EMBEDDED_SIGHTINGS = {
       "location":"Vladivostok, Flotte Pacifique",
       "location_en":"Vladivostok, Pacific Fleet",
       "lat":43.12,"lon":132.0,
-      "published":"2026-04-05T08:00:00+00:00"
+      "published":"2026-04-25T08:00:00+00:00"
     },
     {
       "id":"usni_seawolf_arctic_mission",
@@ -1558,7 +1558,7 @@ const EMBEDDED_SIGHTINGS = {
       "location":"Arctique, sous-glaciaire",
       "location_en":"Arctic, under ice",
       "lat":79.5,"lon":-5.0,
-      "published":"2026-04-15T16:00:00+00:00"
+      "published":"2026-04-23T16:00:00+00:00"
     },
     {
       "id":"navalnews_jmsdf_taigei_exercise",
@@ -1627,27 +1627,26 @@ async function fetchOsint(){
   document.getElementById('osint-status').innerHTML=`<span class="spin">◌</span> ${tr('osint_fetching')}`;
 
   // Try fetching `sightings.json` from the same directory; fallback to embedded data
+  const cutoff=new Date(Date.now()-30*24*60*60*1000);
   try{
     const resp = await fetch('sightings.json', {cache: 'no-store'});
     if(resp.ok){
       osintData = await resp.json();
+      // Filtre 30 jours sur les données scrapées
+      osintData.sightings=osintData.sightings.filter(sg=>{
+        if(!sg.published) return true;
+        try{ return new Date(sg.published)>=cutoff; }catch(e){ return true; }
+      });
+      // Toujours fusionner les alertes curatives embarquées en tête (non filtrées)
+      const existingIds=new Set(osintData.sightings.map(s=>s.id));
+      const pinned=EMBEDDED_SIGHTINGS.sightings.filter(s=>!existingIds.has(s.id));
+      osintData.sightings=[...pinned,...osintData.sightings];
     } else {
-      // fallback
-      await new Promise(r=>setTimeout(r,200));
-      osintData = EMBEDDED_SIGHTINGS;
+      osintData = {...EMBEDDED_SIGHTINGS, sightings:[...EMBEDDED_SIGHTINGS.sightings]};
     }
   } catch(e){
-    await new Promise(r=>setTimeout(r,200));
-    osintData = EMBEDDED_SIGHTINGS;
+    osintData = {...EMBEDDED_SIGHTINGS, sightings:[...EMBEDDED_SIGHTINGS.sightings]};
   }
-
-  // V4: apply OSINT positions to SUBS array (uses `position_updates` history when present), then re-render everything
-  // Filtre 30 jours — supprime les signalements trop anciens
-  const cutoff=new Date(Date.now()-30*24*60*60*1000);
-  osintData.sightings=osintData.sightings.filter(sg=>{
-    if(!sg.published) return true;
-    try{ return new Date(sg.published)>=cutoff; }catch(e){ return true; }
-  });
   osintData.count=osintData.sightings.length;
 
   applyOsintPositions(osintData);
@@ -1815,15 +1814,20 @@ function initGlobe(){
     varying vec3 vNormal;
     void main(){
       vec3 lightDir=normalize(vec3(1.0,0.5,1.0));
-      float diff=0.35+0.65*max(0.0,dot(vNormal,lightDir));
+      float diff=0.4+0.6*max(0.0,dot(vNormal,lightDir));
       float v;
       if(uHasTex>0.5){
         vec4 col=texture2D(uTex,vUv);
+        // Blue-channel dominance detects ocean reliably regardless of topology shading
+        float bd=col.b-max(col.r,col.g);
+        float isOcean=clamp(bd*6.0,0.0,1.0);
         float grey=dot(col.rgb,vec3(0.299,0.587,0.114));
-        // Inversion: océan sombre (gr faible) → gris clair; terres (gr élevé) → sombre
-        v=0.12+(1.0-grey)*0.58;
+        // Land = near-black (0.03-0.11), Ocean = medium grey (0.30-0.38) → noir sur gris
+        float landVal=0.03+grey*0.08;
+        float oceanVal=0.30+grey*0.08;
+        v=mix(landVal,oceanVal,isOcean);
       } else {
-        v=0.20;
+        v=0.22;
       }
       gl_FragColor=vec4(v*diff,v*diff,v*diff,1.0);
     }`;
