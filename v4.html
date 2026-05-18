@@ -1173,7 +1173,7 @@ function applyOsintPositions(data){
   var best={};
   if(Array.isArray(data.sightings)){
     data.sightings.forEach(function(sg){
-      if(!sg.sub_id||sg.lat==null||sg.is_baseline) return;
+      if(!sg.sub_id||sg.lat==null||sg.is_baseline||(sg.id&&sg.id.startsWith('baseline_'))) return;
       var existing=best[sg.sub_id];
       if(!existing){best[sg.sub_id]=sg;return;}
       var dNew=new Date(sg.published||0);
@@ -1224,7 +1224,7 @@ let leafMap=null,leafMarkers={},osintMarkers=[];
 let globeReady=false;
 let osintData=null;
 // V4: home port tracking
-let homeLines=[];       // dashed lines on map
+let homeLines={};       // dashed lines on map: id → polyline
 let homeMarkers={};     // diamond markers at home port
 
 // ═══════════════════════════════════════════════
@@ -1362,8 +1362,8 @@ function renderMarkers(){
   // Remove old markers
   Object.values(leafMarkers).forEach(m=>leafMap.removeLayer(m));
   Object.values(homeMarkers).forEach(m=>leafMap.removeLayer(m));
-  homeLines.forEach(l=>leafMap.removeLayer(l));
-  leafMarkers={};homeMarkers={};homeLines=[];
+  Object.values(homeLines).forEach(l=>leafMap.removeLayer(l));
+  leafMarkers={};homeMarkers={};homeLines={};
 
   filtered().forEach(s=>{
     // Main marker at CURRENT position (OSINT or home)
@@ -1378,10 +1378,10 @@ function renderMarkers(){
       const dist=Math.sqrt(Math.pow(s.lat-s.homeLat,2)+Math.pow(s.lon-s.homeLon,2));
       if(dist>0.4){
         const line=L.polyline([[s.lat,s.lon],[s.homeLat,s.homeLon]],{
-          color:getColor(s),weight:1,opacity:0.3,dashArray:'5,8'
+          color:getColor(s),weight:1.5,opacity:0.55,dashArray:'6,7'
         }).addTo(leafMap);
-        homeLines.push(line);
-        const hm=L.marker([s.homeLat,s.homeLon],{icon:makeHomeIcon(s),opacity:0.5})
+        homeLines[s.id]=line;
+        const hm=L.marker([s.homeLat,s.homeLon],{icon:makeHomeIcon(s),opacity:0.75})
           .addTo(leafMap)
           .bindPopup(()=>`<div class="pp"><div class="pp-title" style="font-size:10px">${tr('home_port')}</div><div class="pp-cls">${s.name}</div><div class="pp-sea">${subHomeSea(s)}</div></div>`,{maxWidth:220});
         homeMarkers[s.id]=hm;
@@ -2487,6 +2487,8 @@ function drift(){
     s.lon=s.lon+(Math.random()-.5)*0.04;
     const m=leafMarkers[s.id];
     if(m) m.setLatLng([s.lat,s.lon]);
+    const hl=homeLines[s.id];
+    if(hl) hl.setLatLngs([[s.lat,s.lon],[s.homeLat,s.homeLon]]);
   });
 }
 
