@@ -2173,64 +2173,108 @@ function initGlobe(){
   sg2.setAttribute('position',new THREE.Float32BufferAttribute(sv,3));
   scene.add(new THREE.Points(sg2,new THREE.PointsMaterial({color:0xaaaaaa,size:0.28})));
 
-  // Sub markers — store sub data for raycasting
+  // ─── Globe markers: canvas sprites (crisp, anti-aliased, always face camera)
   function ll3(lat,lon,r){
     const ph=(90-lat)*Math.PI/180,th=(lon+180)*Math.PI/180;
     return new THREE.Vector3(-r*Math.sin(ph)*Math.cos(th),r*Math.cos(ph),r*Math.sin(ph)*Math.sin(th));
   }
-  const subGrp=new THREE.Group();scene.add(subGrp);
-  const globeDots=[]; // store {mesh, sub} for raycasting
-  SUBS.forEach(s=>{
-    const col=new THREE.Color(getColor(s));
-    const isConv=!['SSBN','SSN','SSGN'].includes(s.type);
-    const pos=ll3(s.lat,s.lon,1.013);
-    // Outline blanc uniquement pour les SS conventionnels (point noir sur fond coloré)
-    if(isConv){
-      const outline=new THREE.Mesh(new THREE.SphereGeometry(s.nuc?0.026:0.020,8,8),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0.85}));
-      outline.position.copy(pos);subGrp.add(outline);
+
+  // Build a canvas texture once per (color × variant) and cache it
+  const _spriteMats={};
+  function getSpriteMat(hexColor,variant){
+    const key=hexColor+'_'+variant;
+    if(_spriteMats[key]) return _spriteMats[key];
+    const S=128,cx=64,cy=64;
+    const c=document.createElement('canvas');c.width=c.height=S;
+    const ctx=c.getContext('2d');
+    // variant: 'nuc' | 'ssn' | 'conv' | 'osint' | 'home'
+    const isNuc=variant==='nuc',isConv=variant==='conv',isOsint=variant==='osint',isHome=variant==='home';
+    const coreR=isNuc?21:isOsint?20:isConv?16:18;
+    const ringR=coreR+(isNuc?9:isOsint?8:isConv?6:7);
+
+    // Soft glow
+    const grd=ctx.createRadialGradient(cx,cy,0,cx,cy,S*0.48);
+    grd.addColorStop(0,hexColor+(isNuc?'44':isOsint?'55':'22'));
+    grd.addColorStop(0.55,hexColor+'11');
+    grd.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=grd;ctx.fillRect(0,0,S,S);
+
+    if(isHome){
+      // Small faint dot for home port
+      ctx.beginPath();ctx.arc(cx,cy,10,0,Math.PI*2);
+      ctx.fillStyle=hexColor;ctx.globalAlpha=0.4;ctx.fill();ctx.globalAlpha=1;
+      const tex2=new THREE.CanvasTexture(c);tex2.needsUpdate=true;
+      const m2=new THREE.SpriteMaterial({map:tex2,transparent:true,depthWrite:false});
+      _spriteMats[key]=m2;return m2;
     }
-    // Main dot — noir pour conventionnel, couleur type pour nucléaire
-    const dotColor=isConv?0x0a0a0a:col;
-    const dot=new THREE.Mesh(new THREE.SphereGeometry(s.nuc?0.022:0.016,8,8),new THREE.MeshBasicMaterial({color:dotColor}));
-    dot.position.copy(pos);dot.userData={sub:s};subGrp.add(dot);globeDots.push(dot);
-    // Halo couleur type
-    const halo=new THREE.Mesh(new THREE.RingGeometry(0.02,0.035,16),
-      new THREE.MeshBasicMaterial({color:col,side:THREE.DoubleSide,transparent:true,opacity:s.nuc?0.7:0.35}));
-    halo.position.copy(pos);halo.lookAt(0,0,0);subGrp.add(halo);
-    // Point de base si SS déployé (distance suffisante)
-    {
-      const hp=ll3(s.homeLat,s.homeLon,1.008);
-      const dist=Math.sqrt(Math.pow(s.lat-s.homeLat,2)+Math.pow(s.lon-s.homeLon,2));
-      if(dist>0.4){
-        const homeDot=new THREE.Mesh(new THREE.SphereGeometry(0.009,6,6),
-          new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:0.3}));
-        homeDot.position.copy(hp);subGrp.add(homeDot);
-        // Ligne pointillée 3D entre position actuelle et base
-        const pts3=[ll3(s.lat,s.lon,1.013),hp];
-        const lineGeo=new THREE.BufferGeometry().setFromPoints(pts3);
-        const lineMat=new THREE.LineBasicMaterial({color:col,transparent:true,opacity:0.2});
-        subGrp.add(new THREE.Line(lineGeo,lineMat));
-      }
+
+    // Outer ring — crisp stroke
+    ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);
+    ctx.strokeStyle=hexColor;
+    ctx.lineWidth=isNuc?2:isOsint?1.8:1.5;
+    ctx.globalAlpha=isNuc?0.85:isOsint?0.9:0.7;
+    ctx.stroke();ctx.globalAlpha=1;
+
+    if(isConv){
+      // Conventional SS: white halo + near-black fill + colour center
+      ctx.beginPath();ctx.arc(cx,cy,coreR+2,0,Math.PI*2);
+      ctx.fillStyle='rgba(230,230,255,0.9)';ctx.fill();
+      ctx.beginPath();ctx.arc(cx,cy,coreR,0,Math.PI*2);
+      ctx.fillStyle='#060e1a';ctx.fill();
+      ctx.beginPath();ctx.arc(cx,cy,coreR*0.42,0,Math.PI*2);
+      ctx.fillStyle=hexColor;ctx.globalAlpha=0.9;ctx.fill();ctx.globalAlpha=1;
+    } else {
+      // SSN / SSBN / SSGN / OSINT: solid fill
+      ctx.beginPath();ctx.arc(cx,cy,coreR,0,Math.PI*2);
+      ctx.fillStyle=hexColor;ctx.fill();
+      // Specular highlight (top-left)
+      const sp=ctx.createRadialGradient(cx-coreR*0.28,cy-coreR*0.28,0,cx-coreR*0.28,cy-coreR*0.28,coreR*0.65);
+      sp.addColorStop(0,'rgba(255,255,255,0.4)');sp.addColorStop(1,'rgba(255,255,255,0)');
+      ctx.fillStyle=sp;
+      ctx.beginPath();ctx.arc(cx,cy,coreR,0,Math.PI*2);ctx.fill();
+      // Inner bright edge
+      ctx.beginPath();ctx.arc(cx,cy,coreR,0,Math.PI*2);
+      ctx.strokeStyle='rgba(255,255,255,0.18)';ctx.lineWidth=1;ctx.stroke();
+    }
+
+    const tex=new THREE.CanvasTexture(c);tex.needsUpdate=true;
+    const mat=new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false});
+    _spriteMats[key]=mat;return mat;
+  }
+
+  const subGrp=new THREE.Group();scene.add(subGrp);
+  const globeDots=[];
+  SUBS.forEach(s=>{
+    const hex=getColor(s);
+    const isConv=!['SSBN','SSN','SSGN'].includes(s.type);
+    const variant=isConv?'conv':s.nuc?'nuc':'ssn';
+    const pos=ll3(s.lat,s.lon,1.013);
+    const sp=new THREE.Sprite(getSpriteMat(hex,variant));
+    const sz=s.nuc?0.085:isConv?0.062:0.075;
+    sp.scale.set(sz,sz,1);
+    sp.position.copy(pos);sp.userData={sub:s};
+    subGrp.add(sp);globeDots.push(sp);
+    // Home port marker + arc line for deployed subs
+    const dist=Math.sqrt(Math.pow(s.lat-s.homeLat,2)+Math.pow(s.lon-s.homeLon,2));
+    if(dist>0.4){
+      const hp=ll3(s.homeLat,s.homeLon,1.006);
+      const homeSp=new THREE.Sprite(getSpriteMat(hex,'home'));
+      homeSp.scale.set(0.038,0.038,1);homeSp.position.copy(hp);subGrp.add(homeSp);
+      const lineGeo=new THREE.BufferGeometry().setFromPoints([ll3(s.lat,s.lon,1.013),hp]);
+      subGrp.add(new THREE.Line(lineGeo,new THREE.LineBasicMaterial({color:new THREE.Color(hex),transparent:true,opacity:0.22})));
     }
   });
 
-  // OSINT markers on globe (gold) — clickable
+  // OSINT standalone markers (gold) — clickable
   const osintGrp=new THREE.Group();scene.add(osintGrp);
   const osintGlobeDots=[];
   if(osintData){
     osintData.sightings.forEach(sg=>{
-      if(sg.lat==null) return;
-      if(!isStandaloneOsint(sg)) return;
-      const col=new THREE.Color(0xffd700);
+      if(sg.lat==null||!isStandaloneOsint(sg)) return;
       const pos=ll3(sg.lat,sg.lon,1.016);
-      const dot=new THREE.Mesh(new THREE.SphereGeometry(0.024,8,8),new THREE.MeshBasicMaterial({color:col}));
-      dot.position.copy(pos);
-      dot.userData={osint:sg};
-      osintGrp.add(dot);
-      osintGlobeDots.push(dot);
-      const ring=new THREE.Mesh(new THREE.RingGeometry(0.026,0.042,16),
-        new THREE.MeshBasicMaterial({color:col,side:THREE.DoubleSide,transparent:true,opacity:0.5}));
-      ring.position.copy(pos);ring.lookAt(0,0,0);osintGrp.add(ring);
+      const sp=new THREE.Sprite(getSpriteMat('#ffd700','osint'));
+      sp.scale.set(0.08,0.08,1);sp.position.copy(pos);
+      sp.userData={osint:sg};osintGrp.add(sp);osintGlobeDots.push(sp);
     });
   }
 
