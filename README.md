@@ -1,87 +1,125 @@
-# 🌊 DEEP STATE — Real-Time Submarine Tracker
+# DEEP STATE — Submarine Intelligence Map
 
-**Live global submarine intelligence map powered by OSINT**
+**292 submarines · 30+ navies · Real-time OSINT · Bilingual FR/EN**
 
-🔗 **[deepstate.live → Launch App](https://qmfire18-source.github.io/DEEP-STATE/)**
+🔗 **[→ Launch the map](https://qmfire18-source.github.io/DEEP-STATE/)**
+
+![GitHub last commit](https://img.shields.io/github/last-commit/qmfire18-source/DEEP-STATE)
+![GitHub Pages](https://img.shields.io/badge/hosted-GitHub%20Pages-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Submarines](https://img.shields.io/badge/submarines-292-navy)
 
 ---
 
-![Deep State Preview](https://qmfire18-source.github.io/DEEP-STATE/v4.html)
+## What is it?
 
-## What is Deep State?
+**Deep State** is an open-source submarine intelligence map aggregating public OSINT data from naval analysts, military news outlets and official naval communications. It covers every submarine fleet in the world — from US Ohio SSBNs to North Korean Sinpo-C boats.
 
-**Deep State** is an open-source, real-time submarine tracking platform aggregating public OSINT (Open Source Intelligence) data from military analysts, naval news outlets and satellite imagery reports.
+Positions are classified into three tiers:
 
-Track **37 submarines** across **22 nations** — including nuclear SSBNs, attack SSNs and conventional diesel-electric boats — updated automatically every 6 hours.
+| Icon | Meaning |
+|------|---------|
+| 📡 | **OSINT confirmed** — sourced from a published news article or official report |
+| 〜 | **Estimated patrol area** — plausible zone based on operational doctrine, not confirmed |
+| 📍 | **At homeport** — baseline position from public fleet registers |
 
 ---
 
 ## Features
 
-- 🗺️ **Interactive map** — zoom, click any submarine for full specs
-- 🌐 **3D globe view** — real-time rotating Earth with submarine positions
-- 📡 **Live OSINT feed** — auto-scraped from USNI News, HI Sutton, Naval News
-- ☢️ **Nuclear deployment level** — live threat assessment bar
-- 🔍 **Search & filters** — by type (SSN / SSBN / SSGN / SS), nation, nuclear status
-- 🇫🇷 🇬🇧 **Bilingual** — French / English interface
-- 📊 **Fleet comparison** — top 14 submarine fleets ranked by size
+- **Interactive flat map** (Leaflet + Esri satellite imagery) with dashed lines connecting each deployed submarine to its home base
+- **3D globe** (Three.js) with real-time submarine positions
+- **Nuclear deployment level** — live bar tracking confirmed nuclear submarines away from base
+- **OSINT feed** — auto-scraped every 6 hours from USNI News, Naval News, HI Sutton
+- **Full submarine specs** on click — displacement, speed, crew, armament, description
+- **Search & filter** by type (SSN / SSBN / SSGN / SS), nation, nuclear status
+- **Fleet comparison** — top 14 submarine fleets ranked
+- **Bilingual** — French / English interface toggle
 
 ---
 
-## Submarines Tracked
+## Submarines covered
 
-| Nation | Class | Type |
-|--------|-------|------|
-| 🇺🇸 United States | Ohio, Virginia, Seawolf | SSBN / SSN / SSGN |
-| 🇷🇺 Russia | Borei, Yasen, Oscar II, Kilo | SSBN / SSN / SSGN / SS |
-| 🇨🇳 China | Jin (Type 094), Shang (Type 093) | SSBN / SSN |
-| 🇬🇧 United Kingdom | Vanguard, Astute | SSBN / SSN |
-| 🇫🇷 France | Triomphant, Barracuda | SSBN / SSN |
-| 🇮🇳 India | Arihant | SSBN |
-| 🇩🇪 Germany | Type 212A | SS |
-| 🇯🇵 Japan | Sōryū | SS |
-| + 14 more nations | | |
+| Navy | Count | Classes |
+|------|-------|---------|
+| 🇺🇸 United States | 48 | Ohio (SSBN/SSGN), Virginia, Seawolf, Los Angeles |
+| 🇷🇺 Russia | 38 | Borei-A, Yasen-M, Oscar II, Delta IV, Kilo 636.3, Belgorod |
+| 🇨🇳 China | 16 | Type 094A Jin, Type 093 Shang, Type 039 Yuan/Song |
+| 🇯🇵 Japan | 15 | Taigei, Sōryū, Oyashio |
+| 🇰🇷 South Korea | 9 | KSS-III, Type 214, Type 209 |
+| 🇬🇧 United Kingdom | 7 | Vanguard, Astute |
+| 🇮🇳 India | 11 | Arihant, Scorpène (Kalvari), Kilo |
+| 🇫🇷 France | 7 | Triomphant, Barracuda (Suffren) |
+| 🇩🇪 Germany | 6 | Type 212A |
+| 🇬🇷 Greece | 7 | Type 214, Type 209 |
+| 🇹🇷 Turkey | 8 | Reis (Type 214), Preveze/Ay (Type 209) |
+| 🇮🇱 Israel | 5 | Dolphin II |
+| + 19 more navies | 50+ | Australia, Norway, Sweden, Italy, Vietnam… |
 
 ---
 
-## Data Sources
+## Data sources
 
-All positions are **estimated** from public sources. No classified data is used.
+All data is **public**. No classified information is used or implied.
 
 - [USNI News Fleet Tracker](https://news.usni.org/category/fleet-tracker)
 - [USNI News Western Pacific Pulse](https://news.usni.org/category/news/western-pacific-pulse)
 - [HI Sutton — Covert Shores](https://www.hisutton.com)
 - [Naval News](https://www.navalnews.com)
 - [IISS Military Balance 2025](https://www.iiss.org/publications/the-military-balance/)
+- [Wikipedia naval vessel articles](https://en.wikipedia.org/wiki/List_of_submarines) (specs baseline)
 
 ---
 
-## Auto-Update
+## How it works
 
-The scraper runs every **6 hours** via GitHub Actions, pulling the latest sightings from naval intelligence RSS feeds and updating submarine positions automatically.
+```
+GitHub Actions (every 6h)
+  └─ scraper.py
+       ├─ Fetches RSS feeds from USNI / Naval News / HI Sutton
+       ├─ Matches article text to submarine IDs via SUB_NAME_MAP
+       ├─ Writes confirmed positions → sightings.json (position_updates)
+       └─ Generates homeport baselines for unmentioned submarines
+
+Browser loads v4.html
+  └─ Fetches sightings.json
+       ├─ position_updates → moves sub + sets 📡 OSINT badge
+       ├─ estimated positions (coded in HTML) → shows 〜 badge
+       └─ homeport baseline → shows 📍 badge
+```
 
 ---
 
-## Tech Stack
+## Tech stack
 
-- Pure **HTML / CSS / JavaScript** — zero backend, zero framework
-- [Leaflet.js](https://leafletjs.com/) — interactive map
-- [Three.js](https://threejs.org/) — 3D globe
-- **Python 3** scraper with feedparser + BeautifulSoup
-- **GitHub Actions** — automated OSINT scraping & deployment
-- **GitHub Pages** — free hosting
+| Layer | Tech |
+|-------|------|
+| Map | [Leaflet 1.9.4](https://leafletjs.com/) + Esri World Imagery tiles |
+| Globe | [Three.js r128](https://threejs.org/) + Blue Marble texture |
+| Scraper | Python 3 · feedparser · BeautifulSoup4 · requests |
+| CI/CD | GitHub Actions (scheduled every 6 hours) |
+| Hosting | GitHub Pages (zero cost) |
+| Framework | None — pure HTML/CSS/JS, zero dependencies at runtime |
 
 ---
 
-## Keywords
+## Run locally
 
-submarine tracker, OSINT submarine, naval intelligence map, real-time submarine map, submarine positions, nuclear submarine tracker, military submarine OSINT, naval tracker, sous-marin tracker, carte sous-marins, OSINT naval, suivi sous-marins en temps réel, submarine geopolitics, ssbn tracker, ssn tracker, navy intelligence
+```bash
+git clone https://github.com/qmfire18-source/DEEP-STATE.git
+cd DEEP-STATE
+# Open v4.html directly in a browser — no server needed
+
+# To update OSINT data:
+pip install -r requirements.txt
+python3 scraper.py
+```
 
 ---
 
 ## Disclaimer
 
-This project uses only **publicly available** information. All positions are **estimates** based on open-source reporting and should not be taken as accurate real-time positions. For educational and informational purposes only.
+This project uses **publicly available information only**. Positions marked 📡 are sourced from published news. Positions marked 〜 are estimated from open-source operational doctrine and should not be taken as accurate real-time positions. For educational and research purposes only.
 
 ---
 
