@@ -128,6 +128,11 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 /* ── MAP ── */
 #mapview{position:absolute;inset:0;display:block}
 #leafmap{width:100%;height:100%}
+/* GPU-accelerated ping animation (replaces SMIL <animate>) */
+@keyframes subPing{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.5);opacity:0}}
+.sub-icon-wrap{position:relative;width:34px;height:34px}
+.sub-ping{position:absolute;border-radius:50%;animation:subPing 2s ease-out infinite;pointer-events:none}
+.sub-ping.slow{animation-duration:3s}
 .leaflet-container{background:#020810!important}
 .leaflet-control-zoom{border:1px solid var(--border)!important;border-radius:4px!important}
 .leaflet-control-zoom a{background:rgba(5,15,28,0.95)!important;color:var(--cyan)!important;
@@ -1233,7 +1238,7 @@ function filtered(){
 // LEAFLET MAP
 // ═══════════════════════════════════════════════
 function initMap(){
-  leafMap=L.map('leafmap',{center:[20,10],zoom:3,minZoom:2,maxZoom:18});
+  leafMap=L.map('leafmap',{center:[20,10],zoom:3,minZoom:2,maxZoom:18,preferCanvas:true});
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{
     attribution:'© <a href="https://www.esri.com">Esri</a> · NASA · USGS · DEEP STATE',
     maxZoom:19
@@ -1251,15 +1256,22 @@ function getColor(s){
 function makeIcon(s){
   const col=getColor(s);
   const r=s.nuc?7:5;
-  const ring=`<circle cx="17" cy="17" r="${r+3}" fill="none" stroke="${col}" stroke-width="1.2" opacity="0.7">
-    <animate attributeName="r" values="${r+1};${r+10};${r+1}" dur="${s.nuc?'2':'3'}s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.8;0;0.8" dur="${s.nuc?'2':'3'}s" repeatCount="indefinite"/>
-  </circle>`;
+  const conv=!['SSBN','SSN','SSGN'].includes(s.type);
+  const dotFill=conv?'#0a0a0a':col;
+  const outline=conv?`<circle cx="17" cy="17" r="${r+1.5}" fill="white" opacity="0.9"/>`:'';
   const nuc=s.nuc?`<text x="17" y="6" text-anchor="middle" font-size="8" fill="${col}" font-family="sans-serif">☢</text>`:'';
-  const filt=`<filter id="g${s.id}"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
-  // V4: gold dashed ring for OSINT-updated subs
+  const pingSize=(r+3)*2;const pingOff=17-(r+3);
+  const pingClass=`sub-ping${s.nuc?'':' slow'}`;
   return L.divIcon({
-    html:(()=>{const conv=!['SSBN','SSN','SSGN'].includes(s.type);const dotFill=conv?'#0a0a0a':col;const outline=conv?`<circle cx="17" cy="17" r="${r+1.5}" fill="white" opacity="0.9"/>`:'';return`<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"><defs>${filt}</defs>${ring}${nuc}<circle cx="17" cy="17" r="${r+2}" fill="${col}" opacity="0.2"/>${outline}<circle cx="17" cy="17" r="${r}" fill="${dotFill}" filter="url(#g${s.id})"/></svg>`;})(),
+    html:`<div class="sub-icon-wrap">
+      <div class="${pingClass}" style="width:${pingSize}px;height:${pingSize}px;top:${pingOff}px;left:${pingOff}px;background:${col};opacity:.65"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" style="position:absolute;top:0;left:0">
+        ${nuc}
+        <circle cx="17" cy="17" r="${r+2}" fill="${col}" opacity="0.18"/>
+        ${outline}
+        <circle cx="17" cy="17" r="${r}" fill="${dotFill}" stroke="${col}" stroke-width="1"/>
+      </svg>
+    </div>`,
     className:'',iconSize:[34,34],iconAnchor:[17,17],popupAnchor:[0,-20]
   });
 }
@@ -1349,7 +1361,7 @@ function renderMarkers(){
     // Main marker at CURRENT position (OSINT or home)
     const m=L.marker([s.lat,s.lon],{icon:makeIcon(s)})
       .addTo(leafMap)
-      .bindPopup(makePopup(s),{className:s.nuc?'nuc-popup':'',maxWidth:340});
+      .bindPopup(()=>makePopup(s),{className:s.nuc?'nuc-popup':'',maxWidth:340});
     m.on('click',()=>selectSub(s));
     leafMarkers[s.id]=m;
 
