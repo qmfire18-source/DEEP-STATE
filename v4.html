@@ -1249,7 +1249,7 @@ function initMap(){
     attribution:'© <a href="https://www.esri.com">Esri</a> · NASA · USGS · DEEP STATE',
     maxZoom:19,noWrap:true
   }).addTo(leafMap);
-  renderMarkers();
+  // renderMarkers() will be called by fetchOsint() right after init — no need to render twice
 }
 
 function getColor(s){
@@ -1383,15 +1383,16 @@ function renderMarkers(){
         homeLines.push(line);
         const hm=L.marker([s.homeLat,s.homeLon],{icon:makeHomeIcon(s),opacity:0.5})
           .addTo(leafMap)
-          .bindPopup(`<div class="pp"><div class="pp-title" style="font-size:10px">${tr('home_port')}</div><div class="pp-cls">${s.name}</div><div class="pp-sea">${subHomeSea(s)}</div></div>`,{maxWidth:220});
+          .bindPopup(()=>`<div class="pp"><div class="pp-title" style="font-size:10px">${tr('home_port')}</div><div class="pp-cls">${s.name}</div><div class="pp-sea">${subHomeSea(s)}</div></div>`,{maxWidth:220});
         homeMarkers[s.id]=hm;
       }
     }
   });
 }
 
+const _subIdSet=new Set(SUBS.map(s=>s.id));
 function isStandaloneOsint(sg){
-  return !sg.sub_id || !SUBS.some(s=>s.id===sg.sub_id);
+  return !sg.sub_id || !_subIdSet.has(sg.sub_id);
 }
 
 function renderOsintMarkers(){
@@ -2452,8 +2453,12 @@ document.querySelectorAll('.fb').forEach(b=>{
     renderList();renderMarkers();
   };
 });
+let _searchTimer;
 document.getElementById('sinput').addEventListener('input',e=>{
-  query=e.target.value;renderList();renderMarkers();
+  query=e.target.value;
+  renderList();
+  clearTimeout(_searchTimer);
+  _searchTimer=setTimeout(renderMarkers,280);
 });
 document.getElementById('refresh-btn').onclick=fetchOsint;
 
@@ -2478,10 +2483,11 @@ function tick(){
 // ═══════════════════════════════════════════════
 function drift(){
   SUBS.forEach(s=>{
-    s.lat=Math.max(-85,Math.min(85,s.lat+(Math.random()-.5)*0.06));
-    s.lon=s.lon+(Math.random()-.5)*0.06;
+    s.lat=Math.max(-85,Math.min(85,s.lat+(Math.random()-.5)*0.04));
+    s.lon=s.lon+(Math.random()-.5)*0.04;
+    const m=leafMarkers[s.id];
+    if(m) m.setLatLng([s.lat,s.lon]);
   });
-  renderMarkers();
 }
 
 // ═══════════════════════════════════════════════
