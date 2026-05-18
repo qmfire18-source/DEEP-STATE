@@ -2163,9 +2163,9 @@ function initGlobe(){
 
   // Atmosphere — halo gris militaire subtil
   scene.add(new THREE.Mesh(new THREE.SphereGeometry(1.04,64,64),
-    new THREE.MeshPhongMaterial({color:0x333333,emissive:0x111111,transparent:true,opacity:0.08,side:THREE.FrontSide})));
+    new THREE.MeshPhongMaterial({color:0x333333,emissive:0x111111,transparent:true,opacity:0.08,side:THREE.FrontSide,depthWrite:false})));
   scene.add(new THREE.Mesh(new THREE.SphereGeometry(1.09,32,32),
-    new THREE.MeshBasicMaterial({color:0x111111,transparent:true,opacity:0.05,side:THREE.BackSide})));
+    new THREE.MeshBasicMaterial({color:0x111111,transparent:true,opacity:0.05,side:THREE.BackSide,depthWrite:false})));
 
   // Stars — blanches
   const sv=[];for(let i=0;i<3000;i++) sv.push((Math.random()-.5)*300,(Math.random()-.5)*300,(Math.random()-.5)*300);
