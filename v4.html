@@ -2464,8 +2464,8 @@ function renderStats(){
   const c={SSN:0,SSBN:0,SSGN:0,SS:0};
   SUBS.forEach(s=>c[s.type]=(c[s.type]||0)+1);
 
-  // Compute deployment level: count nuclear subs with OSINT position and moved from home
-  const deployedNuc = SUBS.filter(s=>s.nuc && s.osintUpdated && Math.sqrt(Math.pow(s.lat-s.homeLat,2)+Math.pow(s.lon-s.homeLon,2))>0.4).length;
+  // Compute deployment level: all nuclear subs away from home (OSINT-confirmed or estimated)
+  const deployedNuc = SUBS.filter(s=>s.nuc && Math.sqrt(Math.pow(s.lat-s.homeLat,2)+Math.pow(s.lon-s.homeLon,2))>0.4).length;
   // Maximum for scale: use total nuclear subs (fallback min 1)
   const DEPLOYMENT_MAX = Math.max(1, nc2);
   const pct = Math.round(Math.min(100, (deployedNuc/DEPLOYMENT_MAX)*100));
