@@ -1238,10 +1238,11 @@ function filtered(){
 // LEAFLET MAP
 // ═══════════════════════════════════════════════
 function initMap(){
-  leafMap=L.map('leafmap',{center:[20,10],zoom:3,minZoom:2,maxZoom:18,preferCanvas:true});
+  leafMap=L.map('leafmap',{center:[20,10],zoom:3,minZoom:2,maxZoom:18,preferCanvas:true,
+    maxBounds:[[-85,-180],[85,180]],maxBoundsViscosity:1.0});
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{
     attribution:'© <a href="https://www.esri.com">Esri</a> · NASA · USGS · DEEP STATE',
-    maxZoom:19
+    maxZoom:19,noWrap:true
   }).addTo(leafMap);
   renderMarkers();
 }
