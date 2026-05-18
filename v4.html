@@ -957,7 +957,7 @@ function makeIcon(s){
   const filt=`<filter id="g${s.id}"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
   // V4: gold dashed ring for OSINT-updated subs
   return L.divIcon({
-    html:`<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"><defs>${filt}</defs>${ring}${nuc}<circle cx="17" cy="17" r="${r+2}" fill="${col}" opacity="0.2"/><circle cx="17" cy="17" r="${r+1.5}" fill="white" opacity="0.9"/><circle cx="17" cy="17" r="${r}" fill="#0a0a0a" filter="url(#g${s.id})"/></svg>`,
+    html:(()=>{const conv=!['SSBN','SSN','SSGN'].includes(s.type);const dotFill=conv?'#0a0a0a':col;const outline=conv?`<circle cx="17" cy="17" r="${r+1.5}" fill="white" opacity="0.9"/>`:'';return`<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"><defs>${filt}</defs>${ring}${nuc}<circle cx="17" cy="17" r="${r+2}" fill="${col}" opacity="0.2"/>${outline}<circle cx="17" cy="17" r="${r}" fill="${dotFill}" filter="url(#g${s.id})"/></svg>`;})(),
     className:'',iconSize:[34,34],iconAnchor:[17,17],popupAnchor:[0,-20]
   });
 }
@@ -1857,12 +1857,16 @@ function initGlobe(){
   const globeDots=[]; // store {mesh, sub} for raycasting
   SUBS.forEach(s=>{
     const col=new THREE.Color(getColor(s));
+    const isConv=!['SSBN','SSN','SSGN'].includes(s.type);
     const pos=ll3(s.lat,s.lon,1.013);
-    // White outline ring for visibility on any texture
-    const outline=new THREE.Mesh(new THREE.SphereGeometry(s.nuc?0.026:0.020,8,8),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0.85}));
-    outline.position.copy(pos);subGrp.add(outline);
-    // Main dot — noir
-    const dot=new THREE.Mesh(new THREE.SphereGeometry(s.nuc?0.022:0.016,8,8),new THREE.MeshBasicMaterial({color:0x0a0a0a}));
+    // Outline blanc uniquement pour les SS conventionnels (point noir sur fond coloré)
+    if(isConv){
+      const outline=new THREE.Mesh(new THREE.SphereGeometry(s.nuc?0.026:0.020,8,8),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0.85}));
+      outline.position.copy(pos);subGrp.add(outline);
+    }
+    // Main dot — noir pour conventionnel, couleur type pour nucléaire
+    const dotColor=isConv?0x0a0a0a:col;
+    const dot=new THREE.Mesh(new THREE.SphereGeometry(s.nuc?0.022:0.016,8,8),new THREE.MeshBasicMaterial({color:dotColor}));
     dot.position.copy(pos);dot.userData={sub:s};subGrp.add(dot);globeDots.push(dot);
     // Halo couleur type
     const halo=new THREE.Mesh(new THREE.RingGeometry(0.02,0.035,16),
