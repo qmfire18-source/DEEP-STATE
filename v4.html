@@ -1165,11 +1165,11 @@ function applyOsintPositions(data){
     return null;
   }
 
-  // Build map from sightings as fallback (legacy behavior)
+  // Build map from live sightings as fallback — baselines excluded (they must not override estimated positions)
   var best={};
   if(Array.isArray(data.sightings)){
     data.sightings.forEach(function(sg){
-      if(!sg.sub_id||sg.lat==null) return;
+      if(!sg.sub_id||sg.lat==null||sg.is_baseline) return;
       var existing=best[sg.sub_id];
       if(!existing){best[sg.sub_id]=sg;return;}
       var dNew=new Date(sg.published||0);

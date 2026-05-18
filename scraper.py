@@ -967,6 +967,7 @@ def generate_baseline_sightings(live_sightings):
         lon=b["lon"]+random.uniform(-0.1,0.1)
         baseline.append({
             "id":f"baseline_{sub_id}",
+            "is_baseline":True,  # never overrides HTML estimated positions
             "sub_id":sub_id,"sub_name":sub_id.replace("_"," ").upper(),
             "title":f"Position estimée — {b['loc']}",
             "title_en":f"Estimated Position — {b['loc']}",
