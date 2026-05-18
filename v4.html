@@ -163,6 +163,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .pp-sea{font-size:10px;color:var(--dim);font-family:'Share Tech Mono';margin-bottom:8px}
 .pp-desc{font-size:11px;line-height:1.55;color:var(--dim);border-top:1px solid var(--border);padding-top:8px}
 .pp-osint-block{background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.22);border-radius:6px;padding:10px 12px;margin-bottom:10px}
+.pp-estimated-block{background:rgba(90,138,170,0.08);border:1px solid rgba(90,138,170,0.3);border-radius:6px;padding:8px 12px;margin-bottom:10px;font-family:'Share Tech Mono';font-size:8px;color:var(--dim);letter-spacing:1px}
 .pp-osint-label{font-family:'Share Tech Mono';font-size:7.5px;color:var(--gold);letter-spacing:1.5px;margin-bottom:4px;text-transform:uppercase}
 .pp-osint-sub{font-family:'Share Tech Mono';font-size:8px;color:var(--dim);line-height:1.3;margin-bottom:6px}
 .pp-osint-title{font-size:11px;color:var(--txt);line-height:1.4;margin-bottom:6px}
@@ -311,7 +312,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
     <div class="hst"><div class="v" id="tc" style="color:var(--cyan)">0</div><div class="l" data-i18n="vessels">VESSELS</div></div>
     <div class="hst"><div class="v" id="nc" style="color:var(--green)">0</div><div class="l" data-i18n="nuclear_count">NUCLEAR</div></div>
     <div class="hst"><div class="v" id="nac" style="color:var(--red)">0</div><div class="l" data-i18n="nations">NATIONS</div></div>
-    <div class="hst"><div class="v" id="oic" style="color:var(--gold)">0</div><div class="l" data-i18n="osint">OSINT</div></div>
+    <div class="hst" style="cursor:help" title="Signalements OSINT non attribués à un sous-marin — points jaunes sur la carte"><div class="v" id="oic" style="color:var(--gold)">0</div><div class="l" data-i18n="osint">OSINT ●</div></div>
     <div class="live" data-i18n="live">LIVE</div>
     <div id="clk">--:--:-- UTC</div>
   </div>
@@ -1316,13 +1317,15 @@ function makePopup(s){
   const _osintTitle = LANG==='en'?(s.osintTitle_en||s.osintTitle):s.osintTitle;
   const osintTitle = _osintTitle?`<div class="pp-osint-title">${_osintTitle}</div>`:'';
   const osintLink = s.osintUrl?`<a class="pp-osint-link" href="${s.osintUrl}" target="_blank">${tr('read_source')}</a>`:'';
+  const dist=Math.sqrt(Math.pow(s.lat-s.homeLat,2)+Math.pow(s.lon-s.homeLon,2));
+  const isEstimated=dist>0.4&&!s.osintUpdated;
   const osintBadge=s.osintUpdated?`<div class="pp-osint-block">
       <div class="pp-osint-label">📡 ${tr('osint_position')}</div>
       <div class="pp-osint-sub">${pub} · ${s.osintSource}</div>
       ${osintTitle}
       ${osintLink}
-    </div>`:'';
-  const homeLine=(s.osintUpdated&&s.homeSea!==s.sea)?`<div class="pp-home">${tr('home_port')}: ${subHomeSea(s)}</div>`:'';
+    </div>`:isEstimated?`<div class="pp-estimated-block">〜 ${LANG==='en'?'Estimated patrol area — position not confirmed':'Zone de patrouille estimée — position non confirmée'}</div>`:'';
+  const homeLine=(dist>0.4&&s.homeSea!==s.sea)?`<div class="pp-home">${tr('home_port')}: ${subHomeSea(s)}</div>`:'';
   return `<div class="pp">
     <div class="pp-title">${s.flag} ${s.name}</div>
     <div class="pp-cls">${s.class} · ${s.type}${s.nuc?' · ☢ '+tr('nuclear_badge'):''}</div>
@@ -1333,7 +1336,7 @@ function makePopup(s){
       <div class="pp-s"><div class="k">${tr('speed')}</div><div class="v">${s.speed}</div></div>
       <div class="pp-s"><div class="k">${tr('crew')}</div><div class="v">${s.crew}</div></div>
     </div>
-    <div class="pp-sea">${s.osintUpdated?'📡':'📍'} ${subSea(s)}</div>
+    <div class="pp-sea">${s.osintUpdated?'📡':isEstimated?'〜':'📍'} ${subSea(s)}</div>
     ${homeLine}
     <div class="pp-desc">${subDesc(s).slice(0,200)}${subDesc(s).length>200?'…':''}</div>
   </div>`;
@@ -1973,7 +1976,9 @@ async function fetchOsint(){
   renderOsintMarkers();
 
   const upd=new Date(osintData.last_updated);
-  document.getElementById('oic').textContent=osintData.count;
+  const standaloneCount=osintData.sightings.filter(sg=>sg.lat!=null&&isStandaloneOsint(sg)).length;
+  document.getElementById('oic').textContent=standaloneCount;
+  document.getElementById('oic').title=LANG==='en'?`${standaloneCount} unattributed OSINT sightings (yellow dots on map)`:`${standaloneCount} signalements OSINT non attribués à un sous-marin (points jaunes sur la carte)`;
   document.getElementById('osint-status').innerHTML=`<span style="color:var(--green)">●</span> ${tr('osint_count',{count: osintData.count})}`;
   document.getElementById('last-update').textContent=tr('last_update',{date: formatDate(upd)});
 }
