@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-10-14T21:21:15.758005+00:00",
+  "last_updated": "2026-10-15T03:37:09.973555+00:00",
   "count": 343,
-  "live_count": 61,
-  "baseline_count": 282,
+  "live_count": 62,
+  "baseline_count": 281,
   "position_updates": {
     "gbr_vanguard": [
       {
@@ -3766,6 +3766,16 @@
         "source_url": "https://www.hisutton.com/Ru-Khabarovsk-Sea-Trials.html",
         "published": "2026-08-18T01:50:00+00:00",
         "recorded_at": "2026-10-14T21:21:15.757994+00:00"
+      },
+      {
+        "lat": 80.213,
+        "lon": 15.087,
+        "location": "Arctic",
+        "source": "HI Sutton",
+        "title": "Russian Poseidon-Carrier Submarine Khabarovsk Starts Sea Trials",
+        "source_url": "https://www.hisutton.com/Ru-Khabarovsk-Sea-Trials.html",
+        "published": "2026-08-18T01:50:00+00:00",
+        "recorded_at": "2026-10-15T03:37:09.973542+00:00"
       }
     ],
     "uss_sanjuan": [
@@ -4974,6 +4984,16 @@
         "source_url": "https://news.usni.org/2026/10/13/ncis-investigating-submarine-sailor-death-on-naval-base-kitsap",
         "published": "Tue, 13 Oct 2026 22:15:49 +0000",
         "recorded_at": "2026-10-14T21:21:15.757945+00:00"
+      },
+      {
+        "lat": 47.435,
+        "lon": -122.79,
+        "location": "Kitsap",
+        "source": "USNI News",
+        "title": "NCIS Investigating Submarine Sailor Death on Naval Base Kitsap",
+        "source_url": "https://news.usni.org/2026/10/13/ncis-investigating-submarine-sailor-death-on-naval-base-kitsap",
+        "published": "Tue, 13 Oct 2026 22:15:49 +0000",
+        "recorded_at": "2026-10-15T03:37:09.973490+00:00"
       }
     ],
     "rus_vlad": [
@@ -8166,6 +8186,16 @@
         "source_url": "https://www.hisutton.com/Timeline-2022-Ukraine-Invasion-At-Sea.html",
         "published": "2026-10-13T01:00:00+00:00",
         "recorded_at": "2026-10-14T21:21:15.757991+00:00"
+      },
+      {
+        "lat": 35.74,
+        "lon": 17.936,
+        "location": "Mediterranean Sea",
+        "source": "HI Sutton",
+        "title": "Timeline of Ukraine Invasion: War In The Black Sea",
+        "source_url": "https://www.hisutton.com/Timeline-2022-Ukraine-Invasion-At-Sea.html",
+        "published": "2026-10-13T01:00:00+00:00",
+        "recorded_at": "2026-10-15T03:37:09.973539+00:00"
       }
     ],
     "uss_seawolf": [
@@ -16070,6 +16100,16 @@
         "source_url": "https://news.usni.org/2026/08/10/usni-news-fleet-and-marine-tracker-aug-10-2026",
         "published": "Mon, 10 Aug 2026 17:28:48 +0000",
         "recorded_at": "2026-10-14T21:21:15.757982+00:00"
+      },
+      {
+        "lat": 35.792,
+        "lon": 18.091,
+        "location": "Mediterranean Sea",
+        "source": "USNI Fleet",
+        "title": "USNI News Fleet and Marine Tracker: Aug. 10, 2026",
+        "source_url": "https://news.usni.org/2026/08/10/usni-news-fleet-and-marine-tracker-aug-10-2026",
+        "published": "Mon, 10 Aug 2026 17:28:48 +0000",
+        "recorded_at": "2026-10-15T03:37:09.973525+00:00"
       }
     ],
     "rus_krasno": [
@@ -24362,6 +24402,16 @@
         "source_url": "https://news.usni.org/2026/10/06/u-s-japanese-forces-to-rehearse-defense-of-japans-southwest-islands",
         "published": "Tue, 06 Oct 2026 15:50:36 +0000",
         "recorded_at": "2026-10-14T21:21:15.757975+00:00"
+      },
+      {
+        "lat": 28.078,
+        "lon": 125.12,
+        "location": "East China Sea",
+        "source": "USNI News",
+        "title": "U.S., Japanese Forces to Rehearse Defense of Japan’s Southwest Islands",
+        "source_url": "https://news.usni.org/2026/10/06/u-s-japanese-forces-to-rehearse-defense-of-japans-southwest-islands",
+        "published": "Tue, 06 Oct 2026 15:50:36 +0000",
+        "recorded_at": "2026-10-15T03:37:09.973518+00:00"
       }
     ],
     "fra_suffren": [
@@ -43016,6 +43066,16 @@
         "source_url": "https://news.usni.org/2026/07/03/usni-news-western-pacific-pulse-july-3-2026",
         "published": "Fri, 03 Jul 2026 12:08:23 +0000",
         "recorded_at": "2026-10-14T21:21:15.757985+00:00"
+      },
+      {
+        "lat": 20.182,
+        "lon": 140.261,
+        "location": "Western Pacific",
+        "source": "USNI Fleet",
+        "title": "USNI News Western Pacific Pulse: July 3 2026",
+        "source_url": "https://news.usni.org/2026/07/03/usni-news-western-pacific-pulse-july-3-2026",
+        "published": "Fri, 03 Jul 2026 12:08:23 +0000",
+        "recorded_at": "2026-10-15T03:37:09.973530+00:00"
       }
     ],
     "irn_ghadir1": [
@@ -58062,6 +58122,16 @@
         "source_url": "https://news.usni.org/2026/06/22/usni-news-fleet-and-marine-tracker-june-22-2026",
         "published": "Mon, 22 Jun 2026 18:46:33 +0000",
         "recorded_at": "2026-10-14T21:21:15.757988+00:00"
+      },
+      {
+        "lat": 35.899,
+        "lon": 17.711,
+        "location": "Mediterranean Sea",
+        "source": "USNI Fleet",
+        "title": "USNI News Fleet and Marine Tracker: June 22, 2026",
+        "source_url": "https://news.usni.org/2026/06/22/usni-news-fleet-and-marine-tracker-june-22-2026",
+        "published": "Mon, 22 Jun 2026 18:46:33 +0000",
+        "recorded_at": "2026-10-15T03:37:09.973533+00:00"
       }
     ],
     "uss_newjersey": [
@@ -61288,6 +61358,16 @@
         "source_url": "https://news.usni.org/2026/10/08/france-fires-new-submarine-launched-ballistic-missile-in-first-at-sea-test",
         "published": "Thu, 08 Oct 2026 16:05:10 +0000",
         "recorded_at": "2026-10-14T21:21:15.757971+00:00"
+      },
+      {
+        "lat": 54.865,
+        "lon": -29.928,
+        "location": "North Atlantic",
+        "source": "USNI News",
+        "title": "France Fires New Submarine-launched Ballistic Missile in First At-sea Test",
+        "source_url": "https://news.usni.org/2026/10/08/france-fires-new-submarine-launched-ballistic-missile-in-first-at-sea-test",
+        "published": "Thu, 08 Oct 2026 16:05:10 +0000",
+        "recorded_at": "2026-10-15T03:37:09.973512+00:00"
       }
     ],
     "swe_uppland": [
@@ -62010,6 +62090,16 @@
         "source_url": "https://www.navalnews.com/naval-news/2026/10/sweden-formalizes-interim-submarine-training-and-sodermanland-lease-for-poland/",
         "published": "Tue, 13 Oct 2026 11:39:15 +0000",
         "recorded_at": "2026-10-14T11:22:38.779544+00:00"
+      },
+      {
+        "lat": 56.21,
+        "lon": 15.862,
+        "location": "Karlskrona",
+        "source": "Naval News",
+        "title": "Sweden Formalizes Interim Submarine Training and Södermanland Lease for Poland",
+        "source_url": "https://www.navalnews.com/naval-news/2026/10/sweden-formalizes-interim-submarine-training-and-sodermanland-lease-for-poland/",
+        "published": "Tue, 13 Oct 2026 11:39:15 +0000",
+        "recorded_at": "2026-10-15T03:37:09.973537+00:00"
       }
     ],
     "rus_orel": [
@@ -63162,6 +63252,16 @@
         "source_url": "https://warontherocks.com/north-koreas-irregular-warfare-after-ukraine/",
         "published": "Fri, 25 Sep 2026 07:30:29 +0000",
         "recorded_at": "2026-10-14T21:21:15.758002+00:00"
+      },
+      {
+        "lat": 69.118,
+        "lon": 33.553,
+        "location": "Severomorsk, Russia",
+        "source": "War on the Rocks",
+        "title": "North Korea’s Irregular Warfare After Ukraine",
+        "source_url": "https://warontherocks.com/north-koreas-irregular-warfare-after-ukraine/",
+        "published": "Fri, 25 Sep 2026 07:30:29 +0000",
+        "recorded_at": "2026-10-15T03:37:09.973553+00:00"
       }
     ],
     "deu_u35": [
@@ -64424,6 +64524,16 @@
         "source_url": "https://www.twz.com/sea/british-commandos-emerge-from-german-submarine-during-major-nato-exercise",
         "published": "Wed, 07 Oct 2026 16:13:07 -0400",
         "recorded_at": "2026-10-14T21:21:15.757997+00:00"
+      },
+      {
+        "lat": 54.881,
+        "lon": -29.778,
+        "location": "North Atlantic",
+        "source": "The War Zone",
+        "title": "British Commandos Emerge From German Submarine During Major NATO Exercise",
+        "source_url": "https://www.twz.com/sea/british-commandos-emerge-from-german-submarine-during-major-nato-exercise",
+        "published": "Wed, 07 Oct 2026 16:13:07 -0400",
+        "recorded_at": "2026-10-15T03:37:09.973546+00:00"
       }
     ],
     "uss_alexandria": [
@@ -75470,6 +75580,16 @@
         "source_url": "https://news.usni.org/2026/09/08/usni-news-fleet-and-marine-tracker-sept-8-2026",
         "published": "Tue, 08 Sep 2026 18:16:40 +0000",
         "recorded_at": "2026-10-14T21:21:15.757979+00:00"
+      },
+      {
+        "lat": 35.887,
+        "lon": 17.866,
+        "location": "Mediterranean Sea",
+        "source": "USNI Fleet",
+        "title": "USNI News Fleet and Marine Tracker: Sept. 8, 2026",
+        "source_url": "https://news.usni.org/2026/09/08/usni-news-fleet-and-marine-tracker-sept-8-2026",
+        "published": "Tue, 08 Sep 2026 18:16:40 +0000",
+        "recorded_at": "2026-10-15T03:37:09.973522+00:00"
       }
     ],
     "chn_yuan2": [
@@ -78218,6 +78338,16 @@
         "source_url": "https://www.twz.com/sea/anduril-dives-into-submarine-construction-with-new-baltimore-plant",
         "published": "Tue, 06 Oct 2026 13:41:45 -0400",
         "recorded_at": "2026-10-14T21:21:15.758000+00:00"
+      },
+      {
+        "lat": 41.181,
+        "lon": -72.122,
+        "location": "Groton",
+        "source": "The War Zone",
+        "title": "Anduril Dives Into Submarine Construction With New Baltimore Plant",
+        "source_url": "https://www.twz.com/sea/anduril-dives-into-submarine-construction-with-new-baltimore-plant",
+        "published": "Tue, 06 Oct 2026 13:41:45 -0400",
+        "recorded_at": "2026-10-15T03:37:09.973549+00:00"
       }
     ],
     "fra_terrible": [
@@ -78403,10 +78533,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/05/26/usni-news-fleet-and-marine-tracker-may-26-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.076,
-      "lon": 18.044,
+      "lat": 35.753,
+      "lon": 18.128,
       "published": "Tue, 26 May 2026 17:21:50 +0000",
-      "scraped_at": "2026-10-14T21:20:52.610401+00:00",
+      "scraped_at": "2026-10-15T03:36:44.118024+00:00",
       "priority": 3
     },
     {
@@ -78418,10 +78548,10 @@
       "source": "USNI News",
       "source_url": "https://news.usni.org/2026/10/13/ncis-investigating-submarine-sailor-death-on-naval-base-kitsap",
       "location": "Kitsap",
-      "lat": 47.377,
-      "lon": -122.365,
+      "lat": 47.435,
+      "lon": -122.79,
       "published": "Tue, 13 Oct 2026 22:15:49 +0000",
-      "scraped_at": "2026-10-14T21:20:50.378341+00:00",
+      "scraped_at": "2026-10-15T03:36:41.548137+00:00",
       "priority": 3
     },
     {
@@ -78433,10 +78563,25 @@
       "source": "USNI News",
       "source_url": "https://news.usni.org/2026/10/13/usni-news-fleet-and-marine-tracker-oct-13-2026",
       "location": "Mediterranean Sea",
-      "lat": 35.98,
-      "lon": 18.232,
+      "lat": 35.853,
+      "lon": 18.296,
       "published": "Tue, 13 Oct 2026 19:11:00 +0000",
-      "scraped_at": "2026-10-14T21:20:50.434455+00:00",
+      "scraped_at": "2026-10-15T03:36:41.670532+00:00",
+      "priority": 3
+    },
+    {
+      "id": "https://www.navalnews.com/naval-news/2026/10/sweden-formalizes-interim-submarine-training-and-sodermanland-lease-for-poland/",
+      "sub_id": "swe_uppland",
+      "sub_name": "a26",
+      "title": "Sweden Formalizes Interim Submarine Training and Södermanland Lease for Poland",
+      "summary": "Poland and Sweden have finalized formal contracts for Polish submarine crew training and the lease of the interim A17-class boat HMS Södermanland, paving the way for the future delivery of Saab A26 submarines. \n The post  Sweden Formalizes Interim Submarine Training and Södermanland Lease for Poland  appeared first on  Naval News .",
+      "source": "Naval News",
+      "source_url": "https://www.navalnews.com/naval-news/2026/10/sweden-formalizes-interim-submarine-training-and-sodermanland-lease-for-poland/",
+      "location": "Karlskrona",
+      "lat": 56.21,
+      "lon": 15.862,
+      "published": "Tue, 13 Oct 2026 11:39:15 +0000",
+      "scraped_at": "2026-10-15T03:36:46.739376+00:00",
       "priority": 3
     },
     {
@@ -78448,10 +78593,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/09/08/usni-news-fleet-and-marine-tracker-sept-8-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.297,
-      "lon": 18.241,
+      "lat": 35.887,
+      "lon": 17.866,
       "published": "Tue, 08 Sep 2026 18:16:40 +0000",
-      "scraped_at": "2026-10-14T21:20:51.514937+00:00",
+      "scraped_at": "2026-10-15T03:36:42.793090+00:00",
       "priority": 3
     },
     {
@@ -78463,10 +78608,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/07/07/usni-news-fleet-and-marine-tracker-july-7-2026",
       "location": "Mediterranean Sea",
-      "lat": 35.869,
-      "lon": 17.913,
+      "lat": 36.133,
+      "lon": 18.256,
       "published": "Tue, 07 Jul 2026 19:10:30 +0000",
-      "scraped_at": "2026-10-14T21:20:52.162467+00:00",
+      "scraped_at": "2026-10-15T03:36:43.521489+00:00",
       "priority": 3
     },
     {
@@ -78481,7 +78626,7 @@
       "lat": null,
       "lon": null,
       "published": "Tue, 06 Oct 2026 20:38:06 +0000",
-      "scraped_at": "2026-10-14T21:20:50.616056+00:00",
+      "scraped_at": "2026-10-15T03:36:41.909589+00:00",
       "priority": 3
     },
     {
@@ -78493,10 +78638,10 @@
       "source": "USNI News",
       "source_url": "https://news.usni.org/2026/10/06/u-s-japanese-forces-to-rehearse-defense-of-japans-southwest-islands",
       "location": "East China Sea",
-      "lat": 27.87,
-      "lon": 125.224,
+      "lat": 28.078,
+      "lon": 125.12,
       "published": "Tue, 06 Oct 2026 15:50:36 +0000",
-      "scraped_at": "2026-10-14T21:20:50.621872+00:00",
+      "scraped_at": "2026-10-15T03:36:41.915527+00:00",
       "priority": 3
     },
     {
@@ -78508,10 +78653,10 @@
       "source": "USNI News",
       "source_url": "https://news.usni.org/2026/10/08/france-fires-new-submarine-launched-ballistic-missile-in-first-at-sea-test",
       "location": "North Atlantic",
-      "lat": 55.161,
-      "lon": -29.756,
+      "lat": 54.865,
+      "lon": -29.928,
       "published": "Thu, 08 Oct 2026 16:05:10 +0000",
-      "scraped_at": "2026-10-14T21:20:50.551854+00:00",
+      "scraped_at": "2026-10-15T03:36:41.789414+00:00",
       "priority": 3
     },
     {
@@ -78523,10 +78668,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/08/31/usni-news-fleet-and-marine-tracker-aug-31-2026",
       "location": "Mediterranean Sea",
-      "lat": 35.863,
-      "lon": 18.094,
+      "lat": 36.086,
+      "lon": 18.015,
       "published": "Mon, 31 Aug 2026 17:57:58 +0000",
-      "scraped_at": "2026-10-14T21:20:51.591514+00:00",
+      "scraped_at": "2026-10-15T03:36:42.882277+00:00",
       "priority": 3
     },
     {
@@ -78538,10 +78683,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/03/30/usni-news-fleet-and-marine-tracker-march-30-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.04,
-      "lon": 17.731,
+      "lat": 36.068,
+      "lon": 17.826,
       "published": "Mon, 30 Mar 2026 21:39:02 +0000",
-      "scraped_at": "2026-10-14T21:20:53.390149+00:00",
+      "scraped_at": "2026-10-15T03:36:45.082903+00:00",
       "priority": 3
     },
     {
@@ -78553,10 +78698,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/06/29/usni-news-fleet-and-marine-tracker-june-29-2026",
       "location": "Mediterranean Sea",
-      "lat": 35.805,
-      "lon": 18.244,
+      "lat": 36.257,
+      "lon": 17.717,
       "published": "Mon, 29 Jun 2026 17:00:52 +0000",
-      "scraped_at": "2026-10-14T21:20:52.294059+00:00",
+      "scraped_at": "2026-10-15T03:36:43.630236+00:00",
       "priority": 3
     },
     {
@@ -78568,10 +78713,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/07/27/usni-news-fleet-and-marine-tracker-july-27-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.002,
-      "lon": 18.138,
+      "lat": 36.066,
+      "lon": 18.079,
       "published": "Mon, 27 Jul 2026 17:16:06 +0000",
-      "scraped_at": "2026-10-14T21:20:51.906206+00:00",
+      "scraped_at": "2026-10-15T03:36:43.215736+00:00",
       "priority": 3
     },
     {
@@ -78583,10 +78728,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/04/27/usni-news-fleet-and-marine-tracker-april-27-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.085,
-      "lon": 17.744,
+      "lat": 35.935,
+      "lon": 18.015,
       "published": "Mon, 27 Apr 2026 17:42:17 +0000",
-      "scraped_at": "2026-10-14T21:20:53.038819+00:00",
+      "scraped_at": "2026-10-15T03:36:44.636953+00:00",
       "priority": 3
     },
     {
@@ -78598,10 +78743,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/08/24/usni-news-fleet-and-marine-tracker-aug-24-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.149,
-      "lon": 17.829,
+      "lat": 36.011,
+      "lon": 18.014,
       "published": "Mon, 24 Aug 2026 15:20:52 +0000",
-      "scraped_at": "2026-10-14T21:20:51.655224+00:00",
+      "scraped_at": "2026-10-15T03:36:42.996281+00:00",
       "priority": 3
     },
     {
@@ -78613,10 +78758,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/03/23/usni-news-fleet-and-marine-tracker-march-23-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.136,
-      "lon": 18.01,
+      "lat": 35.999,
+      "lon": 17.867,
       "published": "Mon, 23 Mar 2026 20:26:08 +0000",
-      "scraped_at": "2026-10-14T21:20:53.517862+00:00",
+      "scraped_at": "2026-10-15T03:36:45.169494+00:00",
       "priority": 3
     },
     {
@@ -78628,10 +78773,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/06/22/usni-news-fleet-and-marine-tracker-june-22-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.162,
-      "lon": 18.202,
+      "lat": 35.899,
+      "lon": 17.711,
       "published": "Mon, 22 Jun 2026 18:46:33 +0000",
-      "scraped_at": "2026-10-14T21:20:52.301459+00:00",
+      "scraped_at": "2026-10-15T03:36:43.638772+00:00",
       "priority": 3
     },
     {
@@ -78643,10 +78788,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/09/21/usni-news-fleet-and-marine-tracker-sept-21-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.031,
-      "lon": 17.997,
+      "lat": 35.747,
+      "lon": 18.275,
       "published": "Mon, 21 Sep 2026 16:50:43 +0000",
-      "scraped_at": "2026-10-14T21:20:51.402861+00:00",
+      "scraped_at": "2026-10-15T03:36:42.698884+00:00",
       "priority": 3
     },
     {
@@ -78658,10 +78803,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/07/20/usni-news-fleet-and-marine-tracker-july-20-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.264,
-      "lon": 18.025,
+      "lat": 35.748,
+      "lon": 17.959,
       "published": "Mon, 20 Jul 2026 19:35:42 +0000",
-      "scraped_at": "2026-10-14T21:20:52.001201+00:00",
+      "scraped_at": "2026-10-15T03:36:43.315545+00:00",
       "priority": 3
     },
     {
@@ -78673,10 +78818,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/04/20/usni-news-fleet-and-marine-tracker-april-20-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.167,
-      "lon": 18.027,
+      "lat": 35.875,
+      "lon": 17.844,
       "published": "Mon, 20 Apr 2026 17:26:50 +0000",
-      "scraped_at": "2026-10-14T21:20:53.144997+00:00",
+      "scraped_at": "2026-10-15T03:36:44.741866+00:00",
       "priority": 3
     },
     {
@@ -78688,10 +78833,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/05/18/usni-news-fleet-and-marine-tracker-may-18-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.016,
-      "lon": 18.169,
+      "lat": 36.035,
+      "lon": 17.861,
       "published": "Mon, 18 May 2026 18:58:44 +0000",
-      "scraped_at": "2026-10-14T21:20:52.854760+00:00",
+      "scraped_at": "2026-10-15T03:36:44.337921+00:00",
       "priority": 3
     },
     {
@@ -78703,10 +78848,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/08/17/usni-news-fleet-and-marine-tracker-aug-17-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.044,
-      "lon": 17.823,
+      "lat": 36.252,
+      "lon": 18.019,
       "published": "Mon, 17 Aug 2026 16:44:25 +0000",
-      "scraped_at": "2026-10-14T21:20:51.793099+00:00",
+      "scraped_at": "2026-10-15T03:36:43.107909+00:00",
       "priority": 3
     },
     {
@@ -78718,10 +78863,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/03/16/usni-news-fleet-and-marine-tracker-march-16-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.171,
-      "lon": 18.139,
+      "lat": 36.165,
+      "lon": 18.007,
       "published": "Mon, 16 Mar 2026 19:43:18 +0000",
-      "scraped_at": "2026-10-14T21:20:53.581009+00:00",
+      "scraped_at": "2026-10-15T03:36:45.251836+00:00",
       "priority": 3
     },
     {
@@ -78733,10 +78878,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/06/15/usni-news-fleet-and-marine-tracker-june-15-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.004,
-      "lon": 18.076,
+      "lat": 35.723,
+      "lon": 18.174,
       "published": "Mon, 15 Jun 2026 17:03:39 +0000",
-      "scraped_at": "2026-10-14T21:20:52.366182+00:00",
+      "scraped_at": "2026-10-15T03:36:43.756526+00:00",
       "priority": 3
     },
     {
@@ -78748,10 +78893,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/09/14/usni-news-fleet-and-marine-tracker-sept-14-2026",
       "location": "Mediterranean Sea",
-      "lat": 35.904,
-      "lon": 17.782,
+      "lat": 36.111,
+      "lon": 18.246,
       "published": "Mon, 14 Sep 2026 19:26:11 +0000",
-      "scraped_at": "2026-10-14T21:20:51.508557+00:00",
+      "scraped_at": "2026-10-15T03:36:42.785353+00:00",
       "priority": 3
     },
     {
@@ -78763,10 +78908,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/07/13/usni-news-fleet-and-marine-tracker-july-13-2026",
       "location": "Mediterranean Sea",
-      "lat": 35.891,
-      "lon": 17.907,
+      "lat": 36.11,
+      "lon": 18.11,
       "published": "Mon, 13 Jul 2026 17:51:07 +0000",
-      "scraped_at": "2026-10-14T21:20:52.054414+00:00",
+      "scraped_at": "2026-10-15T03:36:43.410538+00:00",
       "priority": 3
     },
     {
@@ -78778,10 +78923,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/04/13/usni-news-fleet-and-marine-tracker-april-13-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.116,
-      "lon": 17.964,
+      "lat": 35.735,
+      "lon": 17.76,
       "published": "Mon, 13 Apr 2026 19:12:43 +0000",
-      "scraped_at": "2026-10-14T21:20:53.228872+00:00",
+      "scraped_at": "2026-10-15T03:36:44.862397+00:00",
       "priority": 3
     },
     {
@@ -78793,10 +78938,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/05/11/usni-news-fleet-and-marine-tracker-may-11-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.03,
-      "lon": 17.948,
+      "lat": 36.125,
+      "lon": 17.946,
       "published": "Mon, 11 May 2026 16:59:33 +0000",
-      "scraped_at": "2026-10-14T21:20:52.923034+00:00",
+      "scraped_at": "2026-10-15T03:36:44.464401+00:00",
       "priority": 3
     },
     {
@@ -78808,10 +78953,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/08/10/usni-news-fleet-and-marine-tracker-aug-10-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.258,
-      "lon": 18.244,
+      "lat": 35.792,
+      "lon": 18.091,
       "published": "Mon, 10 Aug 2026 17:28:48 +0000",
-      "scraped_at": "2026-10-14T21:20:51.801440+00:00",
+      "scraped_at": "2026-10-15T03:36:43.117057+00:00",
       "priority": 3
     },
     {
@@ -78823,10 +78968,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/06/08/usni-news-fleet-and-marine-tracker-june-8-2026",
       "location": "Mediterranean Sea",
-      "lat": 35.721,
-      "lon": 18.008,
+      "lat": 35.892,
+      "lon": 18.101,
       "published": "Mon, 08 Jun 2026 17:48:30 +0000",
-      "scraped_at": "2026-10-14T21:20:52.443745+00:00",
+      "scraped_at": "2026-10-15T03:36:43.878254+00:00",
       "priority": 3
     },
     {
@@ -78838,10 +78983,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/04/06/usni-news-fleet-and-marine-tracker-april-6-2026",
       "location": "Mediterranean Sea",
-      "lat": 35.832,
-      "lon": 18.155,
+      "lat": 36.246,
+      "lon": 17.759,
       "published": "Mon, 06 Apr 2026 20:00:02 +0000",
-      "scraped_at": "2026-10-14T21:20:53.330512+00:00",
+      "scraped_at": "2026-10-15T03:36:44.963427+00:00",
       "priority": 3
     },
     {
@@ -78853,10 +78998,10 @@
       "source": "USNI News",
       "source_url": "https://news.usni.org/2026/10/05/the-new-federation-of-american-shipyards",
       "location": "Groton",
-      "lat": 41.186,
-      "lon": -72.151,
+      "lat": 41.345,
+      "lon": -72.36,
       "published": "Mon, 05 Oct 2026 20:37:33 +0000",
-      "scraped_at": "2026-10-14T21:20:50.683661+00:00",
+      "scraped_at": "2026-10-15T03:36:41.995442+00:00",
       "priority": 3
     },
     {
@@ -78868,10 +79013,10 @@
       "source": "USNI News",
       "source_url": "https://news.usni.org/2026/10/05/usni-news-fleet-and-marine-tracker-oct-5-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.049,
-      "lon": 18.095,
+      "lat": 36.08,
+      "lon": 17.809,
       "published": "Mon, 05 Oct 2026 18:13:05 +0000",
-      "scraped_at": "2026-10-14T21:20:50.800361+00:00",
+      "scraped_at": "2026-10-15T03:36:42.093056+00:00",
       "priority": 3
     },
     {
@@ -78883,10 +79028,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/05/04/usni-news-fleet-and-marine-tracker-may-4-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.104,
-      "lon": 18.199,
+      "lat": 36.234,
+      "lon": 17.861,
       "published": "Mon, 04 May 2026 16:53:08 +0000",
-      "scraped_at": "2026-10-14T21:20:52.977422+00:00",
+      "scraped_at": "2026-10-15T03:36:44.547039+00:00",
       "priority": 3
     },
     {
@@ -78898,10 +79043,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/08/03/usni-news-fleet-and-marine-tracker-aug-3-2026",
       "location": "Mediterranean Sea",
-      "lat": 36.209,
-      "lon": 18.039,
+      "lat": 35.772,
+      "lon": 17.94,
       "published": "Mon, 03 Aug 2026 15:36:38 +0000",
-      "scraped_at": "2026-10-14T21:20:51.811225+00:00",
+      "scraped_at": "2026-10-15T03:36:43.128645+00:00",
       "priority": 3
     },
     {
@@ -78913,10 +79058,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/06/01/usni-news-fleet-and-marine-tracker-june-1-2026",
       "location": "Mediterranean Sea",
-      "lat": 35.962,
-      "lon": 17.821,
+      "lat": 35.897,
+      "lon": 17.773,
       "published": "Mon, 01 Jun 2026 17:16:11 +0000",
-      "scraped_at": "2026-10-14T21:20:52.549800+00:00",
+      "scraped_at": "2026-10-15T03:36:44.005208+00:00",
       "priority": 3
     },
     {
@@ -78928,10 +79073,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/05/22/usni-news-western-pacific-pulse-may-22-2026",
       "location": "Western Pacific",
-      "lat": 20.218,
-      "lon": 140.273,
+      "lat": 20.296,
+      "lon": 140.265,
       "published": "Fri, 22 May 2026 19:14:51 +0000",
-      "scraped_at": "2026-10-14T21:20:52.739156+00:00",
+      "scraped_at": "2026-10-15T03:36:44.232069+00:00",
       "priority": 3
     },
     {
@@ -78943,10 +79088,10 @@
       "source": "USNI News",
       "source_url": "https://news.usni.org/2026/10/09/usni-news-western-pacific-pulse-oct-9-2026",
       "location": "Western Pacific",
-      "lat": 20.267,
-      "lon": 139.994,
+      "lat": 19.968,
+      "lon": 140.102,
       "published": "Fri, 09 Oct 2026 16:00:26 +0000",
-      "scraped_at": "2026-10-14T21:20:50.544373+00:00",
+      "scraped_at": "2026-10-15T03:36:41.780095+00:00",
       "priority": 3
     },
     {
@@ -78958,10 +79103,10 @@
       "source": "USNI Fleet",
       "source_url": "https://news.usni.org/2026/07/03/usni-news-western-pacific-pulse-july-3-2026",
       "location": "Western Pacific",
-      "lat": 19.869,
-      "lon": 139.791,
+      "lat": 20.182,
+      "lon": 140.261,
       "published": "Fri, 03 Jul 2026 12:08:23 +0000",
-      "scraped_at": "2026-10-14T21:20:52.167691+00:00",
+      "scraped_at": "2026-10-15T03:36:43.527452+00:00",
       "priority": 3
     },
     {
@@ -78973,10 +79118,10 @@
       "source": "HI Sutton",
       "source_url": "https://www.hisutton.com/Timeline-2022-Ukraine-Invasion-At-Sea.html",
       "location": "Mediterranean Sea",
-      "lat": 36.019,
-      "lon": 17.97,
+      "lat": 35.74,
+      "lon": 17.936,
       "published": "2026-10-13T01:00:00+00:00",
-      "scraped_at": "2026-10-14T21:20:55.437817+00:00",
+      "scraped_at": "2026-10-15T03:36:47.459218+00:00",
       "priority": 3
     },
     {
@@ -78988,10 +79133,10 @@
       "source": "HI Sutton",
       "source_url": "https://www.hisutton.com/China-XXLUUV-Mothership.html",
       "location": "Karachi",
-      "lat": 24.746,
-      "lon": 67.21,
+      "lat": 24.747,
+      "lon": 67.054,
       "published": "2026-09-18T00:01:00+00:00",
-      "scraped_at": "2026-10-14T21:20:55.528000+00:00",
+      "scraped_at": "2026-10-15T03:36:47.693596+00:00",
       "priority": 3
     },
     {
@@ -79006,7 +79151,7 @@
       "lat": null,
       "lon": null,
       "published": "2026-09-09T03:01:00+00:00",
-      "scraped_at": "2026-10-14T21:20:55.610526+00:00",
+      "scraped_at": "2026-10-15T03:36:47.831160+00:00",
       "priority": 3
     },
     {
@@ -79018,10 +79163,10 @@
       "source": "HI Sutton",
       "source_url": "https://www.hisutton.com/Shadowfin-AUV.html",
       "location": "Rota",
-      "lat": 36.539,
-      "lon": -6.306,
+      "lat": 36.676,
+      "lon": -6.559,
       "published": "2026-09-03T00:01:00+00:00",
-      "scraped_at": "2026-10-14T21:20:55.714136+00:00",
+      "scraped_at": "2026-10-15T03:36:48.030757+00:00",
       "priority": 3
     },
     {
@@ -79033,10 +79178,10 @@
       "source": "HI Sutton",
       "source_url": "https://www.hisutton.com/Ru-Khabarovsk-Sea-Trials.html",
       "location": "Arctic",
-      "lat": 79.718,
-      "lon": 15.195,
+      "lat": 80.213,
+      "lon": 15.087,
       "published": "2026-08-18T01:50:00+00:00",
-      "scraped_at": "2026-10-14T21:20:55.717306+00:00",
+      "scraped_at": "2026-10-15T03:36:48.034514+00:00",
       "priority": 3
     },
     {
@@ -79051,7 +79196,7 @@
       "lat": null,
       "lon": null,
       "published": "Wed, 14 Oct 2026 07:09:18 GMT",
-      "scraped_at": "2026-10-14T21:20:56.860753+00:00",
+      "scraped_at": "2026-10-15T03:36:49.387994+00:00",
       "priority": 2
     },
     {
@@ -79066,7 +79211,7 @@
       "lat": null,
       "lon": null,
       "published": "Wed, 14 Oct 2026 06:41:40 GMT",
-      "scraped_at": "2026-10-14T21:20:57.426188+00:00",
+      "scraped_at": "2026-10-15T03:36:49.982792+00:00",
       "priority": 2
     },
     {
@@ -79078,10 +79223,10 @@
       "source": "The War Zone",
       "source_url": "https://www.twz.com/sea/british-commandos-emerge-from-german-submarine-during-major-nato-exercise",
       "location": "North Atlantic",
-      "lat": 55.214,
-      "lon": -29.86,
+      "lat": 54.881,
+      "lon": -29.778,
       "published": "Wed, 07 Oct 2026 16:13:07 -0400",
-      "scraped_at": "2026-10-14T21:21:00.662594+00:00",
+      "scraped_at": "2026-10-15T03:36:54.085888+00:00",
       "priority": 2
     },
     {
@@ -79096,7 +79241,7 @@
       "lat": null,
       "lon": null,
       "published": "Wed, 07 Oct 2026 09:35:19 GMT",
-      "scraped_at": "2026-10-14T21:20:58.950585+00:00",
+      "scraped_at": "2026-10-15T03:36:51.517093+00:00",
       "priority": 2
     },
     {
@@ -79111,7 +79256,7 @@
       "lat": null,
       "lon": null,
       "published": "Tue, 13 Oct 2026 11:55:03 GMT",
-      "scraped_at": "2026-10-14T21:20:57.901356+00:00",
+      "scraped_at": "2026-10-15T03:36:50.471955+00:00",
       "priority": 2
     },
     {
@@ -79123,10 +79268,10 @@
       "source": "The War Zone",
       "source_url": "https://www.twz.com/land/glaring-holes-in-uk-air-defense-take-center-stage-in-new-britannia-shield-proposal",
       "location": "English Channel",
-      "lat": 49.834,
-      "lon": -0.802,
+      "lat": 50.111,
+      "lon": -0.721,
       "published": "Tue, 06 Oct 2026 16:44:53 -0400",
-      "scraped_at": "2026-10-14T21:21:00.755953+00:00",
+      "scraped_at": "2026-10-15T03:36:54.237616+00:00",
       "priority": 2
     },
     {
@@ -79138,10 +79283,10 @@
       "source": "The War Zone",
       "source_url": "https://www.twz.com/sea/anduril-dives-into-submarine-construction-with-new-baltimore-plant",
       "location": "Groton",
-      "lat": 41.392,
-      "lon": -71.886,
+      "lat": 41.181,
+      "lon": -72.122,
       "published": "Tue, 06 Oct 2026 13:41:45 -0400",
-      "scraped_at": "2026-10-14T21:21:00.818261+00:00",
+      "scraped_at": "2026-10-15T03:36:54.342853+00:00",
       "priority": 2
     },
     {
@@ -79153,10 +79298,10 @@
       "source": "The War Zone",
       "source_url": "https://www.twz.com/sea/uss-abraham-lincoln-comes-home-with-its-island-superstructure-covered-in-kill-marks",
       "location": "Arabian Sea",
-      "lat": 17.111,
-      "lon": 62.888,
+      "lat": 17.024,
+      "lon": 62.827,
       "published": "Thu, 08 Oct 2026 16:49:49 -0400",
-      "scraped_at": "2026-10-14T21:21:00.560572+00:00",
+      "scraped_at": "2026-10-15T03:36:53.947345+00:00",
       "priority": 2
     },
     {
@@ -79171,7 +79316,7 @@
       "lat": null,
       "lon": null,
       "published": "Thu, 08 Oct 2026 12:32:06 -0400",
-      "scraped_at": "2026-10-14T21:21:00.653208+00:00",
+      "scraped_at": "2026-10-15T03:36:54.076760+00:00",
       "priority": 2
     },
     {
@@ -79186,7 +79331,7 @@
       "lat": null,
       "lon": null,
       "published": "Thu, 08 Oct 2026 09:58:44 GMT",
-      "scraped_at": "2026-10-14T21:20:58.395984+00:00",
+      "scraped_at": "2026-10-15T03:36:51.012508+00:00",
       "priority": 2
     },
     {
@@ -79201,7 +79346,7 @@
       "lat": null,
       "lon": null,
       "published": "Mon, 12 Oct 2026 01:30:10 -0400",
-      "scraped_at": "2026-10-14T21:21:00.031540+00:00",
+      "scraped_at": "2026-10-15T03:36:52.959009+00:00",
       "priority": 2
     },
     {
@@ -79216,7 +79361,7 @@
       "lat": null,
       "lon": null,
       "published": "Mon, 05 Oct 2026 17:03:32 -0400",
-      "scraped_at": "2026-10-14T21:21:00.897335+00:00",
+      "scraped_at": "2026-10-15T03:36:54.458746+00:00",
       "priority": 2
     },
     {
@@ -79231,7 +79376,7 @@
       "lat": null,
       "lon": null,
       "published": "Fri, 09 Oct 2026 14:12:48 -0400",
-      "scraped_at": "2026-10-14T21:21:00.421739+00:00",
+      "scraped_at": "2026-10-15T03:36:53.099867+00:00",
       "priority": 2
     },
     {
@@ -79243,10 +79388,10 @@
       "source": "The War Zone",
       "source_url": "https://www.twz.com/air/b-52-to-get-stealthy-agm-158c-long-range-anti-ship-missiles",
       "location": "Atlantic Ocean",
-      "lat": 30.28,
-      "lon": -40.012,
+      "lat": 30.206,
+      "lon": -40.131,
       "published": "Fri, 09 Oct 2026 13:59:23 -0400",
-      "scraped_at": "2026-10-14T21:21:00.492047+00:00",
+      "scraped_at": "2026-10-15T03:36:53.817607+00:00",
       "priority": 2
     },
     {
@@ -79261,7 +79406,7 @@
       "lat": null,
       "lon": null,
       "published": "Fri, 02 Oct 2026 08:50:53 GMT",
-      "scraped_at": "2026-10-14T21:20:59.496064+00:00",
+      "scraped_at": "2026-10-15T03:36:52.077103+00:00",
       "priority": 2
     },
     {
@@ -79273,10 +79418,10 @@
       "source": "War on the Rocks",
       "source_url": "https://warontherocks.com/cogs-of-war/the-tyranny-of-shipyard-cost-plus-contracting/",
       "location": "Norfolk",
-      "lat": 36.905,
-      "lon": -76.075,
+      "lat": 37.169,
+      "lon": -76.357,
       "published": "Wed, 09 Sep 2026 08:00:38 +0000",
-      "scraped_at": "2026-10-14T21:21:02.660620+00:00",
+      "scraped_at": "2026-10-15T03:36:56.324333+00:00",
       "priority": 1
     },
     {
@@ -79291,7 +79436,7 @@
       "lat": null,
       "lon": null,
       "published": "Wed, 07 Oct 2026 08:00:02 +0000",
-      "scraped_at": "2026-10-14T21:21:02.335868+00:00",
+      "scraped_at": "2026-10-15T03:36:55.980898+00:00",
       "priority": 1
     },
     {
@@ -79303,10 +79448,10 @@
       "source": "War on the Rocks",
       "source_url": "https://warontherocks.com/north-koreas-irregular-warfare-after-ukraine/",
       "location": "Severomorsk, Russia",
-      "lat": 69.085,
-      "lon": 33.396,
+      "lat": 69.118,
+      "lon": 33.553,
       "published": "Fri, 25 Sep 2026 07:30:29 +0000",
-      "scraped_at": "2026-10-14T21:21:02.522981+00:00",
+      "scraped_at": "2026-10-15T03:36:56.142669+00:00",
       "priority": 1
     },
     {
@@ -79322,10 +79467,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap-Bangor, Washington",
       "location_en": "NSWC Kitsap-Bangor, Washington",
-      "lat": 47.723,
-      "lon": -122.757,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.661,
+      "lon": -122.779,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79341,10 +79486,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.934,
-      "lon": -76.249,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.888,
+      "lon": -76.361,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79360,10 +79505,10 @@
       "source_url": "https://www.iiss.org",
       "location": "GIUK Gap, North Atlantic",
       "location_en": "GIUK Gap, North Atlantic",
-      "lat": 62.836,
-      "lon": -21.421,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 62.813,
+      "lon": -21.516,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79379,10 +79524,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap, Washington",
       "location_en": "NSWC Kitsap, Washington",
-      "lat": 47.751,
-      "lon": -122.416,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.624,
+      "lon": -122.403,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79398,10 +79543,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap, Washington",
       "location_en": "NSWC Kitsap, Washington",
-      "lat": 47.611,
-      "lon": -122.595,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.655,
+      "lon": -122.677,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79417,10 +79562,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Gadzhievo",
       "location_en": "Barents Sea, Gadzhievo",
-      "lat": 72.441,
-      "lon": 27.983,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 72.516,
+      "lon": 28.006,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79436,10 +79581,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Norwegian Sea",
       "location_en": "Norwegian Sea",
-      "lat": 68.966,
-      "lon": 15.906,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.031,
+      "lon": 16.061,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79455,10 +79600,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Olenya Guba, Barents",
       "location_en": "Olenya Guba, Barents",
-      "lat": 69.166,
-      "lon": 33.758,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.291,
+      "lon": 33.896,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79474,10 +79619,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Black Sea",
       "location_en": "Black Sea",
-      "lat": 44.519,
-      "lon": 33.588,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 44.684,
+      "lon": 33.486,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79493,10 +79638,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Yulin Base, Hainan",
       "location_en": "Yulin Base, Hainan",
-      "lat": 18.125,
-      "lon": 109.59,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.133,
+      "lon": 109.517,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79512,10 +79657,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South China Sea",
       "location_en": "South China Sea",
-      "lat": 16.031,
-      "lon": 114.455,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 15.9,
+      "lon": 114.418,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79531,10 +79676,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMNB Clyde, Faslane",
       "location_en": "HMNB Clyde, Faslane",
-      "lat": 55.916,
-      "lon": -4.668,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 55.832,
+      "lon": -4.813,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79550,10 +79695,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Gulf of Oman",
       "location_en": "Gulf of Oman",
-      "lat": 24.569,
+      "lat": 24.404,
       "lon": 57.49,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79569,10 +79714,10 @@
       "source_url": "https://www.iiss.org",
       "location": "North Atlantic (ZOSTRAN)",
       "location_en": "North Atlantic (ZOSTRAN)",
-      "lat": 48.471,
-      "lon": -17.972,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 48.529,
+      "lon": -18.089,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79588,10 +79733,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Base Toulon",
       "location_en": "Naval Base Toulon",
-      "lat": 43.189,
-      "lon": 5.982,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 43.174,
+      "lon": 5.865,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79607,10 +79752,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Bay of Bengal",
       "location_en": "Bay of Bengal",
-      "lat": 14.961,
-      "lon": 83.409,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 14.925,
+      "lon": 83.531,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79626,10 +79771,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Baltic Sea, Kiel",
       "location_en": "Baltic Sea, Kiel",
-      "lat": 55.402,
-      "lon": 12.418,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 55.51,
+      "lon": 12.405,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79645,10 +79790,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Tsushima Strait",
       "location_en": "Tsushima Strait",
-      "lat": 34.953,
-      "lon": 129.993,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.977,
+      "lon": 129.949,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79664,10 +79809,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Yellow Sea",
       "location_en": "Yellow Sea",
-      "lat": 35.983,
-      "lon": 124.045,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.07,
+      "lon": 124.078,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79683,10 +79828,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sinpo, DPRK",
       "location_en": "Sinpo, DPRK",
-      "lat": 40.011,
-      "lon": 128.279,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 39.977,
+      "lon": 128.21,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79702,10 +79847,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Strait of Hormuz",
       "location_en": "Strait of Hormuz",
-      "lat": 26.483,
-      "lon": 56.343,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 26.646,
+      "lon": 56.179,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79721,10 +79866,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Aegean Sea",
       "location_en": "Aegean Sea",
-      "lat": 38.595,
-      "lon": 25.991,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 38.568,
+      "lon": 25.901,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79740,10 +79885,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMAS Stirling, Perth",
       "location_en": "HMAS Stirling, Perth",
-      "lat": -32.163,
-      "lon": 115.699,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -32.234,
+      "lon": 115.772,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79759,10 +79904,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Victoria, Canada",
       "location_en": "Victoria, Canada",
-      "lat": 48.382,
-      "lon": -123.392,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 48.499,
+      "lon": -123.468,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79778,10 +79923,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Den Helder, Netherlands",
       "location_en": "Den Helder, Netherlands",
-      "lat": 52.903,
-      "lon": 4.784,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 52.88,
+      "lon": 4.774,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79797,10 +79942,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Augusta, Sicily",
       "location_en": "Augusta, Sicily",
-      "lat": 37.019,
-      "lon": 15.42,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.983,
+      "lon": 15.422,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79816,10 +79961,10 @@
       "source_url": "https://www.iiss.org",
       "location": "North Sea",
       "location_en": "North Sea",
-      "lat": 61.009,
-      "lon": 3.058,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 60.938,
+      "lon": 3.063,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79835,10 +79980,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Baltic Sea, Karlskrona",
       "location_en": "Baltic Sea, Karlskrona",
-      "lat": 56.176,
-      "lon": 15.548,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 56.109,
+      "lon": 15.497,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79854,10 +79999,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Aegean Sea, Salamis",
       "location_en": "Aegean Sea, Salamis",
-      "lat": 37.886,
-      "lon": 23.595,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 37.892,
+      "lon": 23.691,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79873,10 +80018,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Itaguaí, Rio de Janeiro",
       "location_en": "Itaguaí, Rio de Janeiro",
-      "lat": -22.848,
+      "lat": -22.789,
       "lon": -43.833,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79892,10 +80037,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Karachi",
       "location_en": "Arabian Sea, Karachi",
-      "lat": 24.037,
-      "lon": 62.961,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 24.097,
+      "lon": 63.058,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79911,10 +80056,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Cam Ranh Bay, Vietnam",
       "location_en": "Cam Ranh Bay, Vietnam",
-      "lat": 11.823,
-      "lon": 109.293,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 11.977,
+      "lon": 109.223,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79930,10 +80075,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Western Mediterranean",
       "location_en": "Western Mediterranean",
-      "lat": 37.29,
-      "lon": 2.575,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 37.124,
+      "lon": 2.429,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79949,10 +80094,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Kings Bay, Georgia",
       "location_en": "Kings Bay, Georgia",
-      "lat": 30.588,
-      "lon": -80.785,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 30.542,
+      "lon": -80.85,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79968,10 +80113,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap-Bangor, Washington",
       "location_en": "NSWC Kitsap-Bangor, Washington",
-      "lat": 47.784,
-      "lon": -122.8,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.718,
+      "lon": -122.786,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -79987,10 +80132,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap, Bremerton",
       "location_en": "NSWC Kitsap, Bremerton",
-      "lat": 47.617,
-      "lon": -122.734,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.666,
+      "lon": -122.713,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80006,10 +80151,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.382,
-      "lon": -157.957,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.335,
+      "lon": -158.007,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80025,10 +80170,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.392,
-      "lon": -157.978,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.319,
+      "lon": -158.043,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80044,10 +80189,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Gadzhievo",
       "location_en": "Barents Sea, Gadzhievo",
-      "lat": 69.475,
-      "lon": 32.842,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.58,
+      "lon": 32.869,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80063,10 +80208,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Gadzhievo",
       "location_en": "Barents Sea, Gadzhievo",
-      "lat": 69.464,
-      "lon": 33.015,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.516,
+      "lon": 33.081,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80082,10 +80227,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Vilyuchinsk, Pacific",
       "location_en": "Vilyuchinsk, Pacific",
-      "lat": 52.975,
-      "lon": 158.613,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 53.013,
+      "lon": 158.784,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80101,10 +80246,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Gadzhievo",
       "location_en": "Barents Sea, Gadzhievo",
-      "lat": 69.079,
-      "lon": 33.266,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.099,
+      "lon": 33.127,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80120,10 +80265,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Vladivostok, Pacific Fleet",
       "location_en": "Vladivostok, Pacific Fleet",
-      "lat": 52.993,
-      "lon": 158.607,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 52.875,
+      "lon": 158.573,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80139,10 +80284,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Severomorsk",
       "location_en": "Barents Sea, Severomorsk",
-      "lat": 69.163,
-      "lon": 33.542,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.08,
+      "lon": 33.472,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80158,10 +80303,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Rybachiy, Pacific Fleet",
       "location_en": "Rybachiy, Pacific Fleet",
-      "lat": 52.951,
-      "lon": 158.746,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 52.939,
+      "lon": 158.762,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80177,10 +80322,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Yulin Base, Hainan",
       "location_en": "Yulin Base, Hainan",
-      "lat": 18.185,
-      "lon": 109.402,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.181,
+      "lon": 109.405,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80196,10 +80341,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South China Sea",
       "location_en": "South China Sea",
-      "lat": 20.064,
-      "lon": 110.155,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 20.055,
+      "lon": 110.237,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80215,10 +80360,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Yulin Base, Hainan",
       "location_en": "Yulin Base, Hainan",
-      "lat": 18.293,
-      "lon": 109.539,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.297,
+      "lon": 109.554,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80234,10 +80379,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South China Sea",
       "location_en": "South China Sea",
-      "lat": 22.308,
-      "lon": 114.185,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 22.274,
+      "lon": 114.143,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80253,10 +80398,10 @@
       "source_url": "https://www.iiss.org",
       "location": "East China Sea",
       "location_en": "East China Sea",
-      "lat": 25.117,
-      "lon": 121.606,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 25.122,
+      "lon": 121.651,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80272,10 +80417,10 @@
       "source_url": "https://www.iiss.org",
       "location": "North Atlantic, CASD Patrol",
       "location_en": "North Atlantic, CASD Patrol",
-      "lat": 52.023,
-      "lon": -20.065,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 52.083,
+      "lon": -19.955,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80291,10 +80436,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMNB Clyde, Faslane",
       "location_en": "HMNB Clyde, Faslane",
-      "lat": 56.071,
-      "lon": -4.79,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 55.97,
+      "lon": -4.791,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80310,10 +80455,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Mediterranean Sea",
       "location_en": "Mediterranean Sea",
-      "lat": 37.988,
-      "lon": 7.945,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 38.038,
+      "lon": 7.971,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80329,10 +80474,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMNB Clyde, Faslane",
       "location_en": "HMNB Clyde, Faslane",
-      "lat": 56.05,
-      "lon": -4.837,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 56.08,
+      "lon": -4.79,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80348,10 +80493,10 @@
       "source_url": "https://www.iiss.org",
       "location": "North Atlantic (FOST patrol)",
       "location_en": "North Atlantic (FOST patrol)",
-      "lat": 46.435,
-      "lon": -14.8,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 46.515,
+      "lon": -14.814,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80367,10 +80512,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Île Longue, Brest",
       "location_en": "Île Longue, Brest",
-      "lat": 48.332,
-      "lon": -4.42,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 48.362,
+      "lon": -4.493,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80386,10 +80531,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Base Toulon",
       "location_en": "Naval Base Toulon",
-      "lat": 43.048,
-      "lon": 5.887,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 43.134,
+      "lon": 5.872,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80405,10 +80550,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Bay of Bengal, Visakhapatnam",
       "location_en": "Bay of Bengal, Visakhapatnam",
-      "lat": 17.686,
-      "lon": 83.266,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 17.742,
+      "lon": 83.387,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80424,10 +80569,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Karwar",
       "location_en": "Arabian Sea, Karwar",
-      "lat": 13.525,
-      "lon": 72.41,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 13.463,
+      "lon": 72.512,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80443,10 +80588,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Mumbai",
       "location_en": "Arabian Sea, Mumbai",
-      "lat": 18.978,
-      "lon": 72.722,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.877,
+      "lon": 72.863,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80462,10 +80607,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Den Helder, Netherlands",
       "location_en": "Den Helder, Netherlands",
-      "lat": 52.981,
-      "lon": 4.78,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 52.974,
+      "lon": 4.751,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80481,10 +80626,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Den Helder, Netherlands",
       "location_en": "Den Helder, Netherlands",
-      "lat": 52.97,
-      "lon": 4.791,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 52.934,
+      "lon": 4.799,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80500,10 +80645,10 @@
       "source_url": "https://www.iiss.org",
       "location": "CFB Esquimalt, British Columbia",
       "location_en": "CFB Esquimalt, British Columbia",
-      "lat": 48.466,
-      "lon": -123.439,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 48.358,
+      "lon": -123.517,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80519,10 +80664,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Halifax, Nova Scotia",
       "location_en": "Halifax, Nova Scotia",
-      "lat": 44.664,
-      "lon": -63.557,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 44.661,
+      "lon": -63.474,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80538,10 +80683,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Talcahuano, Chile",
       "location_en": "Talcahuano, Chile",
-      "lat": -36.494,
-      "lon": -73.959,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -36.413,
+      "lon": -73.989,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80557,10 +80702,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Talcahuano, Chile",
       "location_en": "Talcahuano, Chile",
-      "lat": -36.689,
-      "lon": -74.192,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -36.782,
+      "lon": -74.283,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80576,10 +80721,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Eastern Mediterranean",
       "location_en": "Eastern Mediterranean",
-      "lat": 32.883,
-      "lon": 34.447,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 32.825,
+      "lon": 34.585,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80595,10 +80740,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Eastern Mediterranean",
       "location_en": "Eastern Mediterranean",
-      "lat": 32.537,
-      "lon": 34.407,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 32.661,
+      "lon": 34.395,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80614,10 +80759,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Strait of Malacca, Singapore",
       "location_en": "Strait of Malacca, Singapore",
-      "lat": 1.286,
-      "lon": 103.697,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 1.221,
+      "lon": 103.837,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80633,10 +80778,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Strait of Malacca, Singapore",
       "location_en": "Strait of Malacca, Singapore",
-      "lat": 1.384,
-      "lon": 103.765,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 1.351,
+      "lon": 103.785,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80652,10 +80797,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South China Sea, Kota Kinabalu",
       "location_en": "South China Sea, Kota Kinabalu",
-      "lat": 5.007,
-      "lon": 118.014,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 5.077,
+      "lon": 118.041,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80671,10 +80816,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Setubal, Portugal",
       "location_en": "Setubal, Portugal",
-      "lat": 38.556,
-      "lon": -8.852,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 38.459,
+      "lon": -8.908,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80690,10 +80835,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Jinhae",
       "location_en": "Sea of Japan, Jinhae",
-      "lat": 35.084,
-      "lon": 129.211,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 35.09,
+      "lon": 129.236,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80709,10 +80854,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Jinhae",
       "location_en": "Sea of Japan, Jinhae",
-      "lat": 34.836,
-      "lon": 128.991,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.851,
+      "lon": 128.979,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80728,10 +80873,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Philippine Sea, Taiwan",
       "location_en": "Philippine Sea, Taiwan",
-      "lat": 23.595,
-      "lon": 121.93,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 23.409,
+      "lon": 121.907,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80747,10 +80892,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Philippine Sea, Taiwan",
       "location_en": "Philippine Sea, Taiwan",
-      "lat": 23.729,
-      "lon": 122.193,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 23.642,
+      "lon": 122.198,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80766,10 +80911,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Eastern Mediterranean",
       "location_en": "Eastern Mediterranean",
-      "lat": 32.082,
-      "lon": 28.91,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 31.997,
+      "lon": 28.902,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80785,10 +80930,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South Atlantic, Mar del Plata",
       "location_en": "South Atlantic, Mar del Plata",
-      "lat": -38.53,
-      "lon": -58.46,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -38.562,
+      "lon": -58.406,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80804,10 +80949,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South Pacific, Callao",
       "location_en": "South Pacific, Callao",
-      "lat": -11.594,
-      "lon": -78.47,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -11.587,
+      "lon": -78.413,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80823,10 +80968,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Caribbean Sea, Cartagena",
       "location_en": "Caribbean Sea, Cartagena",
-      "lat": 10.927,
-      "lon": -76.528,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 10.991,
+      "lon": -76.514,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80842,10 +80987,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Caribbean Sea, Puerto Cabello",
       "location_en": "Caribbean Sea, Puerto Cabello",
-      "lat": 11.504,
-      "lon": -67.534,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 11.501,
+      "lon": -67.532,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80861,10 +81006,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Golcuk, Sea of Marmara",
       "location_en": "Golcuk, Sea of Marmara",
-      "lat": 40.733,
-      "lon": 29.811,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 40.785,
+      "lon": 29.913,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80880,10 +81025,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Izmit, Turkey",
       "location_en": "Izmit, Turkey",
-      "lat": 40.718,
-      "lon": 30.422,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 40.717,
+      "lon": 30.435,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80899,10 +81044,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Aegean Sea, Salamis",
       "location_en": "Aegean Sea, Salamis",
-      "lat": 37.892,
-      "lon": 23.418,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 37.904,
+      "lon": 23.409,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80918,10 +81063,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Spencer Gulf, Adelaide",
       "location_en": "Spencer Gulf, Adelaide",
-      "lat": -34.793,
-      "lon": 138.61,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -34.872,
+      "lon": 138.592,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80937,10 +81082,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific Ocean, Kure",
       "location_en": "Pacific Ocean, Kure",
-      "lat": 34.224,
-      "lon": 132.489,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.192,
+      "lon": 132.423,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80956,10 +81101,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Yokosuka",
       "location_en": "Pacific, Yokosuka",
-      "lat": 35.399,
-      "lon": 139.682,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 35.369,
+      "lon": 139.595,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80975,10 +81120,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Baltic Sea, Karlskrona",
       "location_en": "Baltic Sea, Karlskrona",
-      "lat": 59.067,
-      "lon": 18.58,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 59.008,
+      "lon": 18.572,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -80994,10 +81139,10 @@
       "source_url": "https://www.iiss.org",
       "location": "North Sea, Bergen",
       "location_en": "North Sea, Bergen",
-      "lat": 60.339,
-      "lon": 5.25,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 60.502,
+      "lon": 5.363,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81013,10 +81158,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap-Bangor, Washington",
       "location_en": "NSWC Kitsap-Bangor, Washington",
-      "lat": 47.754,
-      "lon": -122.645,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.763,
+      "lon": -122.679,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81032,10 +81177,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Kings Bay, Georgia",
       "location_en": "Kings Bay, Georgia",
-      "lat": 30.839,
-      "lon": -81.566,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 30.789,
+      "lon": -81.432,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81051,10 +81196,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap-Bangor, Washington",
       "location_en": "NSWC Kitsap-Bangor, Washington",
-      "lat": 47.695,
-      "lon": -122.815,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.782,
+      "lon": -122.845,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81070,10 +81215,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap-Bangor, Washington",
       "location_en": "NSWC Kitsap-Bangor, Washington",
-      "lat": 47.72,
-      "lon": -122.712,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.693,
+      "lon": -122.683,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81089,10 +81234,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Kings Bay, Georgia",
       "location_en": "Kings Bay, Georgia",
-      "lat": 30.748,
-      "lon": -81.508,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 30.808,
+      "lon": -81.561,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81108,10 +81253,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap-Bangor, Washington",
       "location_en": "NSWC Kitsap-Bangor, Washington",
-      "lat": 47.764,
-      "lon": -122.78,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.783,
+      "lon": -122.798,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81127,10 +81272,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap-Bangor, Washington",
       "location_en": "NSWC Kitsap-Bangor, Washington",
-      "lat": 47.691,
-      "lon": -122.662,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.818,
+      "lon": -122.854,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81146,10 +81291,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Kings Bay, Georgia",
       "location_en": "Kings Bay, Georgia",
-      "lat": 30.883,
-      "lon": -81.437,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 30.764,
+      "lon": -81.525,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81165,10 +81310,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Kings Bay, Georgia",
       "location_en": "Kings Bay, Georgia",
-      "lat": 30.875,
-      "lon": -81.603,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 30.731,
+      "lon": -81.435,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81184,10 +81329,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap-Bangor, Washington",
       "location_en": "NSWC Kitsap-Bangor, Washington",
-      "lat": 47.692,
-      "lon": -122.671,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.741,
+      "lon": -122.624,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81203,10 +81348,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Kings Bay, Georgia",
       "location_en": "Kings Bay, Georgia",
-      "lat": 30.781,
-      "lon": -81.629,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 30.805,
+      "lon": -81.492,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81222,10 +81367,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap-Bangor, Washington",
       "location_en": "NSWC Kitsap-Bangor, Washington",
-      "lat": 47.789,
-      "lon": -122.683,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.864,
+      "lon": -122.754,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81241,10 +81386,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Kings Bay, Georgia",
       "location_en": "Kings Bay, Georgia",
-      "lat": 30.729,
-      "lon": -81.432,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 30.672,
+      "lon": -81.561,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81260,10 +81405,10 @@
       "source_url": "https://www.iiss.org",
       "location": "NSWC Kitsap-Bangor, Washington",
       "location_en": "NSWC Kitsap-Bangor, Washington",
-      "lat": 47.845,
-      "lon": -122.804,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 47.807,
+      "lon": -122.876,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81279,10 +81424,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.416,
-      "lon": -157.883,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.269,
+      "lon": -157.884,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81298,10 +81443,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.381,
-      "lon": -158.034,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.411,
+      "lon": -157.894,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81317,10 +81462,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Groton, Connecticut",
       "location_en": "Groton, Connecticut",
-      "lat": 41.403,
-      "lon": -72.165,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 41.361,
+      "lon": -72.019,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81336,10 +81481,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.918,
-      "lon": -76.383,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.756,
+      "lon": -76.37,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81355,10 +81500,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Apra Harbor, Guam",
       "location_en": "Apra Harbor, Guam",
-      "lat": 13.533,
-      "lon": 144.594,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 13.41,
+      "lon": 144.668,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81374,10 +81519,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.392,
-      "lon": -157.971,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.396,
+      "lon": -157.957,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81393,10 +81538,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.784,
-      "lon": -76.356,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.923,
+      "lon": -76.337,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81412,10 +81557,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.736,
-      "lon": -76.255,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.745,
+      "lon": -76.348,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81431,10 +81576,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Groton, Connecticut",
       "location_en": "Groton, Connecticut",
-      "lat": 41.335,
-      "lon": -72.045,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 41.404,
+      "lon": -72.171,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81450,10 +81595,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.435,
-      "lon": -157.988,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.349,
+      "lon": -158.007,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81469,10 +81614,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.923,
-      "lon": -76.361,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.827,
+      "lon": -76.37,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81488,10 +81633,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Groton, Connecticut",
       "location_en": "Groton, Connecticut",
-      "lat": 41.256,
-      "lon": -72.108,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 41.389,
+      "lon": -72.141,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81507,10 +81652,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.777,
-      "lon": -76.231,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.859,
+      "lon": -76.211,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81526,10 +81671,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Apra Harbor, Guam",
       "location_en": "Apra Harbor, Guam",
-      "lat": 13.384,
-      "lon": 144.578,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 13.502,
+      "lon": 144.75,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81545,10 +81690,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Groton, Connecticut",
       "location_en": "Groton, Connecticut",
-      "lat": 41.424,
-      "lon": -72.096,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 41.425,
+      "lon": -72.034,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81564,10 +81709,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.791,
-      "lon": -76.311,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.893,
+      "lon": -76.337,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81583,10 +81728,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.366,
-      "lon": -158.041,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.362,
+      "lon": -157.952,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81602,10 +81747,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Apra Harbor, Guam",
       "location_en": "Apra Harbor, Guam",
-      "lat": 13.404,
-      "lon": 144.632,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 13.547,
+      "lon": 144.591,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81621,10 +81766,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Groton, Connecticut",
       "location_en": "Groton, Connecticut",
-      "lat": 41.296,
-      "lon": -72.081,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 41.34,
+      "lon": -72.105,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81640,10 +81785,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.779,
-      "lon": -76.369,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.888,
+      "lon": -76.269,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81659,10 +81804,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.272,
-      "lon": -158.022,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.342,
+      "lon": -158.063,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81678,10 +81823,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Apra Harbor, Guam",
       "location_en": "Apra Harbor, Guam",
-      "lat": 13.483,
-      "lon": 144.551,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 13.545,
+      "lon": 144.725,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81697,10 +81842,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.81,
-      "lon": -76.322,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.964,
+      "lon": -76.208,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81716,10 +81861,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.423,
-      "lon": -157.931,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.433,
+      "lon": -157.983,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81735,10 +81880,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Groton, Connecticut",
       "location_en": "Groton, Connecticut",
-      "lat": 41.423,
-      "lon": -72.17,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 41.33,
+      "lon": -72.114,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81754,10 +81899,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.726,
-      "lon": -76.221,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.859,
+      "lon": -76.192,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81773,10 +81918,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Groton, Connecticut",
       "location_en": "Groton, Connecticut",
-      "lat": 41.457,
-      "lon": -72.066,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 41.456,
+      "lon": -72.067,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81792,10 +81937,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.294,
-      "lon": -157.876,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.402,
+      "lon": -157.91,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81811,10 +81956,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.925,
-      "lon": -76.311,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.872,
+      "lon": -76.253,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81830,10 +81975,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Apra Harbor, Guam",
       "location_en": "Apra Harbor, Guam",
-      "lat": 13.398,
-      "lon": 144.604,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 13.467,
+      "lon": 144.737,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81849,10 +81994,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.802,
-      "lon": -76.202,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.937,
+      "lon": -76.233,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81868,10 +82013,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Groton, Connecticut",
       "location_en": "Groton, Connecticut",
-      "lat": 41.383,
-      "lon": -72.094,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 41.448,
+      "lon": -72.152,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81887,10 +82032,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Station Norfolk, Virginia",
       "location_en": "Naval Station Norfolk, Virginia",
-      "lat": 36.766,
-      "lon": -76.32,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.848,
+      "lon": -76.3,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81906,10 +82051,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.393,
-      "lon": -157.858,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.419,
+      "lon": -158.004,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81925,10 +82070,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pearl Harbor, Hawaii",
       "location_en": "Pearl Harbor, Hawaii",
-      "lat": 21.421,
-      "lon": -157.899,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 21.413,
+      "lon": -157.895,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81944,10 +82089,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Apra Harbor, Guam",
       "location_en": "Apra Harbor, Guam",
-      "lat": 13.47,
-      "lon": 144.613,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 13.474,
+      "lon": 144.58,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81963,10 +82108,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Vilyuchinsk, Pacific",
       "location_en": "Vilyuchinsk, Pacific",
-      "lat": 52.92,
-      "lon": 158.74,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 53.002,
+      "lon": 158.768,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -81982,10 +82127,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Vilyuchinsk, Pacific",
       "location_en": "Vilyuchinsk, Pacific",
-      "lat": 52.916,
-      "lon": 158.668,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 52.851,
+      "lon": 158.724,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82001,10 +82146,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Gadzhievo",
       "location_en": "Barents Sea, Gadzhievo",
-      "lat": 69.071,
-      "lon": 33.161,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.091,
+      "lon": 33.286,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82020,10 +82165,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Gadzhievo",
       "location_en": "Barents Sea, Gadzhievo",
-      "lat": 69.546,
-      "lon": 33.006,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.433,
+      "lon": 32.947,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82039,10 +82184,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Gadzhievo",
       "location_en": "Barents Sea, Gadzhievo",
-      "lat": 69.606,
-      "lon": 33.094,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.584,
+      "lon": 33.082,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82058,10 +82203,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Gadzhievo",
       "location_en": "Barents Sea, Gadzhievo",
-      "lat": 69.527,
-      "lon": 32.917,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.496,
+      "lon": 32.891,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82077,10 +82222,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Gadzhievo",
       "location_en": "Barents Sea, Gadzhievo",
-      "lat": 69.466,
-      "lon": 33.183,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.426,
+      "lon": 33.017,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82096,10 +82241,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Vilyuchinsk, Pacific",
       "location_en": "Vilyuchinsk, Pacific",
-      "lat": 52.905,
-      "lon": 158.739,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 52.98,
+      "lon": 158.694,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82115,10 +82260,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Severomorsk",
       "location_en": "Barents Sea, Severomorsk",
-      "lat": 68.942,
-      "lon": 33.009,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 68.851,
+      "lon": 33.177,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82134,10 +82279,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Rybachiy, Pacific Fleet",
       "location_en": "Rybachiy, Pacific Fleet",
-      "lat": 52.854,
-      "lon": 158.682,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 52.9,
+      "lon": 158.607,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82153,10 +82298,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Severomorsk",
       "location_en": "Barents Sea, Severomorsk",
-      "lat": 69.003,
-      "lon": 33.423,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 68.934,
+      "lon": 33.341,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82172,10 +82317,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Severomorsk",
       "location_en": "Barents Sea, Severomorsk",
-      "lat": 68.989,
-      "lon": 33.205,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.045,
+      "lon": 33.212,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82191,10 +82336,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Barents Sea, Severomorsk",
       "location_en": "Barents Sea, Severomorsk",
-      "lat": 69.101,
-      "lon": 33.494,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 69.021,
+      "lon": 33.455,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82210,10 +82355,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Vladivostok, Pacific Fleet",
       "location_en": "Vladivostok, Pacific Fleet",
-      "lat": 42.036,
-      "lon": 131.801,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 42.008,
+      "lon": 131.895,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82229,10 +82374,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Black Sea",
       "location_en": "Black Sea",
-      "lat": 44.576,
-      "lon": 33.621,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 44.51,
+      "lon": 33.467,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82248,10 +82393,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Black Sea",
       "location_en": "Black Sea",
-      "lat": 44.582,
-      "lon": 33.411,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 44.485,
+      "lon": 33.499,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82267,10 +82412,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Black Sea",
       "location_en": "Black Sea",
-      "lat": 44.685,
-      "lon": 33.541,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 44.616,
+      "lon": 33.572,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82286,10 +82431,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Vladivostok, Pacific Fleet",
       "location_en": "Vladivostok, Pacific Fleet",
-      "lat": 42.137,
-      "lon": 131.835,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 42.101,
+      "lon": 131.793,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82305,10 +82450,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Vladivostok, Pacific Fleet",
       "location_en": "Vladivostok, Pacific Fleet",
-      "lat": 42.023,
-      "lon": 131.82,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 42.151,
+      "lon": 131.857,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82324,10 +82469,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Yulin Base, Hainan",
       "location_en": "Yulin Base, Hainan",
-      "lat": 18.313,
-      "lon": 109.475,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.289,
+      "lon": 109.455,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82343,10 +82488,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Yulin Base, Hainan",
       "location_en": "Yulin Base, Hainan",
-      "lat": 18.21,
-      "lon": 109.492,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.17,
+      "lon": 109.465,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82362,10 +82507,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South China Sea",
       "location_en": "South China Sea",
-      "lat": 18.214,
-      "lon": 109.461,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.274,
+      "lon": 109.493,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82381,10 +82526,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South China Sea",
       "location_en": "South China Sea",
-      "lat": 22.371,
-      "lon": 113.949,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 22.416,
+      "lon": 113.931,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82400,10 +82545,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South China Sea",
       "location_en": "South China Sea",
-      "lat": 22.155,
-      "lon": 113.826,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 22.205,
+      "lon": 113.856,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82419,10 +82564,10 @@
       "source_url": "https://www.iiss.org",
       "location": "East China Sea",
       "location_en": "East China Sea",
-      "lat": 25.077,
-      "lon": 121.814,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 25.154,
+      "lon": 121.785,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82438,10 +82583,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Yulin Base, Hainan",
       "location_en": "Yulin Base, Hainan",
-      "lat": 18.351,
-      "lon": 109.618,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.329,
+      "lon": 109.608,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82457,10 +82602,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South China Sea",
       "location_en": "South China Sea",
-      "lat": 20.104,
-      "lon": 110.299,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 20.051,
+      "lon": 110.175,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82476,10 +82621,10 @@
       "source_url": "https://www.iiss.org",
       "location": "East China Sea",
       "location_en": "East China Sea",
-      "lat": 24.996,
-      "lon": 121.598,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 25.007,
+      "lon": 121.647,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82495,10 +82640,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMNB Clyde, Faslane",
       "location_en": "HMNB Clyde, Faslane",
-      "lat": 56.058,
-      "lon": -4.774,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 56.145,
+      "lon": -4.804,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82514,10 +82659,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMNB Clyde, Faslane",
       "location_en": "HMNB Clyde, Faslane",
-      "lat": 56.053,
-      "lon": -4.801,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 55.97,
+      "lon": -4.795,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82533,10 +82678,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMNB Clyde, Faslane",
       "location_en": "HMNB Clyde, Faslane",
-      "lat": 56.053,
-      "lon": -4.742,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 56.165,
+      "lon": -4.866,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82552,10 +82697,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMNB Clyde, Faslane",
       "location_en": "HMNB Clyde, Faslane",
-      "lat": 55.941,
-      "lon": -4.88,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 56.051,
+      "lon": -4.84,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82571,10 +82716,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Base Toulon",
       "location_en": "Naval Base Toulon",
-      "lat": 43.088,
-      "lon": 5.832,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 43.181,
+      "lon": 5.888,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82590,10 +82735,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Naval Base Toulon",
       "location_en": "Naval Base Toulon",
-      "lat": 43.179,
-      "lon": 5.986,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 43.078,
+      "lon": 6.012,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82609,10 +82754,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Karwar",
       "location_en": "Arabian Sea, Karwar",
-      "lat": 15.423,
-      "lon": 73.766,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 15.487,
+      "lon": 73.857,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82628,10 +82773,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Mumbai",
       "location_en": "Arabian Sea, Mumbai",
-      "lat": 18.907,
-      "lon": 72.784,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.835,
+      "lon": 72.876,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82647,10 +82792,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Mumbai",
       "location_en": "Arabian Sea, Mumbai",
-      "lat": 18.978,
-      "lon": 72.752,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.961,
+      "lon": 72.875,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82666,10 +82811,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Karwar",
       "location_en": "Arabian Sea, Karwar",
-      "lat": 15.518,
-      "lon": 73.901,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 15.533,
+      "lon": 73.881,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82685,10 +82830,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Mumbai",
       "location_en": "Arabian Sea, Mumbai",
-      "lat": 18.958,
-      "lon": 72.835,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.903,
+      "lon": 72.823,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82704,10 +82849,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Karwar",
       "location_en": "Arabian Sea, Karwar",
-      "lat": 15.483,
-      "lon": 73.686,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 15.471,
+      "lon": 73.833,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82723,10 +82868,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Karwar",
       "location_en": "Arabian Sea, Karwar",
-      "lat": 14.897,
-      "lon": 74.091,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 14.72,
+      "lon": 74.15,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82742,10 +82887,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Mumbai",
       "location_en": "Arabian Sea, Mumbai",
-      "lat": 18.881,
-      "lon": 72.841,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.878,
+      "lon": 72.713,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82761,10 +82906,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Mumbai",
       "location_en": "Arabian Sea, Mumbai",
-      "lat": 18.966,
-      "lon": 72.812,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 18.944,
+      "lon": 72.931,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82780,10 +82925,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Karwar",
       "location_en": "Arabian Sea, Karwar",
-      "lat": 14.746,
-      "lon": 74.17,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 14.803,
+      "lon": 74.049,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82799,10 +82944,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Jinhae",
       "location_en": "Sea of Japan, Jinhae",
-      "lat": 34.99,
-      "lon": 128.968,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.978,
+      "lon": 129.073,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82818,10 +82963,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Jinhae",
       "location_en": "Sea of Japan, Jinhae",
-      "lat": 34.92,
-      "lon": 128.88,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.798,
+      "lon": 129.053,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82837,10 +82982,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Jinhae",
       "location_en": "Sea of Japan, Jinhae",
-      "lat": 34.946,
-      "lon": 129.128,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.912,
+      "lon": 129.039,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82856,10 +83001,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Jinhae",
       "location_en": "Sea of Japan, Jinhae",
-      "lat": 34.757,
-      "lon": 128.939,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.804,
+      "lon": 128.972,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82875,10 +83020,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Jinhae",
       "location_en": "Sea of Japan, Jinhae",
-      "lat": 35.065,
-      "lon": 129.123,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 35.127,
+      "lon": 128.978,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82894,10 +83039,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Jinhae",
       "location_en": "Sea of Japan, Jinhae",
-      "lat": 34.823,
-      "lon": 128.905,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.731,
+      "lon": 128.909,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82913,10 +83058,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Jinhae",
       "location_en": "Sea of Japan, Jinhae",
-      "lat": 35.152,
-      "lon": 129.078,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 35.093,
+      "lon": 129.126,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82932,10 +83077,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Jinhae",
       "location_en": "Sea of Japan, Jinhae",
-      "lat": 35.009,
-      "lon": 128.934,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.918,
+      "lon": 128.922,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82951,10 +83096,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Kure",
       "location_en": "Pacific, Kure",
-      "lat": 34.196,
-      "lon": 132.506,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.206,
+      "lon": 132.575,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82970,10 +83115,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Yokosuka",
       "location_en": "Pacific, Yokosuka",
-      "lat": 35.532,
-      "lon": 139.711,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 35.54,
+      "lon": 139.678,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -82989,10 +83134,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Kure",
       "location_en": "Pacific, Kure",
-      "lat": 34.3,
-      "lon": 132.396,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.28,
+      "lon": 132.42,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83008,10 +83153,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Yokosuka",
       "location_en": "Pacific, Yokosuka",
-      "lat": 35.374,
-      "lon": 139.559,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 35.378,
+      "lon": 139.718,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83027,10 +83172,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Kure",
       "location_en": "Pacific, Kure",
-      "lat": 34.154,
-      "lon": 132.478,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.238,
+      "lon": 132.535,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83046,10 +83191,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Yokosuka",
       "location_en": "Pacific, Yokosuka",
-      "lat": 35.582,
-      "lon": 139.617,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 35.427,
+      "lon": 139.716,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83065,10 +83210,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Kure",
       "location_en": "Pacific, Kure",
-      "lat": 34.143,
-      "lon": 132.436,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.274,
+      "lon": 132.47,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83084,10 +83229,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Yokosuka",
       "location_en": "Pacific, Yokosuka",
-      "lat": 35.503,
-      "lon": 139.624,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 35.413,
+      "lon": 139.697,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83103,10 +83248,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Kure",
       "location_en": "Pacific, Kure",
-      "lat": 34.153,
-      "lon": 132.561,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.31,
+      "lon": 132.569,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83122,10 +83267,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Yokosuka",
       "location_en": "Pacific, Yokosuka",
-      "lat": 35.465,
-      "lon": 139.673,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 35.335,
+      "lon": 139.496,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83141,10 +83286,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Kure",
       "location_en": "Pacific, Kure",
-      "lat": 34.289,
-      "lon": 132.557,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 34.14,
+      "lon": 132.473,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83160,10 +83305,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Yokosuka",
       "location_en": "Pacific, Yokosuka",
-      "lat": 35.388,
-      "lon": 139.61,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 35.457,
+      "lon": 139.598,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83179,10 +83324,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Baltic Sea, Kiel",
       "location_en": "Baltic Sea, Kiel",
-      "lat": 54.324,
-      "lon": 10.148,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 54.413,
+      "lon": 10.241,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83198,10 +83343,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Baltic Sea, Kiel",
       "location_en": "Baltic Sea, Kiel",
-      "lat": 54.223,
-      "lon": 10.07,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 54.36,
+      "lon": 10.041,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83217,10 +83362,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Baltic Sea, Kiel",
       "location_en": "Baltic Sea, Kiel",
-      "lat": 54.208,
-      "lon": 10.051,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 54.307,
+      "lon": 10.148,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83236,10 +83381,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Tyrrhenian Sea, Naples",
       "location_en": "Tyrrhenian Sea, Naples",
-      "lat": 40.751,
-      "lon": 14.35,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 40.905,
+      "lon": 14.192,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83255,10 +83400,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Ionian Sea, Augusta",
       "location_en": "Ionian Sea, Augusta",
-      "lat": 37.12,
-      "lon": 15.247,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 37.165,
+      "lon": 15.141,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83274,10 +83419,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Ionian Sea, Augusta",
       "location_en": "Ionian Sea, Augusta",
-      "lat": 37.147,
-      "lon": 15.165,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 37.128,
+      "lon": 15.302,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83293,10 +83438,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Ionian Sea, Augusta",
       "location_en": "Ionian Sea, Augusta",
-      "lat": 37.078,
-      "lon": 15.554,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 37.058,
+      "lon": 15.428,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83312,10 +83457,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMAS Stirling, Perth",
       "location_en": "HMAS Stirling, Perth",
-      "lat": -31.88,
-      "lon": 116.029,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -31.94,
+      "lon": 115.977,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83331,10 +83476,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMAS Stirling, Perth",
       "location_en": "HMAS Stirling, Perth",
-      "lat": -31.924,
-      "lon": 116.027,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -31.862,
+      "lon": 115.969,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83350,10 +83495,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMAS Stirling, Perth",
       "location_en": "HMAS Stirling, Perth",
-      "lat": -31.802,
-      "lon": 115.857,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -31.768,
+      "lon": 115.979,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83369,10 +83514,10 @@
       "source_url": "https://www.iiss.org",
       "location": "HMAS Stirling, Perth",
       "location_en": "HMAS Stirling, Perth",
-      "lat": -31.856,
-      "lon": 116.092,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -31.935,
+      "lon": 116.034,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83388,10 +83533,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Aegean Sea, Salamis",
       "location_en": "Aegean Sea, Salamis",
-      "lat": 37.889,
-      "lon": 23.437,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 37.837,
+      "lon": 23.356,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83407,10 +83552,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Aegean Sea, Salamis",
       "location_en": "Aegean Sea, Salamis",
-      "lat": 37.913,
-      "lon": 23.479,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 38.016,
+      "lon": 23.581,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83426,10 +83571,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Aegean Sea, Salamis",
       "location_en": "Aegean Sea, Salamis",
-      "lat": 37.829,
-      "lon": 23.436,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 37.971,
+      "lon": 23.438,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83445,10 +83590,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Aegean Sea, Salamis",
       "location_en": "Aegean Sea, Salamis",
-      "lat": 37.962,
-      "lon": 23.545,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 37.925,
+      "lon": 23.529,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83464,10 +83609,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Aegean Sea, Salamis",
       "location_en": "Aegean Sea, Salamis",
-      "lat": 37.939,
-      "lon": 23.478,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 37.992,
+      "lon": 23.453,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83483,10 +83628,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Golcuk, Sea of Marmara",
       "location_en": "Golcuk, Sea of Marmara",
-      "lat": 40.655,
-      "lon": 29.889,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 40.646,
+      "lon": 29.973,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83502,10 +83647,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Golcuk, Sea of Marmara",
       "location_en": "Golcuk, Sea of Marmara",
-      "lat": 40.753,
-      "lon": 30.013,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 40.741,
+      "lon": 29.903,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83521,10 +83666,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Golcuk, Sea of Marmara",
       "location_en": "Golcuk, Sea of Marmara",
-      "lat": 40.623,
-      "lon": 29.899,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 40.747,
+      "lon": 29.966,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83540,10 +83685,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Golcuk, Sea of Marmara",
       "location_en": "Golcuk, Sea of Marmara",
-      "lat": 40.727,
-      "lon": 29.946,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 40.616,
+      "lon": 29.877,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83559,10 +83704,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Golcuk, Sea of Marmara",
       "location_en": "Golcuk, Sea of Marmara",
-      "lat": 40.776,
-      "lon": 29.867,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 40.652,
+      "lon": 29.828,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83578,10 +83723,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Den Helder, Netherlands",
       "location_en": "Den Helder, Netherlands",
-      "lat": 52.954,
-      "lon": 4.696,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 53.035,
+      "lon": 4.704,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83597,10 +83742,10 @@
       "source_url": "https://www.iiss.org",
       "location": "North Sea, Bergen",
       "location_en": "North Sea, Bergen",
-      "lat": 60.37,
-      "lon": 5.31,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 60.342,
+      "lon": 5.324,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83616,10 +83761,10 @@
       "source_url": "https://www.iiss.org",
       "location": "North Sea, Bergen",
       "location_en": "North Sea, Bergen",
-      "lat": 60.483,
-      "lon": 5.266,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 60.436,
+      "lon": 5.385,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83635,10 +83780,10 @@
       "source_url": "https://www.iiss.org",
       "location": "North Sea, Bergen",
       "location_en": "North Sea, Bergen",
-      "lat": 60.485,
-      "lon": 5.422,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 60.452,
+      "lon": 5.361,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83654,29 +83799,10 @@
       "source_url": "https://www.iiss.org",
       "location": "North Sea, Bergen",
       "location_en": "North Sea, Bergen",
-      "lat": 60.497,
-      "lon": 5.312,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
-      "priority": 1
-    },
-    {
-      "id": "baseline_swe_uppland",
-      "is_baseline": true,
-      "sub_id": "swe_uppland",
-      "sub_name": "SWE UPPLAND",
-      "title": "Position estimée — Baltic Sea, Stockholm",
-      "title_en": "Estimated Position — Baltic Sea, Stockholm",
-      "summary": "Position de base estimée pour ce sous-marin selon les dernières données publiques (IISS Military Balance 2025, sources OSINT). Cette position est approximative et basée sur le port d'attache ou la zone de patrouille connue.",
-      "summary_en": "Estimated baseline position for this submarine based on latest public data (IISS Military Balance 2025, OSINT sources). This position is approximate and based on the known homeport or patrol area.",
-      "source": "IISS Military Balance 2025 / OSINT",
-      "source_url": "https://www.iiss.org",
-      "location": "Baltic Sea, Stockholm",
-      "location_en": "Baltic Sea, Stockholm",
-      "lat": 59.377,
-      "lon": 18.051,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 60.528,
+      "lon": 5.322,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83692,10 +83818,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Baltic Sea, Karlskrona",
       "location_en": "Baltic Sea, Karlskrona",
-      "lat": 55.626,
-      "lon": 14.157,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 55.552,
+      "lon": 14.136,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83711,10 +83837,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Baltic Sea, Stockholm",
       "location_en": "Baltic Sea, Stockholm",
-      "lat": 59.083,
-      "lon": 18.531,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 59.023,
+      "lon": 18.493,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83730,10 +83856,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Guanabara Bay, Rio de Janeiro",
       "location_en": "Guanabara Bay, Rio de Janeiro",
-      "lat": -22.983,
-      "lon": -43.115,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -22.867,
+      "lon": -43.152,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83749,10 +83875,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Guanabara Bay, Rio de Janeiro",
       "location_en": "Guanabara Bay, Rio de Janeiro",
-      "lat": -22.79,
-      "lon": -43.179,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -22.842,
+      "lon": -43.025,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83768,10 +83894,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Guanabara Bay, Rio de Janeiro",
       "location_en": "Guanabara Bay, Rio de Janeiro",
-      "lat": -22.773,
-      "lon": -43.14,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -22.757,
+      "lon": -43.048,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83787,10 +83913,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Guanabara Bay, Rio de Janeiro",
       "location_en": "Guanabara Bay, Rio de Janeiro",
-      "lat": -22.966,
-      "lon": -43.124,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -22.871,
+      "lon": -43.061,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83806,10 +83932,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Guanabara Bay, Rio de Janeiro",
       "location_en": "Guanabara Bay, Rio de Janeiro",
-      "lat": -22.979,
-      "lon": -43.243,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -22.917,
+      "lon": -43.092,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83825,10 +83951,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Talcahuano, Chile",
       "location_en": "Talcahuano, Chile",
-      "lat": -36.481,
-      "lon": -74.083,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -36.619,
+      "lon": -74.078,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83844,10 +83970,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Talcahuano, Chile",
       "location_en": "Talcahuano, Chile",
-      "lat": -36.483,
-      "lon": -74.046,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -36.633,
+      "lon": -74.067,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83863,10 +83989,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South Pacific, Callao",
       "location_en": "South Pacific, Callao",
-      "lat": -11.565,
-      "lon": -78.619,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -11.429,
+      "lon": -78.462,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83882,10 +84008,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South Pacific, Callao",
       "location_en": "South Pacific, Callao",
-      "lat": -11.633,
-      "lon": -78.636,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -11.549,
+      "lon": -78.496,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83901,10 +84027,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South Pacific, Callao",
       "location_en": "South Pacific, Callao",
-      "lat": -11.467,
-      "lon": -78.381,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -11.466,
+      "lon": -78.572,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83920,10 +84046,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Caribbean Sea, Cartagena",
       "location_en": "Caribbean Sea, Cartagena",
-      "lat": 10.932,
-      "lon": -76.575,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 11.038,
+      "lon": -76.45,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83939,10 +84065,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Caribbean Sea, Puerto Cabello",
       "location_en": "Caribbean Sea, Puerto Cabello",
-      "lat": 11.496,
-      "lon": -67.442,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 11.515,
+      "lon": -67.498,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83958,10 +84084,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South Atlantic, Mar del Plata",
       "location_en": "South Atlantic, Mar del Plata",
-      "lat": -38.584,
-      "lon": -58.563,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -38.44,
+      "lon": -58.493,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83977,10 +84103,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Guayaquil",
       "location_en": "Pacific, Guayaquil",
-      "lat": -2.109,
-      "lon": -80.934,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -2.263,
+      "lon": -80.865,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -83996,10 +84122,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Guayaquil",
       "location_en": "Pacific, Guayaquil",
-      "lat": -2.157,
-      "lon": -81.015,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -2.268,
+      "lon": -80.907,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84015,10 +84141,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Atlantic, Setubal",
       "location_en": "Atlantic, Setubal",
-      "lat": 38.589,
-      "lon": -8.993,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 38.416,
+      "lon": -8.961,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84034,10 +84160,10 @@
       "source_url": "https://www.iiss.org",
       "location": "CFB Esquimalt, British Columbia",
       "location_en": "CFB Esquimalt, British Columbia",
-      "lat": 49.302,
-      "lon": -123.014,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 49.242,
+      "lon": -123.167,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84053,10 +84179,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Eastern Mediterranean, Haifa",
       "location_en": "Eastern Mediterranean, Haifa",
-      "lat": 32.889,
-      "lon": 34.425,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 32.851,
+      "lon": 34.511,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84072,10 +84198,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Red Sea, Eilat",
       "location_en": "Red Sea, Eilat",
-      "lat": 29.611,
-      "lon": 34.882,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 29.423,
+      "lon": 34.891,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84091,10 +84217,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Eastern Mediterranean, Haifa",
       "location_en": "Eastern Mediterranean, Haifa",
-      "lat": 32.852,
-      "lon": 34.48,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 32.93,
+      "lon": 34.457,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84110,10 +84236,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Strait of Malacca, Singapore",
       "location_en": "Strait of Malacca, Singapore",
-      "lat": 1.326,
-      "lon": 103.672,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 1.267,
+      "lon": 103.755,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84129,10 +84255,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Strait of Malacca, Singapore",
       "location_en": "Strait of Malacca, Singapore",
-      "lat": 1.193,
-      "lon": 103.794,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 1.243,
+      "lon": 103.665,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84148,10 +84274,10 @@
       "source_url": "https://www.iiss.org",
       "location": "South China Sea, Kota Kinabalu",
       "location_en": "South China Sea, Kota Kinabalu",
-      "lat": 5.116,
-      "lon": 117.948,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 5.091,
+      "lon": 117.949,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84167,10 +84293,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Cam Ranh Bay, Vietnam",
       "location_en": "Cam Ranh Bay, Vietnam",
-      "lat": 12.024,
-      "lon": 109.208,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 12.022,
+      "lon": 109.243,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84186,10 +84312,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Cam Ranh Bay, Vietnam",
       "location_en": "Cam Ranh Bay, Vietnam",
-      "lat": 11.955,
-      "lon": 109.234,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 12.039,
+      "lon": 109.291,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84205,10 +84331,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Cam Ranh Bay, Vietnam",
       "location_en": "Cam Ranh Bay, Vietnam",
-      "lat": 11.822,
-      "lon": 109.25,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 11.831,
+      "lon": 109.162,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84224,10 +84350,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Cam Ranh Bay, Vietnam",
       "location_en": "Cam Ranh Bay, Vietnam",
-      "lat": 11.885,
-      "lon": 109.233,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 11.836,
+      "lon": 109.19,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84243,10 +84369,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Java Sea, Jakarta",
       "location_en": "Java Sea, Jakarta",
-      "lat": -6.148,
-      "lon": 106.818,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -6.127,
+      "lon": 106.822,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84262,10 +84388,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Java Sea, Jakarta",
       "location_en": "Java Sea, Jakarta",
-      "lat": -6.031,
-      "lon": 106.929,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -6.154,
+      "lon": 106.902,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84281,10 +84407,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Java Sea, Surabaya",
       "location_en": "Java Sea, Surabaya",
-      "lat": -7.291,
-      "lon": 112.728,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": -7.263,
+      "lon": 112.684,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84300,10 +84426,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Karachi",
       "location_en": "Arabian Sea, Karachi",
-      "lat": 24.815,
-      "lon": 66.895,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 24.934,
+      "lon": 66.965,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84319,10 +84445,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Arabian Sea, Karachi",
       "location_en": "Arabian Sea, Karachi",
-      "lat": 24.863,
-      "lon": 67.033,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 24.745,
+      "lon": 66.934,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84338,10 +84464,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Strait of Hormuz, Bandar Abbas",
       "location_en": "Strait of Hormuz, Bandar Abbas",
-      "lat": 27.231,
-      "lon": 56.245,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 27.107,
+      "lon": 56.33,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84357,10 +84483,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Strait of Hormuz, Bandar Abbas",
       "location_en": "Strait of Hormuz, Bandar Abbas",
-      "lat": 27.205,
-      "lon": 56.358,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 27.163,
+      "lon": 56.263,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84376,10 +84502,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Strait of Hormuz, Bandar Abbas",
       "location_en": "Strait of Hormuz, Bandar Abbas",
-      "lat": 27.139,
-      "lon": 56.379,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 27.164,
+      "lon": 56.314,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84395,10 +84521,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Strait of Hormuz",
       "location_en": "Strait of Hormuz",
-      "lat": 27.175,
-      "lon": 56.401,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 27.304,
+      "lon": 56.265,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84414,10 +84540,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Persian Gulf",
       "location_en": "Persian Gulf",
-      "lat": 26.557,
-      "lon": 53.864,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 26.587,
+      "lon": 53.964,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84433,10 +84559,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Persian Gulf",
       "location_en": "Persian Gulf",
-      "lat": 26.536,
-      "lon": 53.969,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 26.48,
+      "lon": 53.995,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84452,10 +84578,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Sinpo",
       "location_en": "Sea of Japan, Sinpo",
-      "lat": 40.065,
-      "lon": 128.492,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 40.098,
+      "lon": 128.364,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84471,10 +84597,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan, Sinpo",
       "location_en": "Sea of Japan, Sinpo",
-      "lat": 39.99,
-      "lon": 128.559,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 40.043,
+      "lon": 128.531,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84490,10 +84616,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan",
       "location_en": "Sea of Japan",
-      "lat": 39.734,
-      "lon": 128.364,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 39.758,
+      "lon": 128.335,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84509,10 +84635,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Sea of Japan",
       "location_en": "Sea of Japan",
-      "lat": 39.776,
-      "lon": 128.333,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 39.743,
+      "lon": 128.432,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84528,10 +84654,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Pacific, Zuoying",
       "location_en": "Pacific, Zuoying",
-      "lat": 23.596,
-      "lon": 122.021,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 23.441,
+      "lon": 121.952,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84547,10 +84673,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Eastern Mediterranean, Alexandria",
       "location_en": "Eastern Mediterranean, Alexandria",
-      "lat": 31.953,
-      "lon": 29.096,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 32.028,
+      "lon": 29.001,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84566,10 +84692,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Eastern Mediterranean, Alexandria",
       "location_en": "Eastern Mediterranean, Alexandria",
-      "lat": 31.927,
-      "lon": 28.931,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 31.901,
+      "lon": 28.961,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84585,10 +84711,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Eastern Mediterranean, Alexandria",
       "location_en": "Eastern Mediterranean, Alexandria",
-      "lat": 31.983,
-      "lon": 29.043,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 32.105,
+      "lon": 29.093,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84604,10 +84730,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Western Mediterranean, Algiers",
       "location_en": "Western Mediterranean, Algiers",
-      "lat": 36.731,
-      "lon": 3.188,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.697,
+      "lon": 3.262,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84623,10 +84749,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Western Mediterranean, Algiers",
       "location_en": "Western Mediterranean, Algiers",
-      "lat": 36.621,
-      "lon": 3.146,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.612,
+      "lon": 3.072,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84642,10 +84768,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Western Mediterranean, Algiers",
       "location_en": "Western Mediterranean, Algiers",
-      "lat": 36.644,
-      "lon": 3.073,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 36.679,
+      "lon": 3.095,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     },
     {
@@ -84661,10 +84787,10 @@
       "source_url": "https://www.iiss.org",
       "location": "Baltic Sea, Gdynia",
       "location_en": "Baltic Sea, Gdynia",
-      "lat": 54.599,
-      "lon": 18.54,
-      "published": "2026-10-14T21:21:15.701099+00:00",
-      "scraped_at": "2026-10-14T21:21:15.701099+00:00",
+      "lat": 54.549,
+      "lon": 18.578,
+      "published": "2026-10-15T03:37:09.926744+00:00",
+      "scraped_at": "2026-10-15T03:37:09.926744+00:00",
       "priority": 1
     }
   ]
